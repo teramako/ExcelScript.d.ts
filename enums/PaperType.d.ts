@@ -43,6 +43,6 @@ declare namespace ExcelScript {
 		paper11x17,
 		quatro,
 		statement,
-		tabloid
+		tabloid,
 	}
 }

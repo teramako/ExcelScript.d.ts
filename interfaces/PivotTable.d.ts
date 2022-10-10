@@ -7,32 +7,32 @@ declare namespace ExcelScript {
 		/**
 		 * 現在の軸にピボット階層を追加します。
 		 * 階層が行、列、またはフィルター軸の他の場所に存在する場合は、その場所から削除されます。
-		 * @param pivotHierarchy 
+		 * @param pivotHierarchy
 		 */
 		addColumnHierarchy(
-            pivotHierarchy: PivotHierarchy
-        ): RowColumnPivotHierarchy;
+			pivotHierarchy: PivotHierarchy,
+		): RowColumnPivotHierarchy;
 		/**
 		 * 現在の軸にピボット階層を追加します。
-		 * @param pivotHierarchy 
+		 * @param pivotHierarchy
 		 */
 		addDataHierarchy(pivotHierarchy: PivotHierarchy): DataPivotHierarchy;
 		/**
 		 * 現在の軸にピボット階層を追加します。
 		 * 階層が行、列、またはフィルター軸の他の場所に存在する場合は、その場所から削除されます。
-		 * @param pivotHierarchy 
+		 * @param pivotHierarchy
 		 */
 		addFilterHierarchy(
-            pivotHierarchy: PivotHierarchy
-        ): FilterPivotHierarchy;
+			pivotHierarchy: PivotHierarchy,
+		): FilterPivotHierarchy;
 		/**
 		 * 現在の軸にピボット階層を追加します。
 		 * 階層が行、列、またはフィルター軸の他の場所に存在する場合は、その場所から削除されます。
-		 * @param pivotHierarchy 
+		 * @param pivotHierarchy
 		 */
 		addRowHierarchy(
-            pivotHierarchy: PivotHierarchy
-        ): RowColumnPivotHierarchy;
+			pivotHierarchy: PivotHierarchy,
+		): RowColumnPivotHierarchy;
 		/**
 		 * ピボットテーブルを削除します。
 		 */
@@ -121,42 +121,48 @@ declare namespace ExcelScript {
 		refresh(): void;
 		/**
 		 * 現在の軸からピボット階層を削除します。
-		 * @param rowColumnPivotHierarchy 
+		 * @param rowColumnPivotHierarchy
 		 */
-		removeColumnHierarchy(rowColumnPivotHierarchy: RowColumnPivotHierarchy): void;
+		removeColumnHierarchy(
+			rowColumnPivotHierarchy: RowColumnPivotHierarchy,
+		): void;
 		/**
 		 * 現在の軸からピボット階層を削除します。
-		 * @param DataPivotHierarchy 
+		 * @param DataPivotHierarchy
 		 */
 		removeDataHierarchy(DataPivotHierarchy: DataPivotHierarchy): void;
 		/**
 		 * 現在の軸からピボット階層を削除します。
-		 * @param filterPivotHierarchy 
+		 * @param filterPivotHierarchy
 		 */
 		removeFilterHierarchy(filterPivotHierarchy: FilterPivotHierarchy): void;
 		/**
 		 * 現在の軸からピボット階層を削除します。
-		 * @param rowColumnPivotHierarchy 
+		 * @param rowColumnPivotHierarchy
 		 */
-		removeRowHierarchy(rowColumnPivotHierarchy: RowColumnPivotHierarchy): void;
+		removeRowHierarchy(
+			rowColumnPivotHierarchy: RowColumnPivotHierarchy,
+		): void;
 		/**
 		 * ピボットテーブルで、テーブル内の特定のピボットフィールドに対して複数のピボットフィルターの適用を許可するかどうかを指定します。
-		 * @param allowMultipleFiltersPerField 
+		 * @param allowMultipleFiltersPerField
 		 */
-		setAllowMultipleFiltersPerField(allowMultipleFiltersPerField: boolean): void;
+		setAllowMultipleFiltersPerField(
+			allowMultipleFiltersPerField: boolean,
+		): void;
 		/**
 		 * ピボットテーブルでデータ本文の値をユーザーが編集できるかどうかを指定します。
-		 * @param enableDataValueEditing 
+		 * @param enableDataValueEditing
 		 */
 		setEnableDataValueEditing(enableDataValueEditing: boolean): void;
 		/**
 		 * ピボットテーブルの名前。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 		/**
 		 * ピボットテーブルが並べ替え時にカスタム リストを使用するかどうかを指定します。
-		 * @param useCustomSortLists 
+		 * @param useCustomSortLists
 		 */
 		setUseCustomSortLists(useCustomSortLists: boolean): void;
 	}

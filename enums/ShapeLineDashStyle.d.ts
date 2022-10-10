@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		squareDot,
 		systemDash,
 		systemDashDot,
-		systemDot
+		systemDot,
 	}
 }

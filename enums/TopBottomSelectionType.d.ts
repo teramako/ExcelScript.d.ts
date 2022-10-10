@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		/**
 		 * 選択した値で測定した上/下の N の合計をフィルター処理します。
 		 */
-		sum
+		sum,
 	}
 }

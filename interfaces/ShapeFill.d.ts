@@ -24,7 +24,7 @@ declare namespace ExcelScript {
 		getType(): ShapeFillType;
 		/**
 		 * 図形塗りつぶし前景色を HTML カラー形式 # 、RRGGBB 形式 ("FFA500" など) または名前付き HTML 色 ("オレンジ" など) で表します。
-		 * @param foregroundColor 
+		 * @param foregroundColor
 		 */
 		setForegroundColor(foregroundColor: string): void;
 		/**
@@ -35,8 +35,8 @@ declare namespace ExcelScript {
 		setSolidColor(color: string): void;
 		/**
 		 * 塗りつぶしの透明度の割合を 0.0 (不透明) から 1.0 (クリア) の値として指定します。
-		 * 図形の種類が透明度をサポートしていない場合、またはグラデーション塗りつぶしの種類など、図形の塗りつぶしの透明度が矛盾している `null` 場合に返します。 
-		 * @param transparency 
+		 * 図形の種類が透明度をサポートしていない場合、またはグラデーション塗りつぶしの種類など、図形の塗りつぶしの透明度が矛盾している `null` 場合に返します。
+		 * @param transparency
 		 */
 		setTransparency(transparency: number): void;
 	}

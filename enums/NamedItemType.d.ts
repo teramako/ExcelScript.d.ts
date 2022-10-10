@@ -9,6 +9,6 @@ declare namespace ExcelScript {
 		error,
 		integer,
 		range,
-		string
+		string,
 	}
 }

@@ -12,6 +12,6 @@ declare namespace ExcelScript {
 		icon,
 		topItems,
 		topPercent,
-		values
+		values,
 	}
 }

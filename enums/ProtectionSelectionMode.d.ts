@@ -14,6 +14,6 @@ declare namespace ExcelScript {
 		/**
 		 * 選択は、ロックされていないセルに対してのみ許可されます。
 		 */
-		unlocked
+		unlocked,
 	}
 }

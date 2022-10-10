@@ -77,63 +77,69 @@ declare namespace ExcelScript {
 		 * テキスト フレームをテキストに自動的に合わせる、
 		 * 自動サイズ変更を行わない、
 		 * のいずれかにテキスト フレームを設定できます。
-		 * @param autoSizeSetting 
+		 * @param autoSizeSetting
 		 */
 		setAutoSizeSetting(autoSizeSetting: ShapeAutoSize): void;
 		/**
 		 * テキスト フレームの下余白を表します (ポイント数)。
-		 * @param bottomMargin 
+		 * @param bottomMargin
 		 */
 		setBottomMargin(bottomMargin: number): void;
 		/**
 		 * テキスト フレームの水平方向の配置を表します。
 		 * 詳細は「`ExcelScript.ShapeTextHorizontalAlignment`」をご覧ください。
-		 * @param horizontalAlignment 
+		 * @param horizontalAlignment
 		 */
-		setHorizontalAlignment(horizontalAlignment: ShapeTextHorizontalAlignment): void;
+		setHorizontalAlignment(
+			horizontalAlignment: ShapeTextHorizontalAlignment,
+		): void;
 		/**
 		 * テキスト フレームの水平方向のオーバーフローの動作を表します。
 		 * 詳細は「`ExcelScript.ShapeTextHorizontalOverflow`」をご覧ください。
-		 * @param horizontalOverflow 
+		 * @param horizontalOverflow
 		 */
-		setHorizontalOverflow(horizontalOverflow: ShapeTextHorizontalOverflow): void;
+		setHorizontalOverflow(
+			horizontalOverflow: ShapeTextHorizontalOverflow,
+		): void;
 		/**
 		 * テキスト フレームの左余白を表します (ポイント数)。
-		 * @param leftMargin 
+		 * @param leftMargin
 		 */
 		setLeftMargin(leftMargin: number): void;
 		/**
 		 * テキスト フレームの方向を指定する角度を表します。
 		 * 詳細は「`ExcelScript.ShapeTextOrientation`」をご覧ください。
-		 * @param orientation 
+		 * @param orientation
 		 */
 		setOrientation(orientation: ShapeTextOrientation): void;
 		/**
 		 * テキスト フレームの読む方向を表します (左から右または右から左)。
 		 * 詳細は「`ExcelScript.ShapeTextReadingOrder`」をご覧ください。
-		 * @param readingOrder 
+		 * @param readingOrder
 		 */
 		setReadingOrder(readingOrder: ShapeTextReadingOrder): void;
 		/**
 		 * テキスト フレームの右余白を表します (ポイント数)。
-		 * @param rightMargin 
+		 * @param rightMargin
 		 */
 		setRightMargin(rightMargin: number): void;
 		/**
 		 * テキスト フレームの上余白を表します (ポイント数)。
-		 * @param topMargin 
+		 * @param topMargin
 		 */
 		setTopMargin(topMargin: number): void;
 		/**
 		 * テキスト フレームの垂直方向の配置を表します。
 		 * 詳細は「`ExcelScript.ShapeTextVerticalAlignment`」をご覧ください。
-		 * @param verticalAlignment 
+		 * @param verticalAlignment
 		 */
-		setVerticalAlignment(verticalAlignment: ShapeTextVerticalAlignment): void;
+		setVerticalAlignment(
+			verticalAlignment: ShapeTextVerticalAlignment,
+		): void;
 		/**
 		 * テキスト フレームの垂直方向のオーバーフローの動作を表します。
 		 * 詳細は「`ExcelScript.ShapeTextVerticalOverflow`」をご覧ください。
-		 * @param verticalOverflow 
+		 * @param verticalOverflow
 		 */
 		setVerticalOverflow(verticalOverflow: ShapeTextVerticalOverflow): void;
 	}

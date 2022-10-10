@@ -43,7 +43,7 @@ declare namespace ExcelScript {
 		getTotalRowRange(): Range;
 		/**
 		 * テーブル列の名前を指定します。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 	}

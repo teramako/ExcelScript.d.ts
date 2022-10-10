@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	 */
 	export enum ShapeTextHorizontalOverflow {
 		clip,
-		overflow
+		overflow,
 	}
 }

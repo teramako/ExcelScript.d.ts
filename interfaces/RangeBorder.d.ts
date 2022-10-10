@@ -30,25 +30,25 @@ declare namespace ExcelScript {
 		getWeight(): BorderWeight;
 		/**
 		 * 罫線 #の色を表す HTML カラー コード(RRGGBB (例: "FFA500")、または名前付き HTML の色 (例: "オレンジ") です。
-		 * @param color 
+		 * @param color
 		 */
 		setColor(color: string): void;
 		/**
 		 * 罫線の線スタイルを指定する、線スタイル定数のいずれか 1 つ。
 		 * 詳細は「`ExcelScript.BorderLineStyle`」をご覧ください。
-		 * @param style 
+		 * @param style
 		 */
 		setStyle(style: BorderLineStyle): void;
 		/**
 		 * 範囲の罫線の色を明るくまたは暗くする double を指定し、値は -1 (最も暗い) から 1 (最も明るい) の間で、元の色の場合は 0 を指定します。
 		 * 値は `null` 、罫線に均一 `tintAndShade` な設定がないことを示します。
-		 * @param tintAndShade 
+		 * @param tintAndShade
 		 */
 		setTintAndShade(tintAndShade: number): void;
 		/**
 		 * 範囲周辺の罫線の太さを指定します。
 		 * 詳細は「`ExcelScript.BorderWeight`」をご覧ください。
-		 * @param weight 
+		 * @param weight
 		 */
 		setWeight(weight: BorderWeight): void;
 	}

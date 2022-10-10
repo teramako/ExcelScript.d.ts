@@ -34,6 +34,6 @@ declare namespace ExcelScript {
 		/**
 		 * 表示されるセル。
 		 */
-		visible
+		visible,
 	}
 }

@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		/**
 		 * 軸は項目の任意のセットによってデータをグループ化します。
 		 */
-		textAxis
+		textAxis,
 	}
 }

@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		hairline,
 		medium,
 		thick,
-		thin
+		thin,
 	}
 }

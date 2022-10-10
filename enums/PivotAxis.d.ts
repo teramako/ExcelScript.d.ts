@@ -23,6 +23,6 @@ declare namespace ExcelScript {
 		/**
 		 * 軸または領域が不明またはサポートされていません。
 		 */
-		unknown
+		unknown,
 	}
 }

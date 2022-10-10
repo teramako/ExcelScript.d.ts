@@ -23,6 +23,6 @@ declare namespace ExcelScript {
 		/**
 		 * 散布図とバブル グラフの y 軸値のグラフ系列軸。
 		 */
-		yvalues
+		yvalues,
 	}
 }

@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		/**
 		 * オブジェクトはセルと一緒に移動されます。
 		 */
-		twoCell
+		twoCell,
 	}
 }

@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		justifyLow,
 		left,
 		right,
-		thaiDistributed
+		thaiDistributed,
 	}
 }

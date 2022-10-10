@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 	export enum ChartAxisTimeUnit {
 		days,
 		months,
-		years
+		years,
 	}
 }

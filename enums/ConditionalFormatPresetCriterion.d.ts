@@ -30,6 +30,6 @@ declare namespace ExcelScript {
 		twoStdDevAboveAverage,
 		twoStdDevBelowAverage,
 		uniqueValues,
-		yesterday
+		yesterday,
 	}
 }

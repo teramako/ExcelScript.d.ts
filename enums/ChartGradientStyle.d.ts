@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 	 */
 	export enum ChartGradientStyle {
 		threePhaseColor,
-		twoPhaseColor
+		twoPhaseColor,
 	}
 }

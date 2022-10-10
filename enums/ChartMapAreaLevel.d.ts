@@ -12,6 +12,6 @@ declare namespace ExcelScript {
 		county,
 		dataOnly,
 		state,
-		world
+		world,
 	}
 }

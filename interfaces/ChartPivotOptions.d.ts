@@ -38,7 +38,9 @@ declare namespace ExcelScript {
 		 * レポート にレポート フィルター フィールド ボタンを表示するかどうかを指定ピボットグラフ。
 		 * @param showReportFilterFieldButtons
 		 */
-		setShowReportFilterFieldButtons(showReportFilterFieldButtons: boolean): void;
+		setShowReportFilterFieldButtons(
+			showReportFilterFieldButtons: boolean,
+		): void;
 		/**
 		 * フィールドの [値の表示] ボタンを表示するかどうかを指定ピボットグラフ。
 		 * @param showValueFieldButtons

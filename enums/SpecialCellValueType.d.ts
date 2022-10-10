@@ -62,6 +62,6 @@ declare namespace ExcelScript {
 		/**
 		 * 文字列値を持つセル。
 		 */
-		text
+		text,
 	}
 }

@@ -91,37 +91,37 @@ declare namespace ExcelScript {
 		getShape(): Shape;
 		/**
 		 * 指定された線の始点の矢印の長さを表します。
-		 * @param beginArrowheadLength 
+		 * @param beginArrowheadLength
 		 */
 		setBeginArrowheadLength(beginArrowheadLength: ArrowheadLength): void;
 		/**
 		 * 指定された線の始点の矢印のスタイルを表します。
-		 * @param beginArrowheadStyle 
+		 * @param beginArrowheadStyle
 		 */
 		setBeginArrowheadStyle(beginArrowheadStyle: ArrowheadStyle): void;
 		/**
 		 * 指定された線の始点の矢印の幅を表します。
-		 * @param beginArrowheadWidth 
+		 * @param beginArrowheadWidth
 		 */
 		setBeginArrowheadWidth(beginArrowheadWidth: ArrowheadWidth): void;
 		/**
 		 * 線のコネクタの種類を表します。
-		 * @param connectorType 
+		 * @param connectorType
 		 */
 		setConnectorType(connectorType: ConnectorType): void;
 		/**
 		 * 指定された線の終点の矢印の長さを表します。
-		 * @param endArrowheadLength 
+		 * @param endArrowheadLength
 		 */
 		setEndArrowheadLength(endArrowheadLength: ArrowheadLength): void;
 		/**
 		 * 指定された線の終点の矢印のスタイルを表します。
-		 * @param endArrowheadStyle 
+		 * @param endArrowheadStyle
 		 */
 		setEndArrowheadStyle(endArrowheadStyle: ArrowheadStyle): void;
 		/**
 		 * 指定された線の終点の矢印の幅を表します。
-		 * @param endArrowheadWidth 
+		 * @param endArrowheadWidth
 		 */
 		setEndArrowheadWidth(endArrowheadWidth: ArrowheadWidth): void;
 	}

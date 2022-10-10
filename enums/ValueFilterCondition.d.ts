@@ -48,6 +48,6 @@ declare namespace ExcelScript {
 		/**
 		 * `ValueFilterCondition` 不明またはサポートされていません。
 		 */
-		unknown
+		unknown,
 	}
 }

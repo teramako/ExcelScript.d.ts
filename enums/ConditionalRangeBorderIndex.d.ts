@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		edgeBottom,
 		edgeLeft,
 		edgeRight,
-		edgeTop
+		edgeTop,
 	}
 }

@@ -13,11 +13,11 @@ declare namespace ExcelScript {
 		 * @param method 省略可能。 中国語文字に使用される順序付けの方法です。
 		 */
 		apply(
-            fields: SortField[],
-            matchCase?: boolean,
-            hasHeaders?: boolean,
-            orientation?: SortOrientation,
-            method?: SortMethod
-        ): void;
+			fields: SortField[],
+			matchCase?: boolean,
+			hasHeaders?: boolean,
+			orientation?: SortOrientation,
+			method?: SortMethod,
+		): void;
 	}
 }

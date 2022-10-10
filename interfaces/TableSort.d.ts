@@ -10,7 +10,11 @@ declare namespace ExcelScript {
 		 * @param matchCase 省略可能。大文字小文字の区別が文字列の順序に影響を与えるかどうか。
 		 * @param method 省略可能。 中国語文字に使用される順序付けの方法です。
 		 */
-		apply(fields: SortField[], matchCase?: boolean, method?: SortMethod): void;
+		apply(
+			fields: SortField[],
+			matchCase?: boolean,
+			method?: SortMethod,
+		): void;
 		/**
 		 * テーブルに現在設定されている並べ替えをクリアします。
 		 * これにより表の順序が変更されることはありませんが、ヘッダーのボタンの状態がクリアされます。

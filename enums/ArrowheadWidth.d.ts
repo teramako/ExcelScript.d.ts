@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum ArrowheadWidth {
 		medium,
 		narrow,
-		wide
+		wide,
 	}
 }

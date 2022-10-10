@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		integer,
 		richValue,
 		string,
-		unknown
+		unknown,
 	}
 }

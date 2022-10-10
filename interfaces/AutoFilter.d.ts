@@ -11,7 +11,11 @@ declare namespace ExcelScript {
 		 * @param columnIndex オートフィルターが適用される 0 から始まる列インデックス。
 		 * @param criteria フィルター条件。
 		 */
-		apply(range: Range | string, columnIndex?: number, criteria?: FilterCriteria): void;
+		apply(
+			range: Range | string,
+			columnIndex?: number,
+			criteria?: FilterCriteria,
+		): void;
 		/**
 		 * オートフィルターのフィルター条件と並べ替え状態をクリアします。
 		 */

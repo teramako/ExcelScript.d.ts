@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 		before,
 		beginning,
 		end,
-		none
+		none,
 	}
 }

@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		dataBar,
 		iconSet,
 		presetCriteria,
-		topBottom
+		topBottom,
 	}
 }

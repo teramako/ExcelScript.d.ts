@@ -181,7 +181,11 @@ declare namespace ExcelScript {
 		 * @param scaleFrom 省略可能。 図形を拡大縮小する場合、図形の位置を保持する部分を指定します。
 		 * 省略した場合は、図形の左上隅を表し、その位置を保持します。
 		 */
-		scaleHeight(scaleFactor: number, scaleType: ShapeScaleType, scaleFrom?: ShapeScaleFrom): void;
+		scaleHeight(
+			scaleFactor: number,
+			scaleType: ShapeScaleType,
+			scaleFrom?: ShapeScaleFrom,
+		): void;
 		/**
 		 * 指定した係数分だけ図形の幅を変更します。
 		 * 画像の場合は、図形を元のサイズに対して拡大または縮小するのか、現在のサイズに対して拡大または縮小するのかを指定できます。
@@ -192,71 +196,75 @@ declare namespace ExcelScript {
 		 * @param scaleFrom 省略可能。 図形を拡大縮小する場合、図形の位置を保持する部分を指定します。
 		 * 省略した場合は、図形の左上隅を表し、その位置を保持します。
 		 */
-		scaleWidth(scaleFactor: number, scaleType: ShapeScaleType, scaleFrom?: ShapeScaleFrom): void;
+		scaleWidth(
+			scaleFactor: number,
+			scaleType: ShapeScaleType,
+			scaleFrom?: ShapeScaleFrom,
+		): void;
 		/**
 		 * オブジェクトの代替説明テキストを `Shape` 指定します。
-		 * @param altTextDescription 
+		 * @param altTextDescription
 		 */
 		setAltTextDescription(altTextDescription: string): void;
 		/**
 		 * オブジェクトの代替タイトル テキストを `Shape` 指定します。
-		 * @param altTextTitle 
+		 * @param altTextTitle
 		 */
 		setAltTextTitle(altTextTitle: string): void;
 		/**
 		 * このジオメトリ図形のジオメトリ図形の種類を指定します。
 		 * 詳細は「`ExcelScript.GeometricShapeType`」をご覧ください。
 		 * 図形の `null` 種類が "GeometrShape" でない場合に返されます。
-		 * @param geometricShapeType 
+		 * @param geometricShapeType
 		 */
 		setGeometricShapeType(geometricShapeType: GeometricShapeType): void;
 		/**
 		 * 図形の高さをポイント単位で指定します。
 		 * 負の `InvalidArgument` 値または 0 を入力として設定すると、例外がスローされます。
-		 * @param height 
+		 * @param height
 		 */
 		setHeight(height: number): void;
 		/**
 		 * 図形の左側からワークシートの左側までの距離 (ポイント数) です。
 		 * 負の値を `InvalidArgument` 入力として設定すると、例外がスローされます。
-		 * @param left 
+		 * @param left
 		 */
 		setLeft(left: number): void;
 		/**
 		 * この図形の縦横比をロックするかどうかを指定します。
-		 * @param lockAspectRatio 
+		 * @param lockAspectRatio
 		 */
 		setLockAspectRatio(lockAspectRatio: boolean): void;
 		/**
 		 * 図形の名前を指定します。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 		/**
 		 * オブジェクトがその下のセルに接続されている方法を表します。
-		 * @param placement 
+		 * @param placement
 		 */
 		setPlacement(placement: Placement): void;
 		/**
 		 * 図形の回転角度を度単位で指定します。
-		 * @param rotation 
+		 * @param rotation
 		 */
 		setRotation(rotation: number): void;
 		/**
 		 * 図形の上端からワークシートの上までのポイント単位の距離です。
 		 * 負の値を `InvalidArgument` 入力として設定すると、例外がスローされます。
-		 * @param top 
+		 * @param top
 		 */
 		setTop(top: number): void;
 		/**
 		 * 図形が表示されるかどうかを指定します。
-		 * @param visible 
+		 * @param visible
 		 */
 		setVisible(visible: boolean): void;
 		/**
 		 * 図形の幅をポイント単位で指定します。
 		 * 負の `InvalidArgument` 値または 0 を入力として設定すると、例外がスローされます。
-		 * @param width 
+		 * @param width
 		 */
 		setWidth(width: number): void;
 		/**

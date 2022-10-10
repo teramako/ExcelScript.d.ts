@@ -22,7 +22,6 @@ declare namespace ExcelScript {
 		 */
 		getWeight(): number;
 		/**
-		 *
 		 * @param color グラフの線の色を表す HTML カラー コード。
 		 */
 		setColor(color: string): void;

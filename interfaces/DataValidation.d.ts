@@ -49,7 +49,7 @@ declare namespace ExcelScript {
 		/**
 		 * 空白セルに対してデータ検証を実行するかどうかを指定します。
 		 * 既定値は `true` です.
-		 * @param ignoreBlanks 
+		 * @param ignoreBlanks
 		 */
 		setIgnoreBlanks(ignoreBlanks: boolean): void;
 		/**

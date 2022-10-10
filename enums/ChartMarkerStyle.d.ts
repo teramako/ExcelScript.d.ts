@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		square,
 		star,
 		triangle,
-		x
+		x,
 	}
 }

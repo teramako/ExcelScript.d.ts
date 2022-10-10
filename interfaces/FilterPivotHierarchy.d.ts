@@ -32,17 +32,17 @@ declare namespace ExcelScript {
 		getPosition(): number;
 		/**
 		 * 複数のフィルター項目を許可するかどうかを指定します。
-		 * @param enableMultipleFilterItems 
+		 * @param enableMultipleFilterItems
 		 */
 		setEnableMultipleFilterItems(enableMultipleFilterItems: boolean): void;
 		/**
 		 * FilterPivotHierarchy の名前。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 		/**
 		 * FilterPivotHierarchy の位置。
-		 * @param position 
+		 * @param position
 		 */
 		setPosition(position: number): void;
 		/**

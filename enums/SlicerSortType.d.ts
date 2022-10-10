@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		/**
 		 * スライサー アイテムを項目のキャプションで降順に並べ替える。
 		 */
-		descending
+		descending,
 	}
 }

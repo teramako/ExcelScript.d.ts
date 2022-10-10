@@ -14,6 +14,6 @@ declare namespace ExcelScript {
 		/**
 		 * 内部フィールドのアイテムは、常に外部フィールドのアイテムを基準に新しい行に表示されます。
 		 */
-		tabular
+		tabular,
 	}
 }

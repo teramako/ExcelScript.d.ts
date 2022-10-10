@@ -20,13 +20,13 @@ declare namespace ExcelScript {
 		getStyle(): ConditionalRangeBorderLineStyle;
 		/**
 		 * RRGGBB 形式 ("FFA500" など) の境界線の色を表す HTML カラー コード、または名前付き HTML 色 ("オレンジ色" など) を表 # します。
-		 * @param color 
+		 * @param color
 		 */
 		setColor(color: string): void;
 		/**
 		 * 罫線の線スタイルを指定する、線スタイル定数のいずれか 1 つ。
 		 * 詳細は「`ExcelScript.BorderLineStyle`」をご覧ください。
-		 * @param style 
+		 * @param style
 		 */
 		setStyle(style: ConditionalRangeBorderLineStyle): void;
 	}

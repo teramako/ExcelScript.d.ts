@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		invalid,
 		number,
 		percent,
-		percentile
+		percentile,
 	}
 }

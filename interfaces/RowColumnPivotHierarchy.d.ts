@@ -28,12 +28,12 @@ declare namespace ExcelScript {
 		getPosition(): number;
 		/**
 		 * RowColumnPivotHierarchy の名前。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 		/**
 		 * RowColumnPivotHierarchy の位置。
-		 * @param position 
+		 * @param position
 		 */
 		setPosition(position: number): void;
 		/**

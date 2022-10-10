@@ -11,6 +11,6 @@ declare namespace ExcelScript {
 		/**
 		 * ブックのリンクは手動で更新されます。
 		 */
-		manual
+		manual,
 	}
 }

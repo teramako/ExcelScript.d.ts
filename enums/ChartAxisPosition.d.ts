@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		automatic,
 		custom,
 		maximum,
-		minimum
+		minimum,
 	}
 }

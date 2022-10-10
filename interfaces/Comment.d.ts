@@ -11,7 +11,10 @@ declare namespace ExcelScript {
 		 * @param contentType 省略可能です。 コメントに含まれるコンテンツの種類。
 		 * 既定値は enum です `ContentType.Plain`.
 		 */
-		addCommentReply(content: CommentRichContent | string, contentType?: ContentType): CommentReply;
+		addCommentReply(
+			content: CommentRichContent | string,
+			contentType?: ContentType,
+		): CommentReply;
 		/**
 		 * コメントとすべての接続済み返信を削除します。
 		 */

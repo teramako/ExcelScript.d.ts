@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 		disambiguationNeeded,
 		fetchingData,
 		none,
-		validLinkedData
+		validLinkedData,
 	}
 }

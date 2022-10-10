@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		/**
 		 * 行でグループ化します。
 		 */
-		byRows
+		byRows,
 	}
 }

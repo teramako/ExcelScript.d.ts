@@ -20,6 +20,6 @@ declare namespace ExcelScript {
 		single,
 		wavy,
 		wavyDouble,
-		wavyHeavy
+		wavyHeavy,
 	}
 }

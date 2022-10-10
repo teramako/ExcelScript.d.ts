@@ -196,7 +196,10 @@ declare namespace ExcelScript {
 		 * @param unit 指定された余白の測定単位。
 		 * @param marginOptions 設定する余白の値。 指定されていない余白は変更されません。
 		 */
-		setPrintMargins(unit: PrintMarginUnit, marginOptions: PageLayoutMarginOptions): void;
+		setPrintMargins(
+			unit: PrintMarginUnit,
+			marginOptions: PageLayoutMarginOptions,
+		): void;
 		/**
 		 * ワークシートのページ印刷順序オプション。
 		 * これによって、印刷されるページ番号の処理に使用する順序が指定されます。

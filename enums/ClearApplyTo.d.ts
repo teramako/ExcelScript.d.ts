@@ -19,6 +19,6 @@ declare namespace ExcelScript {
 		/**
 		 * セルのハイパーリンクと書式を削除しますが、コンテンツ、条件付き書式、およびデータ検証はそのまま残ります。
 		 */
-		removeHyperlinks
+		removeHyperlinks,
 	}
 }

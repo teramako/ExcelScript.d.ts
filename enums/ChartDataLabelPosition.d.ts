@@ -14,6 +14,6 @@ declare namespace ExcelScript {
 		none,
 		outsideEnd,
 		right,
-		top
+		top,
 	}
 }

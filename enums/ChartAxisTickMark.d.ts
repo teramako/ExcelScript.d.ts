@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		cross,
 		inside,
 		none,
-		outside
+		outside,
 	}
 }

@@ -43,6 +43,6 @@ declare namespace ExcelScript {
 		/**
 		 * 数値のデータ検証の種類です。
 		 */
-		wholeNumber
+		wholeNumber,
 	}
 }

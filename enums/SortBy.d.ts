@@ -11,6 +11,6 @@ declare namespace ExcelScript {
 		/**
 		 * 降順の並べ替え。 最大から最小、または Z から A。
 		 */
-		descending
+		descending,
 	}
 }

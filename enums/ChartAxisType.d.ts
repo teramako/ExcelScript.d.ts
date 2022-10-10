@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		/**
 		 * 軸は値を表示します。
 		 */
-		value
+		value,
 	}
 }

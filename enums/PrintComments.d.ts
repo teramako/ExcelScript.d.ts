@@ -14,6 +14,6 @@ declare namespace ExcelScript {
 		/**
 		 * コメントは印刷されません。
 		 */
-		noComments
+		noComments,
 	}
 }

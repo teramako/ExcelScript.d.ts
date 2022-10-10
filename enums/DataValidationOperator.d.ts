@@ -11,6 +11,6 @@ declare namespace ExcelScript {
 		lessThan,
 		lessThanOrEqualTo,
 		notBetween,
-		notEqualTo
+		notEqualTo,
 	}
 }

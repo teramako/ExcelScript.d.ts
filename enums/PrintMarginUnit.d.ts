@@ -14,6 +14,6 @@ declare namespace ExcelScript {
 		/**
 		 * ページ余白をポイントで割り当てる。 ポイントは 1/72 インチです。
 		 */
-		points
+		points,
 	}
 }

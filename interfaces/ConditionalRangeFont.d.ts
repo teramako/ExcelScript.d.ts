@@ -30,29 +30,29 @@ declare namespace ExcelScript {
 		 */
 		getUnderline(): ConditionalRangeFontUnderlineStyle;
 		/**
-		 * フォントが太字の場合に指定します。 
+		 * フォントが太字の場合に指定します。
 		 * @param bold
 		 */
 		setBold(bold: boolean): void;
 		/**
 		 * テキストの色の HTML カラー コード表現 # (FF0000 は赤を表すなど)。
-		 * @param color 
+		 * @param color
 		 */
 		setColor(color: string): void;
 		/**
 		 * フォントが italic の場合に指定します。
-		 * @param italic 
+		 * @param italic
 		 */
 		setItalic(italic: boolean): void;
 		/**
 		 * フォントの取り消し線の状態を指定します。
-		 * @param strikethrough 
+		 * @param strikethrough
 		 */
 		setStrikethrough(strikethrough: boolean): void;
 		/**
 		 * フォントに適用される下線の種類。
 		 * 詳細は「`ExcelScript.ConditionalRangeFontUnderlineStyle`」をご覧ください。
-		 * @param underline 
+		 * @param underline
 		 */
 		setUnderline(underline: ConditionalRangeFontUnderlineStyle): void;
 	}

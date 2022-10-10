@@ -19,6 +19,6 @@ declare namespace ExcelScript {
 		monochromaticPalette6,
 		monochromaticPalette7,
 		monochromaticPalette8,
-		monochromaticPalette9
+		monochromaticPalette9,
 	}
 }

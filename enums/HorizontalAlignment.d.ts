@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		general,
 		justify,
 		left,
-		right
+		right,
 	}
 }

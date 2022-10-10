@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		cellColor,
 		fontColor,
 		icon,
-		value
+		value,
 	}
 }

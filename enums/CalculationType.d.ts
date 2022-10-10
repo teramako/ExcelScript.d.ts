@@ -14,6 +14,6 @@ declare namespace ExcelScript {
 		/**
 		 * Excel によってダーティのマークが付けられたすべてのセル (揮発性データと変更されたデータの参照先、およびプログラムによりダーティのマークが付けられたセル) を再計算します。
 		 */
-		recalculate
+		recalculate,
 	}
 }

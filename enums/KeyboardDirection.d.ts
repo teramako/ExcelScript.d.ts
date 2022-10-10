@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		down,
 		left,
 		right,
-		up
+		up,
 	}
 }

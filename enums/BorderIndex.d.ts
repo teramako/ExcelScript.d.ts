@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		edgeRight,
 		edgeTop,
 		insideHorizontal,
-		insideVertical
+		insideVertical,
 	}
 }

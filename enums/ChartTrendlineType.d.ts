@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		logarithmic,
 		movingAverage,
 		polynomial,
-		power
+		power,
 	}
 }

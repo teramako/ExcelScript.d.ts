@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum ConnectorType {
 		curve,
 		elbow,
-		straight
+		straight,
 	}
 }

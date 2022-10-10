@@ -14,6 +14,6 @@ declare namespace ExcelScript {
 		/**
 		 * 小計はオフです。
 		 */
-		off
+		off,
 	}
 }

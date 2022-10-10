@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		invalid,
 		topItems,
 		topPercent,
-		topSum
+		topSum,
 	}
 }

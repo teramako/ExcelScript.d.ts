@@ -25,6 +25,6 @@ declare namespace ExcelScript {
 		/**
 		 * ピボットアイテムの値に基づくフィルター `DataPivotHierarchy`.
 		 */
-		value
+		value,
 	}
 }

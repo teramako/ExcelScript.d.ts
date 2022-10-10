@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		minute,
 		month,
 		second,
-		year
+		year,
 	}
 }

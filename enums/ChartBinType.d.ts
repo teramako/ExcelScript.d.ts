@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		auto,
 		binCount,
 		binWidth,
-		category
+		category,
 	}
 }

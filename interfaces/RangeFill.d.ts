@@ -37,7 +37,7 @@ declare namespace ExcelScript {
 		getTintAndShade(): number;
 		/**
 		 * 背景の #色を表す HTML カラー コード(RRGGBB 形式 ("FFA500"など)、または名前付き HTML 色 ("orange"など)
-		 * @param color 
+		 * @param color
 		 */
 		setColor(color: string): void;
 		/**
@@ -45,7 +45,7 @@ declare namespace ExcelScript {
 		 * 詳細は「`ExcelScript.FillPattern`」をご覧ください。
 		 * LinearGradient と RectangularGradient はサポートされていません。
 		 * 値 `null` は、範囲全体に均一なパターン設定が設定できない場合を示します。
-		 * @param pattern 
+		 * @param pattern
 		 */
 		setPattern(pattern: FillPattern): void;
 		/**
@@ -57,14 +57,14 @@ declare namespace ExcelScript {
 		 * 範囲塗りつぶしのパターンの色を明るくまたは暗くする倍数を指定します。
 		 * 値は -1 (最も暗い) から 1 (最も明るい) の間で、元の色の場合は 0 です。
 		 * 値 `null` は、範囲に一様な設定が含めなかった場合を示 `patternTintAndShade` します。
-		 * @param patternTintAndShade 
+		 * @param patternTintAndShade
 		 */
 		setPatternTintAndShade(patternTintAndShade: number): void;
 		/**
 		 * 範囲塗りつぶしの色を明るくまたは暗くする倍数を指定します。
 		 * 値は -1 (最も暗い) から 1 (最も明るい) の間で、元の色の場合は 0 です。
 		 * 値 `null` は、範囲に一様な設定が含めなかった場合を示 `tintAndShade` します。
-		 * @param tintAndShade 
+		 * @param tintAndShade
 		 */
 		setTintAndShade(tintAndShade: number): void;
 	}

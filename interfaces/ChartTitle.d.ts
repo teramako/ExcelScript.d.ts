@@ -79,7 +79,9 @@ declare namespace ExcelScript {
 		 * グラフタイトルの水平方向の配置を指定します。
 		 * @param horizontalAlignment
 		 */
-		setHorizontalAlignment(horizontalAlignment: ChartTextHorizontalAlignment): void;
+		setHorizontalAlignment(
+			horizontalAlignment: ChartTextHorizontalAlignment,
+		): void;
 		/**
 		 * グラフ タイトルの左端からグラフ領域の左端までの距離をポイントで指定します。
 		 * 値は `null` 、グラフのタイトルが表示されない場合です。
@@ -124,7 +126,9 @@ declare namespace ExcelScript {
 		 * 詳細は「`ExcelScript.ChartTextVerticalAlignment`」をご覧ください。
 		 * @param verticalAlignment
 		 */
-		setVerticalAlignment(verticalAlignment: ChartTextVerticalAlignment): void;
+		setVerticalAlignment(
+			verticalAlignment: ChartTextVerticalAlignment,
+		): void;
 		/**
 		 * グラフのタイトルが目に見えて表示される場合に指定します。
 		 * @param visible

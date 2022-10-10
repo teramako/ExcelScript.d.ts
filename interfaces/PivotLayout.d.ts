@@ -61,7 +61,7 @@ declare namespace ExcelScript {
 		getSubtotalLocation(): SubtotalLocationType;
 		/**
 		 * 書式設定が更新時またはフィールドの移動時に自動的に書式設定される場合を指定します。
-		 * @param autoFormat 
+		 * @param autoFormat
 		 */
 		setAutoFormat(autoFormat: boolean): void;
 		/**
@@ -73,34 +73,34 @@ declare namespace ExcelScript {
 		setAutoSortOnCell(cell: Range | string, sortBy: SortBy): void;
 		/**
 		 * フィールド リストを UI に表示できる場合に指定します。
-		 * @param enableFieldList 
+		 * @param enableFieldList
 		 */
 		setEnableFieldList(enableFieldList: boolean): void;
 		/**
 		 * このプロパティは、ピボットテーブルのすべてのフィールドの PivotLayoutType を示します。
 		 * フィールドによって状態が異なる場合は `null` 値になります。
-		 * @param layoutType 
+		 * @param layoutType
 		 */
 		setLayoutType(layoutType: PivotLayoutType): void;
 		/**
 		 * ピボット、並べ替え、ページ フィールド項目の変更などの操作によってレポートが更新または再計算される場合に書式設定を保持する場合に指定します。
-		 * @param preserveFormatting 
+		 * @param preserveFormatting
 		 */
 		setPreserveFormatting(preserveFormatting: boolean): void;
 		/**
 		 * ピボットテーブル レポートに列の総計が表示される場合に指定します。
-		 * @param showColumnGrandTotals 
+		 * @param showColumnGrandTotals
 		 */
 		setShowColumnGrandTotals(showColumnGrandTotals: boolean): void;
 		/**
 		 * ピボットテーブル レポートに行の総計が表示される場合に指定します。
-		 * @param showRowGrandTotals 
+		 * @param showRowGrandTotals
 		 */
 		setShowRowGrandTotals(showRowGrandTotals: boolean): void;
 		/**
 		 * このプロパティは、ピボット `SubtotalLocationType` テーブルのすべてのフィールドを示します。
 		 * フィールドの状態が異なる場合は、次の値になります。 `null`.
-		 * @param subtotalLocation 
+		 * @param subtotalLocation
 		 */
 		setSubtotalLocation(subtotalLocation: SubtotalLocationType): void;
 	}

@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		bottom,
 		left,
 		right,
-		top
+		top,
 	}
 }

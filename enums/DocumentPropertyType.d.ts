@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 		date,
 		float,
 		number,
-		string
+		string,
 	}
 }
