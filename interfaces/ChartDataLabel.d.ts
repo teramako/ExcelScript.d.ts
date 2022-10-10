@@ -114,7 +114,9 @@ declare namespace ExcelScript {
 		 * このプロパティは、データ ラベル `TextOrientation` が -90、90、または 180 の場合にのみ有効です。
 		 * @param horizontalAlignment
 		 */
-		setHorizontalAlignment(horizontalAlignment: ChartTextHorizontalAlignment): void;
+		setHorizontalAlignment(
+			horizontalAlignment: ChartTextHorizontalAlignment,
+		): void;
 		/**
 		 * グラフのデータ ラベルの左端からグラフ エリアの左端までの距離 (ポイント数) を表します。
 		 * 値は `null` 、グラフ データ ラベルが表示されない場合です。
@@ -195,6 +197,8 @@ declare namespace ExcelScript {
 		 * このプロパティは、データ ラベルが `TextOrientation` 0 の場合にのみ有効です。
 		 * @param verticalAlignment
 		 */
-		setVerticalAlignment(verticalAlignment: ChartTextVerticalAlignment): void;
+		setVerticalAlignment(
+			verticalAlignment: ChartTextVerticalAlignment,
+		): void;
 	}
 }

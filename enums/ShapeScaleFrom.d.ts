@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum ShapeScaleFrom {
 		scaleFromBottomRight,
 		scaleFromMiddle,
-		scaleFromTopLeft
+		scaleFromTopLeft,
 	}
 }

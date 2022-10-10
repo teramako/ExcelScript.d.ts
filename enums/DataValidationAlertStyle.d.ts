@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 	export enum DataValidationAlertStyle {
 		information,
 		stop,
-		warning
+		warning,
 	}
 }

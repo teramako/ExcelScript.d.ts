@@ -67,32 +67,32 @@ declare namespace ExcelScript {
 		/**
 		 * A1 スタイル表記の数式を表します。
 		 * セルに数式がない場合は、代わりにその値が返されます。
-		 * @param formulas 
+		 * @param formulas
 		 */
 		setFormulas(formulas: string[][]): void;
 		/**
 		 * ユーザーの言語と数値書式ロケールで、A1 スタイル表記の数式を表します。
 		 * たとえば、英語の数式 "=SUM(A1, 1.5)" は、ドイツ語では "=SUMME(A1; 1,5)" になります。
 		 * セルに数式がない場合は、代わりにその値が返されます。
-		 * @param formulasLocal 
+		 * @param formulasLocal
 		 */
 		setFormulasLocal(formulasLocal: string[][]): void;
 		/**
 		 * R1C1 スタイル表記の数式を表します。
 		 * セルに数式がない場合は、代わりにその値が返されます。
-		 * @param formulasR1C1 
+		 * @param formulasR1C1
 		 */
 		setFormulasR1C1(formulasR1C1: string[][]): void;
 		/**
 		 * 指定したセルの Excel の数値書式コードを表します。
-		 * @param numberFormat 
+		 * @param numberFormat
 		 */
 		setNumberFormat(numberFormat: string[][]): void;
 		/**
 		 * 指定した範囲ビューの Raw 値を表します。
 		 * 返されるデータの型は、文字列、数値、ブール値のいずれかになります。
 		 * エラーが含まれているセルは、エラー文字列を返します。
-		 * @param values 
+		 * @param values
 		 */
 		setValues(values: (string | number | boolean)[][]): void;
 	}

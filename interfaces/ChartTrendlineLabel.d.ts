@@ -81,7 +81,9 @@ declare namespace ExcelScript {
 		 * このプロパティは、傾向線 `TextOrientation` ラベルが -90、90、または 180 の場合にのみ有効です。
 		 * @param horizontalAlignment
 		 */
-		setHorizontalAlignment(horizontalAlignment: ChartTextHorizontalAlignment): void;
+		setHorizontalAlignment(
+			horizontalAlignment: ChartTextHorizontalAlignment,
+		): void;
 		/**
 		 * グラフのトレンドライン ラベルの左端からグラフ領域の左端までの距離をポイントで表します。
 		 * 値は `null` 、グラフの傾向線ラベルが表示されない場合です。
@@ -121,6 +123,8 @@ declare namespace ExcelScript {
 		 * このプロパティは、傾向線 `TextOrientation` ラベルが 0 の場合にのみ有効です。
 		 * @param verticalAlignment
 		 */
-		setVerticalAlignment(verticalAlignment: ChartTextVerticalAlignment): void;
+		setVerticalAlignment(
+			verticalAlignment: ChartTextVerticalAlignment,
+		): void;
 	}
 }

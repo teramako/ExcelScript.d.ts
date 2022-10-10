@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 	export enum ChartGradientStyleType {
 		extremeValue,
 		number,
-		percent
+		percent,
 	}
 }

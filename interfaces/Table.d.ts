@@ -13,10 +13,10 @@ declare namespace ExcelScript {
 		 * @param name 省略可能。 新しい列の名前を指定します。 null の場合は既定の名前が使用されます。
 		 */
 		addColumn(
-            index?: number,
-            values?: (boolean | string | number)[],
-            name?: string
-        ): TableColumn;
+			index?: number,
+			values?: (boolean | string | number)[],
+			name?: string,
+		): TableColumn;
 		/**
 		 * テーブルに 1 行を追加します。
 		 * @param index 省略可能。新しい行の相対位置を指定します。
@@ -46,10 +46,10 @@ declare namespace ExcelScript {
 		/**
 		 * 特定のインデックスで指定した数の行を削除します。
 		 * @param index 削除する行のインデックス値。
-		 * 
+		 *
 		 * 注意: 削除に使用する値を決定した時点から行のインデックスが移動した可能性があります。
 		 * @param count 削除する行数。 既定では、1 つの行が削除されます。
-		 * 
+		 *
 		 * 注: 同時に 1,000 行を超える行を削除すると、Power Automate タイムアウトが発生する可能性があります。
 		 */
 		deleteRowsAt(index: number, count?: number): void;
@@ -169,17 +169,17 @@ declare namespace ExcelScript {
 		resize(newRange: Range | string): void;
 		/**
 		 * 最初の列に特殊な書式が含まれているかどうかを指定します。
-		 * @param highlightFirstColumn 
+		 * @param highlightFirstColumn
 		 */
 		setHighlightFirstColumn(highlightFirstColumn: boolean): void;
 		/**
 		 * 最後の列に特殊な書式が含まれているかどうかを指定します。
-		 * @param highlightLastColumn 
+		 * @param highlightLastColumn
 		 */
 		setHighlightLastColumn(highlightLastColumn: boolean): void;
 		/**
 		 * テーブルの名前。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 		/**
@@ -188,35 +188,35 @@ declare namespace ExcelScript {
 		 * "TableStyleMedium1" から "TableStyleMedium28"、
 		 * "TableStyleDark1" から "TableStyleDark11" です。
 		 * ブックに存在するカスタムのユーザー定義スタイルも指定できます。
-		 * @param predefinedTableStyle 
+		 * @param predefinedTableStyle
 		 */
 		setPredefinedTableStyle(predefinedTableStyle: string): void;
 		/**
 		 * テーブルの読み取りを容易にするために、奇数の列が強調表示される書式を列に表示するかどうかを指定します。
-		 * @param showBandedColumns 
+		 * @param showBandedColumns
 		 */
 		setShowBandedColumns(showBandedColumns: boolean): void;
 		/**
 		 * テーブルの読み取りを容易にするために、奇数行が強調表示される書式が偶数行と異なる場合に、行にバンド形式を表示するかどうかを指定します。
-		 * @param showBandedRows 
+		 * @param showBandedRows
 		 */
 		setShowBandedRows(showBandedRows: boolean): void;
 		/**
 		 * フィルター ボタンが各列ヘッダーの上部に表示されるかどうかを指定します。
 		 * これは、テーブルにヘッダー行が含まれている場合のみ設定できます。
-		 * @param showFilterButton 
+		 * @param showFilterButton
 		 */
 		setShowFilterButton(showFilterButton: boolean): void;
 		/**
 		 * ヘッダー行が表示されるかどうかを指定します。
 		 * この値によって、ヘッダー行の表示または削除を設定できます。
-		 * @param showHeaders 
+		 * @param showHeaders
 		 */
 		setShowHeaders(showHeaders: boolean): void;
 		/**
 		 * 合計行が表示されるかどうかを指定します。
 		 * この値によって、集計行の表示または削除を設定できます。
-		 * @param showTotals 
+		 * @param showTotals
 		 */
 		setShowTotals(showTotals: boolean): void;
 	}

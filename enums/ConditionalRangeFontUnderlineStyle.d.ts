@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum ConditionalRangeFontUnderlineStyle {
 		double,
 		none,
-		singile
+		singile,
 	}
 }

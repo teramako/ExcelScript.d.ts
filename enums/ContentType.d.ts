@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		/**
 		 * コメント コンテンツのプレーンな形式の種類を示します。
 		 */
-		plain
+		plain,
 	}
 }

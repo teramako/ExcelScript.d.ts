@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		bottomPercent,
 		invalid,
 		topItems,
-		topPercent
+		topPercent,
 	}
 }

@@ -15,7 +15,11 @@ declare namespace ExcelScript {
 		 * @param seriesBy 省略可能。 列や行がグラフのデータ系列として使用される方法を指定します。
 		 * 詳細は「`ExcelScript.ChartSeriesBy`」をご覧ください。
 		 */
-		addChart(type: ChartType, sourceData: Range, seriesBy?: ChartSeriesBy): Chart;
+		addChart(
+			type: ChartType,
+			sourceData: Range,
+			seriesBy?: ChartSeriesBy,
+		): Chart;
 		/**
 		 * 指定したセルで、指定した内容の新しいコメントを作成します。
 		 * 指定 `InvalidArgument` された範囲が 1 つのセルより大きい場合、エラーがスローされます。
@@ -27,7 +31,11 @@ declare namespace ExcelScript {
 		 * `CommentRichContent` オブジェクトでは、メンションなどの他のコメント機能を使用できます。
 		 * @param contentType オプション。 コメントに含まれるコンテンツの種類。 既定値は enum です `ContentType.Plain`
 		 */
-		addComment(cellAddress: Range | string, content: CommentRichContent | string, contentType?: ContentType): Comment;
+		addComment(
+			cellAddress: Range | string,
+			content: CommentRichContent | string,
+			contentType?: ContentType,
+		): Comment;
 		/**
 		 * 幾何学的図形をワークシートに追加します。
 		 * 新しい図形を `Shape` 表すオブジェクトを返します。
@@ -60,21 +68,35 @@ declare namespace ExcelScript {
 		 * @param endTop 行の末尾からワークシートの上部までの距離 (ポイント単位)。
 		 * @param connectorType コネクタの種類を表します。 詳細は「`ExcelScript.ConnectorType`」をご覧ください。
 		 */
-		addLine(startLeft: number, startTop: number, endLeft: number, endTop: number, connectorType?: ConnectorType): Shape;
+		addLine(
+			startLeft: number,
+			startTop: number,
+			endLeft: number,
+			endTop: number,
+			connectorType?: ConnectorType,
+		): Shape;
 		/**
 		 * 指定のスコープのコレクションに新しい名前を追加します。
 		 * @param name 名前付きの項目の名前。
 		 * @param reference 名前が参照する数式または範囲。
 		 * @param comment オプション。 名前付きアイテムに関連付けられているコメント。
 		 */
-		addNamedItem(name: string, reference: Range | string, comment?: string): NamedItem;
+		addNamedItem(
+			name: string,
+			reference: Range | string,
+			comment?: string,
+		): NamedItem;
 		/**
 		 * ユーザーのロケールを数式に使用して、指定のスコープのコレクションに新しい名前を追加します。
 		 * @param name 名前付きの項目の名前。
 		 * @param formula 名前が参照するユーザーのロケールの数式。
 		 * @param comment オプション。 名前付きアイテムに関連付けられているコメント。
 		 */
-		addNamedItemFormulaLocal(name: string, formula: string, comment?: string): NamedItem;
+		addNamedItemFormulaLocal(
+			name: string,
+			formula: string,
+			comment?: string,
+		): NamedItem;
 		/**
 		 * 指定した名前の新しいシート ビューを作成します。
 		 * @param name 作成するシート ビューの名前。
@@ -87,7 +109,11 @@ declare namespace ExcelScript {
 		 * @param source 新しいピボットテーブルのソース データは、範囲 (またはワークシート名を含む文字列アドレス) またはテーブルのいずれかです。
 		 * @param destination ピボットテーブル レポートの配置先範囲 (結果のレポートを配置するワークシートの範囲) の左上端のセルを指定します。
 		 */
-		addPivotTable(name: string, source: Range | string | Table, destination: Range | string): PivotTable;
+		addPivotTable(
+			name: string,
+			source: Range | string | Table,
+			destination: Range | string,
+		): PivotTable;
 		/**
 		 * ブックに新しいスライサーを追加します。
 		 * @param slicerSource 新しいスライサーの基になるデータ ソース。 オブジェクト、オブジェクト、`Table`または文字列を指定できます`PivotTable`。
@@ -101,10 +127,10 @@ declare namespace ExcelScript {
 		 * このパラメーターは、スライサー コレクションがワークシートから取得される場合は省略できます。
 		 */
 		addSlicer(
-            slicerSource: string | PivotTable | Table,
-            sourceField: string | PivotField | number | TableColumn,
-            slicerDestination?: string | Worksheet
-        ): Slicer;
+			slicerSource: string | PivotTable | Table,
+			sourceField: string | PivotField | number | TableColumn,
+			slicerDestination?: string | Worksheet,
+		): Slicer;
 		/**
 		 * 新しいテーブルを作成します。
 		 * 範囲オブジェクトまたはソース アドレスにより、テーブルが追加されるワークシートが判断されます。
@@ -133,7 +159,10 @@ declare namespace ExcelScript {
 		 * キーは 255 文字に制限されています (値を大きくすると InvalidArgument エラーがスローされます)。
 		 * @param value このカスタム プロパティの値。
 		 */
-		addWorksheetCustomProperty(key: string, value: string): WorksheetCustomProperty;
+		addWorksheetCustomProperty(
+			key: string,
+			value: string,
+		): WorksheetCustomProperty;
 		/**
 		 * ワークシート上のすべてのセルを計算します。
 		 * @param markAllDirty True。すべてダーティとしてマークします。
@@ -146,7 +175,10 @@ declare namespace ExcelScript {
 		 * @param relativeTo 新しく作成されたワークシートの位置を決定する既存のワークシート。
 		 * これは、"Before" または "After" の場合 `positionType` にのみ必要です。
 		 */
-		copy(positionType?: WorksheetPositionType, relativeTo?: Worksheet): Worksheet;
+		copy(
+			positionType?: WorksheetPositionType,
+			relativeTo?: Worksheet,
+		): Worksheet;
 		/**
 		 * ブックからワークシートを削除します。
 		 * ワークシートの可視性が "VeryHidden" に設定されている場合、削除操作は例外で `InvalidOperation` 失敗します。
@@ -314,7 +346,12 @@ declare namespace ExcelScript {
 		 * @param rowCount 範囲に含める行の数。
 		 * @param columnCount 範囲に含める列の数。
 		 */
-		getRangeByIndexes(startRow: number, startColumn: number, rowCount: number, columnCount: number): Range;
+		getRangeByIndexes(
+			startRow: number,
+			startColumn: number,
+			rowCount: number,
+			columnCount: number,
+		): Range;
 		/**
 		 * `RangeAreas`アドレスまたは名前で指定された四角形範囲の 1 つ以上のブロックを表すオブジェクトを取得します。
 		 * @param address オプション。
@@ -395,7 +432,9 @@ declare namespace ExcelScript {
 		 * カスタム プロパティが存在しない場合、このメソッドは `undefined`.
 		 * @param key カスタム プロパティ オブジェクトを識別するキー。 大文字と小文字は区別されません。
 		 */
-		getWorksheetCustomProperty(key: string): WorksheetCustomProperty | undefined;
+		getWorksheetCustomProperty(
+			key: string,
+		): WorksheetCustomProperty | undefined;
 		/**
 		 * コレクション内のすべてのピボットテーブルを更新します。
 		 */
@@ -414,7 +453,11 @@ declare namespace ExcelScript {
 		 * @param replacement 元の文字列を置き換える文字列。
 		 * @param criteria 追加の置換条件。
 		 */
-		replaceAll(text: string, replacement: string, criteria: ReplaceCriteria): number;
+		replaceAll(
+			text: string,
+			replacement: string,
+			criteria: ReplaceCriteria,
+		): number;
 		/**
 		 * Excel が必要に応じてワークシートを再計算するかどうかを決定します。
 		 * True の場合、Excel は必要に応じてワークシートを再計算します。

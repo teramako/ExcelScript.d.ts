@@ -24,7 +24,7 @@ declare namespace ExcelScript {
 		getPivotField(name: string): PivotField | undefined;
 		/**
 		 * PivotHierarchy の名前。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 	}

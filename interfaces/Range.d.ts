@@ -20,9 +20,9 @@ declare namespace ExcelScript {
 		 * 既定値は "FillDefault" です。
 		 */
 		autoFill(
-            destinationRange?: Range | string,
-            autoFillType?: AutoFillType
-        ): void;
+			destinationRange?: Range | string,
+			autoFillType?: AutoFillType,
+		): void;
 		/**
 		 * ワークシート上のセルの範囲を計算します。
 		 */
@@ -53,11 +53,11 @@ declare namespace ExcelScript {
 		 * @param transpose True の場合は、変換先の範囲内のセルを入れ替えます。 既定値は false です。
 		 */
 		copyFrom(
-            sourceRange: Range | RangeAreas | string,
-            copyType?: RangeCopyType,
-            skipBlanks?: boolean,
-            transpose?: boolean
-        ): void;
+			sourceRange: Range | RangeAreas | string,
+			copyType?: RangeCopyType,
+			skipBlanks?: boolean,
+			transpose?: boolean,
+		): void;
 		/**
 		 * 範囲に関連付けられているセルを削除します。
 		 * @param shift セルをシフトする方向を指定します。
@@ -184,9 +184,9 @@ declare namespace ExcelScript {
 		 * アクティブセルがこの範囲内にない場合は、エラーがスローされます。
 		 */
 		getExtendedRange(
-            direction: KeyboardDirection,
-            activeCell?: Range | string
-        ): Range;
+			direction: KeyboardDirection,
+			activeCell?: Range | string,
+		): Range;
 		/**
 		 * Format オブジェクト (範囲のフォント、塗りつぶし、罫線、配置などのプロパティをカプセル化するオブジェクト) を返します。
 		 */
@@ -246,7 +246,7 @@ declare namespace ExcelScript {
 		getHyperlink(): RangeHyperlink;
 		/**
 		 * 範囲を base64 でエンコードされた png イメージとしてレンダリングします。
-		 * 
+		 *
 		 * 注: 折り返されたテキストまたはセル幅を超えるテキストが、行折り返しなしで同じ行にレンダリングされる原因となる既知の問題 `Range.getImage` があります。
 		 * これにより、行全体にテキストがオーバーフローするため、結果の画像は読み取れなくなるようになります。
 		 * 回避策として、範囲内のデータが各セルに 1 行として収まることを確認します。
@@ -358,9 +358,9 @@ declare namespace ExcelScript {
 		 * アクティブセルがこの範囲内にない場合は、エラーがスローされます。
 		 */
 		getRangeEdge(
-            direction: KeyboardDirection,
-            activeCell?: Range | string
-        ): Range;
+			direction: KeyboardDirection,
+			activeCell?: Range | string,
+		): Range;
 		/**
 		 * 現在`Range`の`Range`オブジェクトに似たオブジェクトを取得しますが、右下隅が行数と列数だけ拡大 (または縮小) されます。
 		 * @param deltaRows 現在の範囲を基準にして、右下隅を拡張する行の数です。範囲を拡張するには正の数値、または範囲を縮小するには負の数値を使用します。
@@ -422,9 +422,9 @@ declare namespace ExcelScript {
 		 * この引数を省略すると、すべての定数および数式が対象になります。
 		 */
 		getSpecialCells(
-            cellType: SpecialCellType,
-            cellValueType?: SpecialCellValueType
-        ): RangeAreas;
+			cellType: SpecialCellType,
+			cellValueType?: SpecialCellValueType,
+		): RangeAreas;
 		/**
 		 * アンカー セルで呼び出されたとき、スピル範囲を含む範囲オブジェクトを取得します。
 		 * 範囲がアンカー セルでない場合、またはスピル範囲が見つからない場合、このメソッドは返します。 `undefined`.
@@ -543,9 +543,9 @@ declare namespace ExcelScript {
 		 * @param includesHeader True の場合は、入力データにヘッダーが含まれています。 既定値は false です。
 		 */
 		removeDuplicates(
-            columns: number[],
-            includesHeader: boolean
-        ): RemoveDuplicatesResult;
+			columns: number[],
+			includesHeader: boolean,
+		): RemoveDuplicatesResult;
 		/**
 		 * 現在の範囲内で、指定された条件に基づき、指定された文字列を検索し、置換します。
 		 * @param text 検索する文字列。
@@ -553,10 +553,10 @@ declare namespace ExcelScript {
 		 * @param criteria 追加の置換条件。
 		 */
 		replaceAll(
-            text: string,
-            replacement: string,
-            criteria: ReplaceCriteria
-        ): number;
+			text: string,
+			replacement: string,
+			criteria: ReplaceCriteria,
+		): number;
 		/**
 		 * Excel UI で指定した範囲を選択します。
 		 */
@@ -564,7 +564,7 @@ declare namespace ExcelScript {
 		/**
 		 * 現在の範囲内のすべての列が非表示になっているかどうかを表します。
 		 * - 値は、 true 範囲内のすべての列が非表示になっている場合です。 値は、 false 範囲内の列が非表示になっていない場合です。 値は、 null 範囲内の一部の列が非表示になっていて、同じ範囲内の他の列が非表示になっていない場合です。
-		 * @param columnHidden 
+		 * @param columnHidden
 		 */
 		setColumnHidden(columnHidden: boolean): void;
 		/**
@@ -574,50 +574,50 @@ declare namespace ExcelScript {
 		/**
 		 * セル数式を A1 スタイルの表記で設定します。
 		 * 範囲に複数のセルが含まれている場合、指定された範囲内の各セルは入力データで更新されます。
-		 * @param formula 
+		 * @param formula
 		 */
 		setFormula(formula: string): void;
 		/**
 		 * ユーザーの言語と数値書式ロケールで、セル数式を A1 スタイルの表記で設定します。
 		 * たとえば、英語の数式 "=SUM(A1, 1.5)" は、ドイツ語では "=SUMME(A1; 1,5)" になります。
 		 * 範囲に複数のセルが含まれている場合、指定された範囲内の各セルは入力データで更新されます。
-		 * @param formulaLocal 
+		 * @param formulaLocal
 		 */
 		setFormulaLocal(formulaLocal: string): void;
 		/**
 		 * セル数式を R1C1 スタイルの表記で設定します。
 		 * 範囲に複数のセルが含まれている場合、指定された範囲内の各セルは入力データで更新されます。
-		 * @param formulaR1C1 
+		 * @param formulaR1C1
 		 */
 		setFormulaR1C1(formulaR1C1: string): void;
 		/**
 		 * A1 スタイル表記の数式を表します。
 		 * セルに数式がない場合は、代わりにその値が返されます。
-		 * @param formulas 
+		 * @param formulas
 		 */
 		setFormulas(formulas: string[][]): void;
 		/**
 		 * ユーザーの言語と数値書式ロケールで、A1 スタイル表記の数式を表します。
 		 * たとえば、英語の数式 "=SUM(A1, 1.5)" は、ドイツ語では "=SUMME(A1; 1,5)" になります。
 		 * セルに数式がない場合は、代わりにその値が返されます。
-		 * @param formulasLocal 
+		 * @param formulasLocal
 		 */
 		setFormulasLocal(formulasLocal: string[][]): void;
 		/**
 		 * R1C1 スタイル表記の数式を表します。
 		 * セルに数式がない場合は、代わりにその値が返されます。
-		 * @param formulasR1C1 
+		 * @param formulasR1C1
 		 */
 		setFormulasR1C1(formulasR1C1: string[][]): void;
 		/**
 		 * 現在の範囲のハイパーリンクを表します。
-		 * @param hyperlink 
+		 * @param hyperlink
 		 */
 		setHyperlink(hyperlink: RangeHyperlink): void;
 		/**
 		 * 指定した範囲のセル Excel 番号書式コードを設定します。
 		 * 範囲に複数のセルが含まれている場合、指定された範囲内の各セルは入力データで更新されます。
-		 * @param numberFormat 
+		 * @param numberFormat
 		 */
 		setNumberFormat(numberFormat: string): void;
 		/**
@@ -625,19 +625,19 @@ declare namespace ExcelScript {
 		 * プロパティを取得または設定するときに、Excel では言語や書式の強制は `numberFormatLocal` 実行されません。
 		 * 返されるテキストは、システム設定で指定された言語に基づいて、ローカルで書式設定された文字列を使用します。
 		 * 範囲に複数のセルが含まれている場合、指定された範囲内の各セルは入力データで更新されます。
-		 * @param numberFormatLocal 
+		 * @param numberFormatLocal
 		 */
 		setNumberFormatLocal(numberFormatLocal: string): void;
 		/**
 		 * 指定した範囲の Excel の数値書式コードを表します。
-		 * @param numberFormats 
+		 * @param numberFormats
 		 */
 		setNumberFormats(numberFormats: string[][]): void;
 		/**
 		 * ユーザーの言語設定に基づいて、指定した範囲の Excel の数値書式コードを表します。
 		 * プロパティを取得または設定するときに、Excel では言語や書式の強制は `numberFormatLocal` 実行されません。
 		 * 返されるテキストは、システム設定で指定された言語に基づいて、ローカルで書式設定された文字列を使用します。
-		 * @param numberFormatsLocal 
+		 * @param numberFormatsLocal
 		 */
 		setNumberFormatsLocal(numberFormatsLocal: string[][]): void;
 		/**
@@ -645,7 +645,7 @@ declare namespace ExcelScript {
 		 * セルのスタイルが一貫性がない場合は、 `null` 返されます。
 		 * カスタム スタイルの場合、スタイル名が返されます。
 		 * 組み込みのスタイルの場合、列挙型の値を `BuiltInStyle` 表す文字列が返されます。
-		 * @param predefinedCellStyle 
+		 * @param predefinedCellStyle
 		 */
 		setPredefinedCellStyle(predefinedCellStyle: string): void;
 		/**
@@ -653,7 +653,7 @@ declare namespace ExcelScript {
 		 * - 値は、 `true` 範囲内のすべての行が非表示になっている場合です。
 		 * - 値は、 `false` 範囲内の行が非表示になっていない場合です。
 		 * - 値は、 `null` 範囲内の一部の行が非表示になっていて、同じ範囲内の他の行が非表示になっていない場合です。
-		 * @param rowHidden 
+		 * @param rowHidden
 		 */
 		setRowHidden(rowHidden: boolean): void;
 		/**
@@ -661,14 +661,14 @@ declare namespace ExcelScript {
 		 * 設定するデータには、文字列型、数値型、またはブール型を指定できます。
 		 * `null` 値は無視されます (Excel では設定または上書きされません)。
 		 * 範囲に複数のセルが含まれている場合、指定された範囲内の各セルは入力データで更新されます。
-		 * @param value 
+		 * @param value
 		 */
 		setValue(value: any): void;
 		/**
 		 * 指定した範囲の未加工の値を設定します。
 		 * 指定されたデータには、文字列、数値、ブール値を指定できます。
 		 * 指定された値がプラス ("+")、マイナス ("-")、または等号 ("=") で始まる場合、Excel はこの値を数式として解釈します。
-		 * @param values 
+		 * @param values
 		 */
 		setValues(values: (string | number | boolean)[][]): void;
 		/**

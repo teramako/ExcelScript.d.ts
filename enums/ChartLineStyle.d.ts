@@ -13,6 +13,6 @@ declare namespace ExcelScript {
 		grey50,
 		grey75,
 		none,
-		roundDot
+		roundDot,
 	}
 }

@@ -23,6 +23,6 @@ declare namespace ExcelScript {
 		threeSymbols2,
 		threeTrafficLights1,
 		threeTrafficLights2,
-		threeTriangles
+		threeTriangles,
 	}
 }

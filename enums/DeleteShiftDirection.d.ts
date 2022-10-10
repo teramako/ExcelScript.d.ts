@@ -4,6 +4,6 @@ declare namespace ExcelScript {
 	 */
 	export enum DeleteShiftDirection {
 		left,
-		up
+		up,
 	}
 }

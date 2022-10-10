@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum ChartDisplayBlanksAs {
 		interplotted,
 		notPlotted,
-		zero
+		zero,
 	}
 }

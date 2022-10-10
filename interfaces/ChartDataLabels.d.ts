@@ -82,7 +82,9 @@ declare namespace ExcelScript {
 		 * このプロパティは、データ ラベルの値 `TextOrientation` が 0 の場合にのみ有効です。
 		 * @param horizontalAlignment
 		 */
-		setHorizontalAlignment(horizontalAlignment: ChartTextHorizontalAlignment): void;
+		setHorizontalAlignment(
+			horizontalAlignment: ChartTextHorizontalAlignment,
+		): void;
 		/**
 		 * 数値の形式がセルにリンクされている場合に指定します。
 		 * もし `true`をクリックすると、セル内でラベルが変更された際に数値の形式が変更されます。
@@ -147,6 +149,8 @@ declare namespace ExcelScript {
 		 * このプロパティは、データ ラベル `TextOrientation` が -90、90、または 180 の場合にのみ有効です。
 		 * @param verticalAlignment
 		 */
-		setVerticalAlignment(verticalAlignment: ChartTextVerticalAlignment): void;
+		setVerticalAlignment(
+			verticalAlignment: ChartTextVerticalAlignment,
+		): void;
 	}
 }

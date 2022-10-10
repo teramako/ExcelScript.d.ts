@@ -11,6 +11,6 @@ declare namespace ExcelScript {
 		/**
 		 * 順方向に検索します。
 		 */
-		forward
+		forward,
 	}
 }

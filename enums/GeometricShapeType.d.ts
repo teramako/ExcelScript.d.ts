@@ -180,6 +180,6 @@ declare namespace ExcelScript {
 		wave,
 		wedgeEllipseCallout,
 		wedgeRectCallout,
-		wedgeRRectCallout
+		wedgeRRectCallout,
 	}
 }

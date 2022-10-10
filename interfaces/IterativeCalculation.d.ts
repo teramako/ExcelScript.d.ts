@@ -18,17 +18,17 @@ declare namespace ExcelScript {
 		getMaxIteration(): number;
 		/**
 		 * Excel で反復計算を使用して循環参照を解決する場合、true となります。
-		 * @param enabled 
+		 * @param enabled
 		 */
 		setEnabled(enabled: boolean): void;
 		/**
 		 * 循環参照を解決するために、各反復間のExcelを指定します。
-		 * @param maxChange 
+		 * @param maxChange
 		 */
 		setMaxChange(maxChange: number): void;
 		/**
 		 * 循環参照の解決に使用Excel繰り返しの最大数を指定します。
-		 * @param maxIteration 
+		 * @param maxIteration
 		 */
 		setMaxIteration(maxIteration: number): void;
 	}

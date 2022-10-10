@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		high,
 		low,
 		nextToAxis,
-		none
+		none,
 	}
 }

@@ -54,6 +54,6 @@ declare namespace ExcelScript {
 		total,
 		warningText,
 		wholeComma,
-		wholeDollar
+		wholeDollar,
 	}
 }

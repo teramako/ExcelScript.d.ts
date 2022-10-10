@@ -166,6 +166,6 @@ declare namespace ExcelScript {
 		/**
 		 * 日付は昨日です。
 		 */
-		yesterday
+		yesterday,
 	}
 }

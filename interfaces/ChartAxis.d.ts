@@ -323,7 +323,9 @@ declare namespace ExcelScript {
 		 * 詳細は「`ExcelScript.ChartAxisTickLabelPosition`」をご覧ください。
 		 * @param tickLabelPosition
 		 */
-		setTickLabelPosition(tickLabelPosition: ChartAxisTickLabelPosition): void;
+		setTickLabelPosition(
+			tickLabelPosition: ChartAxisTickLabelPosition,
+		): void;
 		/**
 		 * 目盛ラベル間のカテゴリまたは系列の数を指定します。
 		 * 1 から 31999 の値を指定できます。

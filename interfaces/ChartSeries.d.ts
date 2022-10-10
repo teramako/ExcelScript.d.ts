@@ -289,7 +289,9 @@ declare namespace ExcelScript {
 		 * 地域マップ グラフ系列の最大値の種類を指定します。
 		 * @param gradientMaximumType
 		 */
-		setGradientMaximumType(gradientMaximumType: ChartGradientStyleType): void;
+		setGradientMaximumType(
+			gradientMaximumType: ChartGradientStyleType,
+		): void;
 		/**
 		 * 地域マップ グラフ系列の最大値を指定します。
 		 * @param gradientMaximumValue
@@ -304,7 +306,9 @@ declare namespace ExcelScript {
 		 * 地域マップ グラフ系列の中点値の種類を指定します。
 		 * @param gradientMidpointType
 		 */
-		setGradientMidpointType(gradientMidpointType: ChartGradientStyleType): void;
+		setGradientMidpointType(
+			gradientMidpointType: ChartGradientStyleType,
+		): void;
 		/**
 		 * 地域マップ グラフ系列の中点の値を指定します。
 		 * @param gradientMidpointValue
@@ -319,7 +323,9 @@ declare namespace ExcelScript {
 		 * 地域マップ グラフ系列の最小値の種類を指定します。
 		 * @param gradientMinimumType
 		 */
-		setGradientMinimumType(gradientMinimumType: ChartGradientStyleType): void;
+		setGradientMinimumType(
+			gradientMinimumType: ChartGradientStyleType,
+		): void;
 		/**
 		 * 地域マップ グラフ系列の最小値を指定します。
 		 * @param gradientMinimumValue
@@ -383,7 +389,9 @@ declare namespace ExcelScript {
 		 * ツリーマップ グラフの系列の親ラベル戦略領域を指定します。
 		 * @param parentLabelStrategy
 		 */
-		setParentLabelStrategy(parentLabelStrategy: ChartParentLabelStrategy): void;
+		setParentLabelStrategy(
+			parentLabelStrategy: ChartParentLabelStrategy,
+		): void;
 		/**
 		 * グラフ グループ内のグラフ系列のプロット順序を指定します。
 		 * @param plotOrder

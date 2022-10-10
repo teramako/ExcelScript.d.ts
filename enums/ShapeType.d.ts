@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		group,
 		image,
 		line,
-		unsupported
+		unsupported,
 	}
 }

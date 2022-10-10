@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 	export enum ChartParentLabelStrategy {
 		banner,
 		none,
-		overlapping
+		overlapping,
 	}
 }

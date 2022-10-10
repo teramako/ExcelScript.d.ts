@@ -13,7 +13,9 @@ declare namespace ExcelScript {
 		 * @param index 取得する罫線オブジェクトのインデックス値。
 		 * 詳細は「`ExcelScript.ConditionalRangeBorderIndex`」をご覧ください。
 		 */
-		getConditionalRangeBorder(index: ConditionalRangeBorderIndex): ConditionalRangeBorder;
+		getConditionalRangeBorder(
+			index: ConditionalRangeBorderIndex,
+		): ConditionalRangeBorder;
 		/**
 		 * 下の罫線を取得します。
 		 */

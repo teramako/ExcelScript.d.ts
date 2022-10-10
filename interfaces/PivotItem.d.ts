@@ -22,17 +22,17 @@ declare namespace ExcelScript {
 		getVisible(): boolean;
 		/**
 		 * 項目を展開して子項目を表示するか、または項目を折りたたんで子項目を非表示にするかを指定します。
-		 * @param isExpanded 
+		 * @param isExpanded
 		 */
 		setIsExpanded(isExpanded: boolean): void;
 		/**
 		 * PivotItem の名前。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 		/**
 		 * PivotItem が表示される場合に指定します。
-		 * @param visible 
+		 * @param visible
 		 */
 		setVisible(visible: boolean): void;
 	}

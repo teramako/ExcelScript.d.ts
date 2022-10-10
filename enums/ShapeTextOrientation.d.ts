@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		vertical,
 		vertical270,
 		wordArtVertical,
-		wordArtVerticalRTL
+		wordArtVerticalRTL,
 	}
 }

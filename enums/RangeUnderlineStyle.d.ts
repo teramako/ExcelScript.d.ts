@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 		doubleAccountant,
 		none,
 		single,
-		singleAccountant
+		singleAccountant,
 	}
 }

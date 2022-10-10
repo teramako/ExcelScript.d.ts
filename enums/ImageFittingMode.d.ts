@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum ImageFittingMode {
 		fill,
 		fit,
-		fitAndCenter
+		fitAndCenter,
 	}
 }

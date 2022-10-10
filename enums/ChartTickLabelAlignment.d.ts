@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum ChartTickLabelAlignment {
 		center,
 		left,
-		right
+		right,
 	}
 }

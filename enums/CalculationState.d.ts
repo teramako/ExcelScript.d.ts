@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		/**
 		 * 計算を引き起こす変更が行われましたが、再計算はまだ実行されていません
 		 */
-		pending
+		pending,
 	}
 }

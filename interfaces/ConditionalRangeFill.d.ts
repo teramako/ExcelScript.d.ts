@@ -14,7 +14,7 @@ declare namespace ExcelScript {
 		getColor(): string;
 		/**
 		 * 塗りつぶしの色を表す HTML カラー コード # (RRGGBB 形式 ("FFA500" など)、または名前付き HTML 色 ("オレンジ色" など) として指定します。
-		 * @param color 
+		 * @param color
 		 */
 		setColor(color: string): void;
 	}

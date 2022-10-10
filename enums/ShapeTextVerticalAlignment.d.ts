@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		distributed,
 		justified,
 		middle,
-		top
+		top,
 	}
 }

@@ -16,7 +16,7 @@ declare namespace ExcelScript {
 		exclusive?: boolean;
 		/**
 		 * フィルター条件の範囲 `between` の下限。
-		 * 
+		 *
 		 * 注: 数値文字列は、他の数値文字列と比較されるときに数値として扱われます。
 		 */
 		lowerBound?: string;
@@ -26,7 +26,7 @@ declare namespace ExcelScript {
 		substring?: string;
 		/**
 		 * フィルター条件の範囲 `between` の上限。
-		 * 
+		 *
 		 * 注: 数値文字列は、他の数値文字列と比較されるときに数値として扱われます。
 		 */
 		upperBound?: string;

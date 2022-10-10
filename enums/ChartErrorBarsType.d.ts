@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		fixedValue,
 		percent,
 		stDev,
-		stError
+		stError,
 	}
 }

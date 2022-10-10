@@ -54,6 +54,6 @@ declare namespace ExcelScript {
 		/**
 		 * LabelFilterCondition が不明であるか、サポートされていません。
 		 */
-		unknown
+		unknown,
 	}
 }

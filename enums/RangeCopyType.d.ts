@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 		formats,
 		formulas,
 		link,
-		values
+		values,
 	}
 }

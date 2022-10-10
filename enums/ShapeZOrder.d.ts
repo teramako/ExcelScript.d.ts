@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 		bringForward,
 		bringToFront,
 		sendBackward,
-		sendToBack
+		sendToBack,
 	}
 }

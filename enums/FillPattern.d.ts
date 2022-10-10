@@ -23,6 +23,6 @@ declare namespace ExcelScript {
 		semiGray75,
 		solid,
 		up,
-		vertical
+		vertical,
 	}
 }

@@ -17,13 +17,13 @@ declare namespace ExcelScript {
 		/**
 		 * セル範囲Excel数式を非表示にした値を指定します。
 		 * 値 `null` は、範囲全体に均一な数式が非表示の設定を持たなかったかどうかを示します。
-		 * @param formulaHidden 
+		 * @param formulaHidden
 		 */
 		setFormulaHidden(formulaHidden: boolean): void;
 		/**
 		 * オブジェクト内Excelをロックする必要がある場合に指定します。
 		 * 値 `null` は、範囲全体に一様なロック設定が設定されているのを示します。
-		 * @param locked 
+		 * @param locked
 		 */
 		setLocked(locked: boolean): void;
 	}

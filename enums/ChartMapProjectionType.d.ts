@@ -9,6 +9,6 @@ declare namespace ExcelScript {
 		automatic,
 		mercator,
 		miller,
-		robinson
+		robinson,
 	}
 }

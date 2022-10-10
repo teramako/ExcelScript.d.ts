@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	 */
 	export enum ChartBoxQuartileCalculation {
 		exclusive,
-		inclusive
+		inclusive,
 	}
 }

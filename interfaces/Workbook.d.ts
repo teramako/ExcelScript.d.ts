@@ -12,7 +12,11 @@ declare namespace ExcelScript {
 		 * @param bindingType バインドの種類。`ExcelScript.BindingType`を参照。
 		 * @param id バインドの名前。
 		 */
-		addBinding(range: Range | string, bindingType: BindingType, id: string): Binding;
+		addBinding(
+			range: Range | string,
+			bindingType: BindingType,
+			id: string,
+		): Binding;
 		/**
 		 * ブック内の名前付きアイテムに基づいて新しいバインドを追加します。
 		 * 名前付きアイテムが複数の領域を参照している場合、 `InvalidReference` エラーを返します。
@@ -20,7 +24,11 @@ declare namespace ExcelScript {
 		 * @param bindingType バインドの種類。 `ExcelScript.BindingType`を参照
 		 * @param id バインドの名前。
 		 */
-		addBindingFromNamedItem(name: string, bindingType: BindingType, id: string): Binding;
+		addBindingFromNamedItem(
+			name: string,
+			bindingType: BindingType,
+			id: string,
+		): Binding;
 		/**
 		 * 現在の選択範囲に基づいて新しいバインドを追加します。
 		 * 選択範囲に複数の領域がある場合は、 `InvalidReference` エラーを返します。
@@ -39,7 +47,11 @@ declare namespace ExcelScript {
 		 * `CommentRichContent` オブジェクトでは、メンションなどの他のコメント機能を使用できます。
 		 * @param contentType 省略可能。 コメントに含まれるコンテンツの種類。 既定値は enum `ContentType.Plain` です。
 		 */
-		addComment(cellAddress: Range | string, content: CommentRichContent | string, contentType?: ContentType): Comment;
+		addComment(
+			cellAddress: Range | string,
+			content: CommentRichContent | string,
+			contentType?: ContentType,
+		): Comment;
 		/**
 		 * ブックに新しいカスタム XML パーツを追加します。
 		 * @param xml XML コンテンツ。 有効な XML フラグメントである必要があります。
@@ -51,27 +63,42 @@ declare namespace ExcelScript {
 		 * @param reference 名前が参照する数式または範囲。
 		 * @param comment 省略可能。 名前付きアイテムに関連付けられているコメント。
 		 */
-		addNamedItem(name: string, reference: Range | string, comment?: string): NamedItem;
+		addNamedItem(
+			name: string,
+			reference: Range | string,
+			comment?: string,
+		): NamedItem;
 		/**
 		 * ユーザーのロケールを数式に使用して、指定のスコープのコレクションに新しい名前を追加します。
 		 * @param name 名前付きの項目の名前。
 		 * @param formula 名前が参照するユーザーのロケールの数式。
 		 * @param comment 省略可能。 名前付きアイテムに関連付けられているコメント。
 		 */
-		addNamedItemFormulaLocal(name: string, formula: string, comment?: string): NamedItem;
+		addNamedItemFormulaLocal(
+			name: string,
+			formula: string,
+			comment?: string,
+		): NamedItem;
 		/**
 		 * 指定したソース データに基づいてピボットテーブルを追加し、ターゲット範囲の左上のセルに挿入します。
 		 * @param name 新しいピボットテーブルの名前。
 		 * @param source 新しいピボットテーブルのソース データは、範囲 (またはワークシート名を含む文字列アドレス) またはテーブルのいずれかです。
 		 * @param destination ピボットテーブル レポートの配置先範囲 (結果のレポートを配置するワークシートの範囲) の左上端のセルを指定します。
 		 */
-		addPivotTable(name: string, source: Range | string | Table, destination: Range | string): PivotTable;
+		addPivotTable(
+			name: string,
+			source: Range | string | Table,
+			destination: Range | string,
+		): PivotTable;
 		/**
 		 * 指定した名前の空白 `PivotTableStyle` を作成します。
 		 * @param name 新しいピボットテーブル スタイルの一意の名前。 名前が既に使用されている場合は、`InvalidArgument` エラーがスローされます。
 		 * @param makeUniqueName 省略可能。 既定値は `false`。. もし `true`は、必要に応じて一意にするために、名前に番号を追加します。
 		 */
-		addPivotTableStyle(name: string, makeUniqueName?: boolean): PivotTableStyle;
+		addPivotTableStyle(
+			name: string,
+			makeUniqueName?: boolean,
+		): PivotTableStyle;
 		/**
 		 * コレクションに新しいスタイルを追加します。
 		 * @param name 追加するスタイルの名前。
@@ -87,10 +114,11 @@ declare namespace ExcelScript {
 		 * @param slicerDestination 省略可能。 新しいスライサーが作成されるワークシート。 `Worksheet`オブジェクトまたはワークシートの名前または ID を指定できます。
 		 * このパラメーターは、スライサー コレクションがワークシートから取得される場合は省略できます。
 		 */
-		addSlicer(slicerSource: string | PivotTable | Table,
-            sourceField: string | PivotField | number | TableColumn,
-            slicerDestination?: string | Worksheet
-        ): Slicer;
+		addSlicer(
+			slicerSource: string | PivotTable | Table,
+			sourceField: string | PivotField | number | TableColumn,
+			slicerDestination?: string | Worksheet,
+		): Slicer;
 		/**
 		 * 指定した名前の空白のスライサー スタイルを作成します。
 		 * @param name 新しいスライサー スタイルの一意の名前。 名前が既に使用されている場合は例外`InvalidArgument` をスローします。
@@ -425,7 +453,9 @@ declare namespace ExcelScript {
 		 * 親オブジェクトのスコープで使用する既定のピボットテーブル スタイルを設定します。
 		 * @param newDefaultStyle 新しい既定値である`PivotTableStyle`オブジェクト (`PivotTableStyle`オブジェクトの名前)。
 		 */
-		setDefaultPivotTableStyle(newDefaultStyle: PivotTableStyle | string): void;
+		setDefaultPivotTableStyle(
+			newDefaultStyle: PivotTableStyle | string,
+		): void;
 		/**
 		 * 親オブジェクトのスコープで使用する既定のスライサー スタイルを設定します。
 		 * @param newDefaultStyle 新しい既定値である`SlicerStyle`オブジェクト (`SlicerStyle`オブジェクトの名前)。
@@ -452,7 +482,9 @@ declare namespace ExcelScript {
 		 * モードは、ブックに存在するすべてのブック リンクで同じです。
 		 * @param linkedWorkbookRefreshMode
 		 */
-		setLinkedWorkbookRefreshMode(linkedWorkbookRefreshMode: WorkbookLinksRefreshMode): void;
+		setLinkedWorkbookRefreshMode(
+			linkedWorkbookRefreshMode: WorkbookLinksRefreshMode,
+		): void;
 		/**
 		 * ブックを表示桁数でのみ計算する場合、`true` となります。
 		 * このプロパティ `false` を `true` 値に切り替えると、データの精度が完全に失われます。

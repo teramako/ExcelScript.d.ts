@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		contains,
 		endsWith,
 		invalid,
-		notContains
+		notContains,
 	}
 }

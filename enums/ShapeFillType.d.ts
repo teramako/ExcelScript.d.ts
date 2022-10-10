@@ -27,6 +27,6 @@ declare namespace ExcelScript {
 		/**
 		 * 塗りつぶし (単色)
 		 */
-		solid
+		solid,
 	}
 }

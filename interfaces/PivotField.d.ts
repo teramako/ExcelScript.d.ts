@@ -57,17 +57,17 @@ declare namespace ExcelScript {
 		isFiltered(filterType?: PivotFilterType): boolean;
 		/**
 		 * PivotField の名前。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 		/**
 		 * PivotField のすべての項目を表示するかどうかを指定します。
-		 * @param showAllItems 
+		 * @param showAllItems
 		 */
 		setShowAllItems(showAllItems: boolean): void;
 		/**
 		 * PivotField の小計。
-		 * @param subtotals 
+		 * @param subtotals
 		 */
 		setSubtotals(subtotals: Subtotals): void;
 		/**
@@ -88,9 +88,9 @@ declare namespace ExcelScript {
 		 * 並べ替える軸にデータ階層以外の項目がない場合は、空にすることができます。
 		 */
 		sortByValues(
-            sortBy: SortBy,
-            valuesHierarchy: DataPivotHierarchy,
-            pivotItemScope?: Array<PivotItem | string>
-        ): void;
+			sortBy: SortBy,
+			valuesHierarchy: DataPivotHierarchy,
+			pivotItemScope?: Array<PivotItem | string>,
+		): void;
 	}
 }

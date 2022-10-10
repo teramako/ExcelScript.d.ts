@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum BindingType {
 		range,
 		table,
-		text
+		text,
 	}
 }

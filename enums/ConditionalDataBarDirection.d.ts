@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 	export enum ConditionalDataBarDirection {
 		context,
 		leftToRight,
-		rightToLeft
+		rightToLeft,
 	}
 }

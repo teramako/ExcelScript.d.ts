@@ -9,6 +9,6 @@ declare namespace ExcelScript {
 		invalid,
 		left,
 		right,
-		top
+		top,
 	}
 }

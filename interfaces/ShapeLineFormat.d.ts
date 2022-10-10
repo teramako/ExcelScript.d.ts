@@ -38,39 +38,39 @@ declare namespace ExcelScript {
 		getWeight(): number;
 		/**
 		 * 行の色を HTML カラー形式 # 、RRGGBB 形式 ("FFA500" など) または名前付き HTML 色 ("オレンジ色" など) として表します。
-		 * @param color 
+		 * @param color
 		 */
 		setColor(color: string): void;
 		/**
 		 * 図形の線スタイルを表します。
 		 * 線が `null` 表示されない場合、または一貫性のない破線スタイルがある場合に返します。
 		 * 詳細は「`ExcelScript.ShapeLineDashStyle`」をご覧ください。
-		 * @param dashStyle 
+		 * @param dashStyle
 		 */
 		setDashStyle(dashStyle: ShapeLineDashStyle): void;
 		/**
 		 * 図形の線スタイルを表します。
 		 * 線が `null` 表示されないか、スタイルが一貫性のない場合に返します。
 		 * 詳細は「`ExcelScript.ShapeLineStyle`」をご覧ください。
-		 * @param style 
+		 * @param style
 		 */
 		setStyle(style: ShapeLineStyle): void;
 		/**
 		 * 指定された線の透明度を示す 0.0 (不透明) から 1.0 (透明) までの値を表します。
 		 * 図形の `null` 透明度が一貫性のない場合に返します。
-		 * @param transparency 
+		 * @param transparency
 		 */
 		setTransparency(transparency: number): void;
 		/**
 		 * 図形要素の線の書式設定が表示される場合に指定します。
 		 * 図形の `null` 表示が一貫性のない場合に返します。
-		 * @param visible 
+		 * @param visible
 		 */
 		setVisible(visible: boolean): void;
 		/**
 		 * 線の太さ (ポイント数) を表します。
 		 * 線が `null` 表示されない場合、または線の太さがない場合に返します。
-		 * @param weight 
+		 * @param weight
 		 */
 		setWeight(weight: number): void;
 	}

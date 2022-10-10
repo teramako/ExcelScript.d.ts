@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		open,
 		oval,
 		stealth,
-		triangle
+		triangle,
 	}
 }

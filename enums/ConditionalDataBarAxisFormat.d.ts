@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 	export enum ConditionalDataBarAxisFormat {
 		automatic,
 		cellMidPoint,
-		none
+		none,
 	}
 }

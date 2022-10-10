@@ -67,6 +67,6 @@ declare namespace ExcelScript {
 		/**
 		 * 計算が不明であるか、サポートされていません。
 		 */
-		unknown
+		unknown,
 	}
 }

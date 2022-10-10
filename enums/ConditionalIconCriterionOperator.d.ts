@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 	export enum ConditionalIconCriterionOperator {
 		greaterThan,
 		greaterThanOrEqual,
-		invalid
+		invalid,
 	}
 }

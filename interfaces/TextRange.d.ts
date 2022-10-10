@@ -21,7 +21,7 @@ declare namespace ExcelScript {
 		getText(): string;
 		/**
 		 * テキスト範囲のプレーン テキスト コンテンツを表します。
-		 * @param text 
+		 * @param text
 		 */
 		setText(text: string): void;
 	}

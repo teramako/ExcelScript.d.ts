@@ -46,6 +46,6 @@ declare namespace ExcelScript {
 		/**
 		 * これにより、軸は 1 兆単位で設定されます。
 		 */
-		trillions
+		trillions,
 	}
 }

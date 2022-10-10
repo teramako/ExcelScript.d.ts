@@ -18,6 +18,6 @@ declare namespace ExcelScript {
 		/**
 		 * 奇数ページと偶数ページには異なるヘッダー/フッターがあります。
 		 */
-		oddAndEven
+		oddAndEven,
 	}
 }

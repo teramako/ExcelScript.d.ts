@@ -4,6 +4,6 @@ declare namespace ExcelScript {
 	 */
 	export enum ChartUnderlineStyle {
 		none,
-		single
+		single,
 	}
 }

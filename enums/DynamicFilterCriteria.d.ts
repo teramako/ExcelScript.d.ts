@@ -37,6 +37,6 @@ declare namespace ExcelScript {
 		tomorrow,
 		unknown,
 		yearToDate,
-		yesterday
+		yesterday,
 	}
 }

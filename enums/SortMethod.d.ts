@@ -4,6 +4,6 @@ declare namespace ExcelScript {
 	 */
 	export enum SortMethod {
 		pinYin,
-		strokeCount
+		strokeCount,
 	}
 }

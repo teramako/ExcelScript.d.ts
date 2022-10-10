@@ -16,6 +16,6 @@ declare namespace ExcelScript {
 		/**
 		 * 右から左の読み取り順序
 		 */
-		rightToLeft
+		rightToLeft,
 	}
 }

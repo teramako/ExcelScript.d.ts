@@ -71,6 +71,6 @@ declare namespace ExcelScript {
 		xyscatterLines,
 		xyscatterLinesNoMarkers,
 		xyscatterSmooth,
-		xyscatterSmoothNoMarkers
+		xyscatterSmoothNoMarkers,
 	}
 }

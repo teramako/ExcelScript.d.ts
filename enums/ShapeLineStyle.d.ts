@@ -27,6 +27,6 @@ declare namespace ExcelScript {
 		/**
 		 * 2 本の細い線。
 		 */
-		thinThin
+		thinThin,
 	}
 }

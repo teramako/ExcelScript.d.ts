@@ -8,6 +8,6 @@ declare namespace ExcelScript {
 		dashDot,
 		dashDotDot,
 		dot,
-		none
+		none,
 	}
 }

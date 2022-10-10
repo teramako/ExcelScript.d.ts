@@ -55,6 +55,6 @@ declare namespace ExcelScript {
 		/**
 		 * VARP 関数と同等のデータの分散を使用して集計します。
 		 */
-		varianceP
+		varianceP,
 	}
 }

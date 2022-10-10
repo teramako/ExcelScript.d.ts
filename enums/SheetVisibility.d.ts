@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	export enum SheetVisibility {
 		hidden,
 		veryHidden,
-		visible
+		visible,
 	}
 }

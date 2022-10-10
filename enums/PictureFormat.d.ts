@@ -24,6 +24,6 @@ declare namespace ExcelScript {
 		 * スケーラブル ベクター グラフィック。
 		 */
 		svg,
-		unknown
+		unknown,
 	}
 }

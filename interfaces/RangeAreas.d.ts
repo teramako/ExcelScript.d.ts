@@ -41,11 +41,11 @@ declare namespace ExcelScript {
 		 * @param transpose True の場合は、変換先のセルを入れ替えます RangeAreas. 既定値は false です。
 		 */
 		copyFrom(
-            sourceRange: Range | RangeAreas | string,
-            copyType?: RangeCopyType,
-            skipBlanks?: boolean,
-            transpose?: boolean
-        ): void;
+			sourceRange: Range | RangeAreas | string,
+			copyType?: RangeCopyType,
+			skipBlanks?: boolean,
+			transpose?: boolean,
+		): void;
 		/**
 		 * A1 スタイルで参照を `RangeAreas` 返します。
 		 * アドレス値には、セルの各四角形ブロックのワークシート名が含まれます (例: "Sheet1!A1:B4、Sheet1!D1:D4")。
@@ -117,9 +117,9 @@ declare namespace ExcelScript {
 		 * @param columnOffset オフセットする列の数 (正、負、または 0)。`RangeAreas` 正の値は右方向、負の値は左方向のオフセットを表します。
 		 */
 		getOffsetRangeAreas(
-            rowOffset: number,
-            columnOffset: number
-        ): RangeAreas;
+			rowOffset: number,
+			columnOffset: number,
+		): RangeAreas;
 		/**
 		 * この `RangeAreas` オブジェクト内のすべての範囲のスタイルを表します。
 		 * セルのスタイルが一貫性がない場合は、 `null` 返されます。
@@ -136,9 +136,9 @@ declare namespace ExcelScript {
 		 * この引数を省略すると、すべての定数および数式が対象になります。
 		 */
 		getSpecialCells(
-            cellType: SpecialCellType,
-            cellValueType?: SpecialCellValueType
-        ): RangeAreas;
+			cellType: SpecialCellType,
+			cellValueType?: SpecialCellValueType,
+		): RangeAreas;
 		/**
 		 * この `RangeAreas` オブジェクト内の任意の範囲と重複するテーブルのスコープ付きコレクションを返します。
 		 * @param fullyContained もし `true`は、範囲内に完全に含まれるテーブルのみを返します。 既定値は `false` です.
@@ -163,7 +163,7 @@ declare namespace ExcelScript {
 		 * セルのスタイルが一貫性がない場合は、 `null` 返されます。
 		 * カスタム スタイルの場合、スタイル名が返されます。
 		 * 組み込みのスタイルの場合、列挙型の値を `BuiltInStyle` 表す文字列が返されます。
-		 * @param predefinedCellStyle 
+		 * @param predefinedCellStyle
 		 */
 		setPredefinedCellStyle(predefinedCellStyle: string): void;
 	}

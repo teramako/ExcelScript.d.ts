@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		splitByCustomSplit,
 		splitByPercentValue,
 		splitByPosition,
-		splitByValue
+		splitByValue,
 	}
 }

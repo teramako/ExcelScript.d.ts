@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	 */
 	export enum ShapeTextReadingOrder {
 		leftToRight,
-		rightToLeft
+		rightToLeft,
 	}
 }

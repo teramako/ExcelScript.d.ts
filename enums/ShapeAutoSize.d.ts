@@ -19,6 +19,6 @@ declare namespace ExcelScript {
 		/**
 		 * テキストは図形に合わせて調整されます。
 		 */
-		autoSizeTextToFitShape
+		autoSizeTextToFitShape,
 	}
 }

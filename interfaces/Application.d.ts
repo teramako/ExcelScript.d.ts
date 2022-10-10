@@ -63,7 +63,7 @@ declare namespace ExcelScript {
 		 * - `Automatic`、ここで、Excel再計算を制御します
 		 * - `AutomaticExceptTables`で、Excel再計算を制御しますが、テーブルの変更は無視されます。
 		 * - `Manual`で、ユーザーが要求した場合に計算が行われます。
-		 * @param calculationMode 
+		 * @param calculationMode
 		 */
 		setCalculationMode(calculationMode: CalculationMode): void;
 	}

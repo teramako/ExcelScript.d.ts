@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		/**
 		 * 下の行を処理する前に反対側のページや右側のページのフィールドを処理します。
 		 */
-		overThenDown
+		overThenDown,
 	}
 }

@@ -34,27 +34,27 @@ declare namespace ExcelScript {
 		getSummarizeBy(): AggregationFunction;
 		/**
 		 * DataPivotHierarchy の名前。
-		 * @param name 
+		 * @param name
 		 */
 		setName(name: string): void;
 		/**
 		 * DataPivotHierarchy の数値形式。
-		 * @param numberFormat 
+		 * @param numberFormat
 		 */
 		setNumberFormat(numberFormat: string): void;
 		/**
 		 * DataPivotHierarchy の位置。
-		 * @param position 
+		 * @param position
 		 */
 		setPosition(position: number): void;
 		/**
 		 * データを特定の集計計算として表示するかどうかを指定します。
-		 * @param showAs 
+		 * @param showAs
 		 */
 		setShowAs(showAs: ShowAsRule): void;
 		/**
 		 * DataPivotHierarchy のすべての項目を表示するかどうかを指定します。
-		 * @param summarizeBy 
+		 * @param summarizeBy
 		 */
 		setSummarizeBy(summarizeBy: AggregationFunction): void;
 		/**

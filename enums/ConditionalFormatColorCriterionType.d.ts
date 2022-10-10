@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		lowestValue,
 		number,
 		percent,
-		percentile
+		percentile,
 	}
 }

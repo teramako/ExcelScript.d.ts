@@ -28,7 +28,9 @@ declare namespace ExcelScript {
 		 * ボックスグラフとひげグラフの四分位計算の種類を指定します。
 		 * @param quartileCalculation
 		 */
-		setQuartileCalculation(quartileCalculation: ChartBoxQuartileCalculation): void;
+		setQuartileCalculation(
+			quartileCalculation: ChartBoxQuartileCalculation,
+		): void;
 		/**
 		 * ボックスとひげグラフに内側の点を表示する場合に指定します。
 		 * @param showInnerPoints

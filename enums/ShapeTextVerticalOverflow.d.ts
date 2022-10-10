@@ -15,6 +15,6 @@ declare namespace ExcelScript {
 		/**
 		 * テキストはレイアウト枠を垂直方向にはみ出すことができます (テキストの配置によって、上、下、または両方からはみ出します)。
 		 */
-		overflow
+		overflow,
 	}
 }

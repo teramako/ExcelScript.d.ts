@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 		asDisplayed,
 		blank,
 		dash,
-		notAvailable
+		notAvailable,
 	}
 }

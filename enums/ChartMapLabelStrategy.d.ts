@@ -7,6 +7,6 @@ declare namespace ExcelScript {
 	export enum ChartMapLabelStrategy {
 		bestFit,
 		none,
-		showAll
+		showAll,
 	}
 }

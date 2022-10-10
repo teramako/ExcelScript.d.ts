@@ -6,6 +6,6 @@ declare namespace ExcelScript {
 	export enum ChartErrorBarsInclude {
 		both,
 		minusValues,
-		plusValues
+		plusValues,
 	}
 }

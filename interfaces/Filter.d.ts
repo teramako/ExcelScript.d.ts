@@ -30,7 +30,11 @@ declare namespace ExcelScript {
 		 * @param criteria2 省略可能。 2 つ目の条件の文字列です。
 		 * @param oper 省略可能。 2 つの条件を結合する方法を記述する演算子です。
 		 */
-		applyCustomFilter(criteria1: string, criteria2?: string, oper?: FilterOperator): void;
+		applyCustomFilter(
+			criteria1: string,
+			criteria2?: string,
+			oper?: FilterOperator,
+		): void;
 		/**
 		 * 列に "動的" フィルターを適用します。
 		 * @param criteria 適用する動的条件。

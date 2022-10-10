@@ -5,6 +5,6 @@ declare namespace ExcelScript {
 	 */
 	export enum ConditionalFormatDirection {
 		bottom,
-		top
+		top,
 	}
 }

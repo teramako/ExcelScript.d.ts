@@ -10,6 +10,6 @@ declare namespace ExcelScript {
 		dot,
 		double,
 		none,
-		slantDashDot
+		slantDashDot,
 	}
 }

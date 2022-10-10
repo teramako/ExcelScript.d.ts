@@ -59,7 +59,11 @@ declare namespace ExcelScript {
 		 * @param height 省略可能。結果の画像の希望する高さ。
 		 * @param fittingMode 省略可能。 グラフを指定したディメンションにスケールするために使用するメソッド (高さと幅の両方が設定されている場合)。
 		 */
-		getImage(width?: number, height?: number, fittingMode?: ImageFittingMode): string;
+		getImage(
+			width?: number,
+			height?: number,
+			fittingMode?: ImageFittingMode,
+		): string;
 		/**
 		 * グラフの左側からワークシートの原点までの距離 (ポイント単位)。
 		 */
