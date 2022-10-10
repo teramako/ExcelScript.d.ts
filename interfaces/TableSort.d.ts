@@ -1,3 +1,5 @@
+/// <reference path="../enums/SortMethod.d.ts" />
+/// <reference path="./SortField.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * オブジェクトの並べ替え操作を `Table` 管理します。

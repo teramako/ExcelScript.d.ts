@@ -1,3 +1,4 @@
+/// <reference path="../enums/ChartUnderlineStyle.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * このオブジェクトは、グラフ オブジェクトのフォント属性 (フォント名、フォント サイズ、色など) を表します。

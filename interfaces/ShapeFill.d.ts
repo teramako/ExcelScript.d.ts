@@ -1,3 +1,4 @@
+/// <reference path="../enums/ShapeFillType.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * 図形オブジェクトの塗りつぶしの書式設定を表します。

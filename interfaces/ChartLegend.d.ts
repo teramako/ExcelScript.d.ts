@@ -1,3 +1,6 @@
+/// <reference path="../enums/ChartLegendPosition.d.ts"/>
+/// <reference path="./ChartLegendEntry.d.ts"/>
+/// <reference path="./ChartLegendFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフに凡例を表します。

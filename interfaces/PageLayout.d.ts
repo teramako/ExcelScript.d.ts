@@ -1,3 +1,12 @@
+/// <reference path="../enums/PageOrientation.d.ts"/>
+/// <reference path="../enums/PaperType.d.ts"/>
+/// <reference path="../enums/PrintComments.d.ts"/>
+/// <reference path="../enums/PrintErrorType.d.ts"/>
+/// <reference path="../enums/PrintMarginUnit.d.ts"/>
+/// <reference path="../enums/PrintOrder.d.ts"/>
+/// <reference path="./HeaderFooterGroup.d.ts"/>
+/// <reference path="./PageLayoutMarginOptions.d.ts"/>
+/// <reference path="./PageLayoutZoomOptions.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * プリンター固有の実装に依存しないレイアウトと印刷の設定を表します。

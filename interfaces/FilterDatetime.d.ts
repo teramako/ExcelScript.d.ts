@@ -1,3 +1,4 @@
+/// <reference path="../enums/FilterDatetimeSpecificity.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 値をフィルター処理するときに日付をフィルター処理する方法を表します。

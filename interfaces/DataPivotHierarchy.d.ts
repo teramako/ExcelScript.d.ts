@@ -1,3 +1,5 @@
+/// <reference path="../enums/AggregationFunction.d.ts"/>
+/// <reference path="./ShowAsRule.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * Excel DataPivotHierarchy を表します。

@@ -1,3 +1,4 @@
+/// <reference path="./ChartAxisTitleFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフ軸のタイトルを表します。

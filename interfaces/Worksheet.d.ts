@@ -1,3 +1,19 @@
+/// <reference path="../enums/ChartSeriesBy.d.ts"/>
+/// <reference path="../enums/ChartType.d.ts"/>
+/// <reference path="../enums/ConnectorType.d.ts"/>
+/// <reference path="../enums/GeometricShapeType.d.ts"/>
+/// <reference path="../enums/SheetVisibility.d.ts"/>
+/// <reference path="../enums/WorksheetPositionType.d.ts"/>
+/// <reference path="./AutoFilter.d.ts"/>
+/// <reference path="./NamedSheetView.d.ts"/>
+/// <reference path="./PageBreak.d.ts"/>
+/// <reference path="./ReplaceCriteria.d.ts"/>
+/// <reference path="./Shape.d.ts"/>
+/// <reference path="./WorksheetCustomProperty.d.ts"/>
+/// <reference path="./WorksheetFreezePanes.d.ts"/>
+/// <reference path="./WorksheetProtection.d.ts"/>
+/// <reference path="./WorksheetSearchCriteria.d.ts"/>
+/// <reference path="./pageLayout.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * Excel のワークシートは、セルのグリッドです。 データ、表、グラフなどを含めることができます。

@@ -1,3 +1,17 @@
+/// <reference path="../enums/ChartGradientStyle.d.ts"/>
+/// <reference path="../enums/ChartGradientStyleType.d.ts"/>
+/// <reference path="../enums/ChartMarkerStyle.d.ts"/>
+/// <reference path="../enums/ChartParentLabelStrategy.d.ts"/>
+/// <reference path="../enums/ChartSeriesDimension.d.ts"/>
+/// <reference path="../enums/ChartSplitType.d.ts"/>
+/// <reference path="../enums/ChartTrendLineType.d.ts"/>
+/// <reference path="./ChartBinOptions.d.ts"/>
+/// <reference path="./ChartBoxwhiskerOptions.d.ts"/>
+/// <reference path="./ChartErrorBars.d.ts"/>
+/// <reference path="./ChartMapOptions.d.ts"/>
+/// <reference path="./ChartPoint.d.ts"/>
+/// <reference path="./ChartSeriesFormat.d.ts"/>
+/// <reference path="./ChartTrendline.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフのデータ系列を表します。

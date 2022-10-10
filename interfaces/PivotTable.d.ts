@@ -1,3 +1,8 @@
+/// <reference path="./DataPivotHierarchy.d.ts"/>
+/// <reference path="./FilterPivotHierarchy.d.ts"/>
+/// <reference path="./PivotHierarchy.d.ts"/>
+/// <reference path="./PivotLayout.d.ts"/>
+/// <reference path="./RowColumnPivotHierarchy.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * Excel のピボットテーブルを表します。

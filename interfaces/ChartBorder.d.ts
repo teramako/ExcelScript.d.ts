@@ -1,3 +1,4 @@
+/// <reference path="../enums/ChartLineStyle.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフ要素の罫線の書式設定を表します。

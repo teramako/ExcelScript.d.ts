@@ -1,3 +1,5 @@
+/// <reference path="../enums/ShapeLineDashStyle.d.ts" />
+/// <reference path="../enums/ShapeLineStyle.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * 図形オブジェクトの線の書式設定を表します。

@@ -1,3 +1,4 @@
+/// <reference path="./WorksheetProtectionOptions.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ワークシート オブジェクトの保護を表します。

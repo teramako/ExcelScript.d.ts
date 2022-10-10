@@ -1,3 +1,4 @@
+/// <reference path="../enums/ConditionalCellValueOperator.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * セル値の条件付き書式ルールを表します。

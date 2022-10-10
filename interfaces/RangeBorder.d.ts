@@ -1,3 +1,6 @@
+/// <reference path="../enums/BorderIndex.d.ts"/>
+/// <reference path="../enums/BorderLineStyle.d.ts"/>
+/// <reference path="../enums/BorderWeight.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * オブジェクトの輪郭を表します。

@@ -1,3 +1,29 @@
+/// <reference path="../enums/BindingType.d.ts" />
+/// <reference path="../enums/ContentType.d.ts"/>
+/// <reference path="../enums/WorkbookLinksRefreshMode.d.ts"/>
+/// <reference path="./Application.d.ts"/>
+/// <reference path="./Binding.d.ts"/>
+/// <reference path="./Chart.d.ts"/>
+/// <reference path="./Comment.d.ts"/>
+/// <reference path="./CommentRichContent.d.ts"/>
+/// <reference path="./CustomXmlPart.d.ts"/>
+/// <reference path="./DocumentProperties.d.ts"/>
+/// <reference path="./LinkedWorkbook.d.ts"/>
+/// <reference path="./NamedItem.d.ts"/>
+/// <reference path="./PivotField.d.ts"/>
+/// <reference path="./PivotTable.d.ts"/>
+/// <reference path="./PivotTableStyle.d.ts"/>
+/// <reference path="./PredefinedCellStyle.d.ts"/>
+/// <reference path="./Range.d.ts"/>
+/// <reference path="./RangeAreas.d.ts"/>
+/// <reference path="./Slicer.d.ts"/>
+/// <reference path="./SlicerStyle.d.ts"/>
+/// <reference path="./Table.d.ts"/>
+/// <reference path="./TableColumn.d.ts"/>
+/// <reference path="./TableStyle.d.ts"/>
+/// <reference path="./TimelineStyle.d.ts"/>
+/// <reference path="./WorkbookProtection.d.ts"/>
+/// <reference path="./Worksheet.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ブックは、ワークシート、テーブル、範囲などの関連するブック オブジェクトを含む最上位レベルのオブジェクトです。

@@ -1,3 +1,4 @@
+/// <reference path="./ShapeFont.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 図形に結合するテキストや、テキストを操作するためのプロパティおよびメソッドが含まれます。

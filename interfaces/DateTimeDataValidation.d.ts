@@ -1,3 +1,4 @@
+/// <reference path="../enums/DataValidationOperator.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 日付データの検証条件を表します。

@@ -1,3 +1,4 @@
+/// <reference path="./FilterCriteria.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * オブジェクトを `AutoFilter` 表します。

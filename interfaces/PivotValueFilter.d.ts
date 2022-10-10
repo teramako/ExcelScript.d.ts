@@ -1,3 +1,5 @@
+/// <reference path="../enums/TopBottomSelectionType.d.ts"/>
+/// <reference path="../enums/ValueFilterCondition.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * PivotField に適用する値フィルターの構成可能なテンプレート。

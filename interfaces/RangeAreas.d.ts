@@ -1,3 +1,11 @@
+/// <reference path="../enums/ClearApplyTo.d.ts"/>
+/// <reference path="../enums/ConditionalFormatType.d.ts"/>
+/// <reference path="../enums/RangeCopyType.d.ts"/>
+/// <reference path="../enums/SpecialCellType.d.ts"/>
+/// <reference path="../enums/SpecialCellValueType.d.ts"/>
+/// <reference path="./ConditionalFormat.d.ts"/>
+/// <reference path="./DataValidation.d.ts"/>
+/// <reference path="./RangeFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * `RangeAreas` は、同じワークシート内の 1 つまたは複数の四角形の範囲のコレクションを表します。

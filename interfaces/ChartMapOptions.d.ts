@@ -1,3 +1,6 @@
+/// <reference path="../enums/ChartMapAreaLevel.d.ts"/>
+/// <reference path="../enums/ChartMapLabelStrategy.d.ts"/>
+/// <reference path="../enums/ChartMapProjectionType.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 地域マップ グラフのプロパティをカプセル化します。

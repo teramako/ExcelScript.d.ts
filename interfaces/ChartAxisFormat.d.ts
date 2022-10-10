@@ -1,3 +1,4 @@
+/// <reference path="./ChartLineFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフ軸の書式設定プロパティをカプセル化します。

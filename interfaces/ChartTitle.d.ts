@@ -1,3 +1,6 @@
+/// <reference path="../enums/ChartTitlePosition.d.ts"/>
+/// <reference path="./ChartFormatString.d.ts"/>
+/// <reference path="./ChartTitleFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフのグラフ タイトルのオブジェクトを表します。

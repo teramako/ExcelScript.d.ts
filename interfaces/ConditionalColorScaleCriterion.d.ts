@@ -1,3 +1,4 @@
+/// <reference path="../enums/ConditionalFormatColorCriterionType.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 型、値、および色を含む色スケール基準を表します。

@@ -1,3 +1,4 @@
+/// <reference path="../enums/ProtectionSelectionMode.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * シート保護のオプションを表します。

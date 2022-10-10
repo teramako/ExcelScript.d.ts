@@ -1,3 +1,6 @@
+/// <reference path="../enums/ChartMarkerStyle.d.ts"/>
+/// <reference path="./ChartDataLabel.d.ts"/>
+/// <reference path="./ChartPointFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフの系列のポイントを表します。

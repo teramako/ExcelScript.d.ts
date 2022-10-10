@@ -1,3 +1,7 @@
+/// <reference path="./PivotDateFilter.d.ts"/>
+/// <reference path="./PivotLabelFilter.d.ts"/>
+/// <reference path="./PivotManualFilter.d.ts"/>
+/// <reference path="./PivotValueFilter.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 特定の PivotField に現在適用されているすべての PivotFilter を表すインターフェイス。

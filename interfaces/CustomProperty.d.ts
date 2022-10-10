@@ -1,3 +1,4 @@
+/// <reference path="../enums/DocumentPropertyType.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * カスタム プロパティを表します。
@@ -21,12 +22,14 @@ declare namespace ExcelScript {
 		 * カスタム プロパティの値を指定します。
 		 * この値は、Excel on the web 以外の 255 文字に制限されます (大きい値は、他のプラットフォームでは自動的に 255 文字にトリミングされます)。
 		 */
+		// deno-lint-ignore no-explicit-any
 		getValue(): any;
 		/**
 		 * カスタム プロパティの値を指定します。
 		 * この値は、Excel on the web 以外の 255 文字に制限されます (大きい値は、他のプラットフォームでは自動的に 255 文字にトリミングされます)。
 		 * @param value
 		 */
+		// deno-lint-ignore no-explicit-any
 		setValue(value: any): void;
 	}
 }

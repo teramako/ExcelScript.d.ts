@@ -1,3 +1,5 @@
+/// <reference path="../enums/HeaderFooterState.d.ts"/>
+/// <reference path="./HeaderFooter.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * @see [ExcelScript.HeaderFooterGroup interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.headerfootergroup?view=office-scripts)

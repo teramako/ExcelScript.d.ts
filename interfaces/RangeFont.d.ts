@@ -1,3 +1,4 @@
+/// <reference path="../enums/RangeUnderlineStyle.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * このオブジェクトは、オブジェクトのフォントの属性 (フォント名、フォント サイズ、色など) を表します。

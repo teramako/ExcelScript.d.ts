@@ -1,3 +1,4 @@
+/// <reference path="../enums/ShapeFontUnderlineStyle.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * 図形のオブジェクトのフォント名、フォント サイズ、色などのフォント属性を表 `TextRange` します。

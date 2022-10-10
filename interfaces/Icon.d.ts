@@ -1,3 +1,4 @@
+/// <reference path="../enums/IconSet.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * セルのアイコンを表します。

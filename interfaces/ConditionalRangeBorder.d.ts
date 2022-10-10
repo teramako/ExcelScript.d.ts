@@ -1,3 +1,5 @@
+/// <reference path="../enums/ConditionalRangeBorderIndex.d.ts"/>
+/// <reference path="../enums/ConditionalRangeBorderLineStyle.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * オブジェクトの輪郭を表します。

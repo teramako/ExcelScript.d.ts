@@ -1,3 +1,4 @@
+/// <reference path="./PivotItem.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * PivotField に適用する手動フィルターの構成可能なテンプレート。

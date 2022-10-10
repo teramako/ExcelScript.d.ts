@@ -1,3 +1,14 @@
+/// <reference path="../enums/ChartDisplayBlanksAs.d.ts"/>
+/// <reference path="../enums/ChartPlotBy.d.ts"/>
+/// <reference path="../enums/ImageFittingMode.d.ts"/>
+/// <reference path="./ChartAreaFormat.d.ts"/>
+/// <reference path="./ChartAxes.d.ts"/>
+/// <reference path="./ChartDataLabels.d.ts"/>
+/// <reference path="./ChartLegend.d.ts"/>
+/// <reference path="./ChartPivotOptions.d.ts"/>
+/// <reference path="./ChartPlotArea.d.ts"/>
+/// <reference path="./ChartSeries.d.ts"/>
+/// <reference path="./ChartTitle.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ブック内のグラフ オブジェクトを表します。

@@ -1,3 +1,6 @@
+/// <reference path="./ConditionalRangeBorder.d.ts"/>
+/// <reference path="./ConditionalRangeFill.d.ts"/>
+/// <reference path="./ConditionalRangeFont.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 条件付き書式範囲のフォント、塗りつぶし、罫線、その他のプロパティをカプセル化する format オブジェクト。

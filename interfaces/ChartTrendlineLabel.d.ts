@@ -1,3 +1,4 @@
+/// <reference path="./ChartTrendlineLabelFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * このオブジェクトは、グラフの傾向線ラベル オブジェクトの属性を表します。

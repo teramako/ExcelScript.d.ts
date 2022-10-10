@@ -1,3 +1,4 @@
+/// <reference path="../enums/ChartBoxQuartileCalculation.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ボックスグラフとひげグラフのプロパティを表します。

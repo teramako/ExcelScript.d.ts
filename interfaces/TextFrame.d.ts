@@ -1,3 +1,11 @@
+/// <reference path="../enums/ShapeAutoSize.d.ts"/>
+/// <reference path="../enums/ShapeTextHorizontalAlignment.d.ts" />
+/// <reference path="../enums/ShapeTextHorizontalOverflow.d.ts" />
+/// <reference path="../enums/ShapeTextOrientation.d.ts" />
+/// <reference path="../enums/ShapeTextReadingOrder.d.ts" />
+/// <reference path="../enums/ShapeTextVerticalAlignment.d.ts" />
+/// <reference path="../enums/ShapeTextVerticalOverflow.d.ts" />
+/// <reference path="./TextRange.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * 図形オブジェクトのテキスト フレームを表します。

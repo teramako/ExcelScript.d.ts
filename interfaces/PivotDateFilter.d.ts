@@ -1,3 +1,5 @@
+/// <reference path="../enums/DateFilterCondition.d.ts"/>
+/// <reference path="./FilterDatetime.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * PivotField に適用する日付フィルターの構成可能なテンプレート。

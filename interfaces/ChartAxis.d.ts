@@ -1,3 +1,14 @@
+/// <reference path="../enums/ChartAxisCategoryType.d.ts"/>
+/// <reference path="../enums/ChartAxisDisplayUnit.d.ts"/>
+/// <reference path="../enums/ChartAxisPosition.d.ts"/>
+/// <reference path="../enums/ChartAxisScaleType.d.ts"/>
+/// <reference path="../enums/ChartAxisTickLabelPosition.d.ts"/>
+/// <reference path="../enums/ChartAxisTickMark.d.ts"/>
+/// <reference path="../enums/ChartAxisTimeUnit.d.ts"/>
+/// <reference path="../enums/ChartTickLabelAlignment.d.ts"/>
+/// <reference path="./ChartAxisFormat.d.ts"/>
+/// <reference path="./ChartAxisTitle.d.ts"/>
+/// <reference path="./ChartGridlines.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフの 1 つの軸を表します。

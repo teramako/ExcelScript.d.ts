@@ -1,3 +1,5 @@
+/// <reference path="../enums/ShowAsCalculation.d.ts" />
+/// <reference path="./PivotItem.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * @see [ExcelScript.ShowAsRule interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.showasrule?view=office-scripts)

@@ -1,3 +1,4 @@
+/// <reference path="../enums/FillPattern.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * Range オブジェクトの背景を表します。

@@ -1,3 +1,4 @@
+/// <reference path="../enums/RangeValueType.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * RangeView は、親の範囲の表示されているセルのセットを表します。

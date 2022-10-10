@@ -1,3 +1,6 @@
+/// <reference path="../enums/ChartErrorBarsInclude.d.ts"/>
+/// <reference path="../enums/ChartErrorBarsType.d.ts"/>
+/// <reference path="./ChartErrorBarsFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * このオブジェクトは、グラフのエラー バーの属性を表します。

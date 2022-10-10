@@ -1,3 +1,4 @@
+/// <reference path="../enums/SearchDirection.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 使用する検索条件を表します。

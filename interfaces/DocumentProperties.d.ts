@@ -1,3 +1,4 @@
+/// <reference path="./CustomProperty.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ブックのプロパティを表します。
@@ -11,6 +12,7 @@ declare namespace ExcelScript {
 		 * @param value 必須です。 カスタム プロパティの値。
 		 * 値は、Excel on the webの外側で 255 文字に制限されます (大きい値は、他のプラットフォームでは 255 文字に自動的にトリミングされます)。
 		 */
+		// deno-lint-ignore no-explicit-any
 		addCustomProperty(key: string, value: any): CustomProperty;
 		/**
 		 * このコレクション内のすべてのカスタム プロパティを削除します。

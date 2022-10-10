@@ -1,3 +1,7 @@
+/// <reference path="../enums/DataValidationType.d.ts"/>
+/// <reference path="./DataValidationErrorAlert.d.ts"/>
+/// <reference path="./DataValidationPrompt.d.ts"/>
+/// <reference path="./DataValidationRule.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 現在の範囲に適用されているデータ検証を表します。

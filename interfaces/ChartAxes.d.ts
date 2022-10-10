@@ -1,3 +1,6 @@
+/// <reference path="../enums/ChartAxisGroup.d.ts"/>
+/// <reference path="../enums/ChartAxisType.d.ts"/>
+/// <reference path="./ChartAxis.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフの軸を表します。

@@ -1,3 +1,7 @@
+/// <reference path="./BasicDataValidation.d.ts"/>
+/// <reference path="./CustomDataValidation.d.ts"/>
+/// <reference path="./DateTimeDataValidation.d.ts"/>
+/// <reference path="./ListDataValidation.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * データ検証ルールには、さまざまな種類のデータ検証が含まれる。

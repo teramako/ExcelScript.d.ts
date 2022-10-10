@@ -1,3 +1,5 @@
+/// <reference path="./ConditionalCellValueRule.d.ts"/>
+/// <reference path="./ConditionalRangeFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * セル値の条件付き書式を表します。

@@ -1,3 +1,6 @@
+/// <reference path="../enums/ArrowheadLength.d.ts"/>
+/// <reference path="../enums/ArrowheadStyle.d.ts"/>
+/// <reference path="../enums/ArrowheadWidth.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ワークシート内の行を表します。

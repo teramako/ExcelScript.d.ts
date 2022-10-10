@@ -1,3 +1,4 @@
+/// <reference path="../enums/LabelFilterCondition.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * PivotField に適用するラベル フィルター用の構成可能なテンプレート。

@@ -1,8 +1,22 @@
-/**
- * 範囲は、セル、行、列、セルのブロックなど、1 つ以上の連続するセルのセットを表します。
- * @see [ExcelScript.Range interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.range?view=office-scripts)
- */
+/// <reference path="../enums/AutoFillType.d.ts"/>
+/// <reference path="../enums/DeleteShiftDirection.d.ts"/>
+/// <reference path="../enums/GroupOption.d.ts"/>
+/// <reference path="../enums/InsertShiftDirection.d.ts"/>
+/// <reference path="../enums/KeyboardDirection.d.ts"/>
+/// <reference path="../enums/LinkedDataTypeState.d.ts"/>
+/// <reference path="../enums/NumberFormatCategory.d.ts"/>
+/// <reference path="../enums/RangeValueType.d.ts"/>
+/// <reference path="./RangeHyperlink.d.ts"/>
+/// <reference path="./RangeSort.d.ts"/>
+/// <reference path="./RangeView.d.ts"/>
+/// <reference path="./RemoveDuplicatesResult.d.ts"/>
+/// <reference path="./SearchCriteria.d.ts"/>
+/// <reference path="./WorkBookRangeAreas.d.ts"/>
 declare namespace ExcelScript {
+	/**
+	 * 範囲は、セル、行、列、セルのブロックなど、1 つ以上の連続するセルのセットを表します。
+	 * @see [ExcelScript.Range interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.range?view=office-scripts)
+	 */
 	export interface Range {
 		/**
 		 * 最初または最も優先度の高い新しい条件付き書式をコレクションに追加します。
@@ -663,6 +677,7 @@ declare namespace ExcelScript {
 		 * 範囲に複数のセルが含まれている場合、指定された範囲内の各セルは入力データで更新されます。
 		 * @param value
 		 */
+		// deno-lint-ignore no-explicit-any
 		setValue(value: any): void;
 		/**
 		 * 指定した範囲の未加工の値を設定します。

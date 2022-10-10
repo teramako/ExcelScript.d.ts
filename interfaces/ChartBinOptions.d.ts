@@ -1,3 +1,4 @@
+/// <reference path="../enums/ChartBinType.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ヒストグラム図とパレート図のビンのオプションをカプセル化します。

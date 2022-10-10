@@ -1,3 +1,6 @@
+/// <reference path="../enums/SortDataOption.d.ts" />
+/// <reference path="../enums/SortOn.d.ts" />
+/// <reference path="./Icon.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * 並べ替え操作の条件を表します。

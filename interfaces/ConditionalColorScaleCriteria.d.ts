@@ -1,3 +1,4 @@
+/// <reference path="./ConditionalColorScaleCriterion.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * カラー スケールの条件を表します。

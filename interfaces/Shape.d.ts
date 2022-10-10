@@ -1,3 +1,16 @@
+/// <reference path="../enums/PictureFormat.d.ts" />
+/// <reference path="../enums/Placement.d.ts" />
+/// <reference path="../enums/ShapeScaleFrom.d.ts" />
+/// <reference path="../enums/ShapeScaleType.d.ts" />
+/// <reference path="../enums/ShapeType.d.ts" />
+/// <reference path="../enums/ShapeZOrder.d.ts" />
+/// <reference path="./GeometricShape.d.ts" />
+/// <reference path="./Image.d.ts" />
+/// <reference path="./Line.d.ts" />
+/// <reference path="./ShapeFill.d.ts" />
+/// <reference path="./ShapeGroup.d.ts" />
+/// <reference path="./ShapeLineFormat.d.ts" />
+/// <reference path="./TextFrame.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * ワークシート内の汎用図形オブジェクトを表します。

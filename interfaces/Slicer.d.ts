@@ -1,3 +1,5 @@
+/// <reference path="../enums/SlicerSortType.d.ts" />
+/// <reference path="./SlicerItem.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * ブック内の Slicer オブジェクトを表します。

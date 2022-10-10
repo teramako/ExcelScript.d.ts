@@ -1,3 +1,5 @@
+/// <reference path="../enums/DynamicFilterCriteria.d.ts"/>
+/// <reference path="../enums/FilterOperator.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * テーブルの列のフィルター処理を管理します。

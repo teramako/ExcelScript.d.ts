@@ -1,3 +1,7 @@
+/// <reference path="../enums/ChartDataLabelPosition.d.ts"/>
+/// <reference path="../enums/ChartTextHorizontalAlignment.d.ts"/>
+/// <reference path="../enums/ChartTextVerticalAlignment.d.ts"/>
+/// <reference path="./ChartDataLabelFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフ ポイントのデータ ラベルを表します。

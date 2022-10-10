@@ -1,3 +1,4 @@
+/// <reference path="../enums/FilterOn.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 列に適用するフィルター条件を表します。

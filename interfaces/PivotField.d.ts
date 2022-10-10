@@ -1,3 +1,6 @@
+/// <reference path="../enums/PivotFilterType.d.ts"/>
+/// <reference path="./PivotFilters.d.ts"/>
+/// <reference path="./Subtotals.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * Excel PivotField を表します。

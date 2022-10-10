@@ -1,3 +1,4 @@
+/// <reference path="./Filter.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * テーブル内にある 1 つの列を表します。

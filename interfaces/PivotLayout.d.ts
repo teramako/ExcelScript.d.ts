@@ -1,3 +1,6 @@
+/// <reference path="../enums/PivotLayoutType.d.ts"/>
+/// <reference path="../enums/SortBy.d.ts"/>
+/// <reference path="../enums/SubtotalLocationType.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ピボットテーブルの視覚的なレイアウトを表します。

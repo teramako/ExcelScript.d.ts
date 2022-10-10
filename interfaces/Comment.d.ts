@@ -1,3 +1,5 @@
+/// <reference path="./CommentReply.d.ts"/>
+/// <reference path="./CommentMention.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ブック内のコメントを表します。

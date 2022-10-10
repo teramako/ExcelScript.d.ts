@@ -1,3 +1,6 @@
+/// <reference path="../enums/NamedItemScope.d.ts"/>
+/// <reference path="../enums/NamedItemType.d.ts"/>
+/// <reference path="./NamedItemArrayValues.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * セルまたは値の範囲の定義済みの名前を表します。

@@ -1,3 +1,5 @@
+/// <reference path="../enums/ChartPlotAreaPosition.d.ts"/>
+/// <reference path="./ChartPlotAreaFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * このオブジェクトは、グラフ プロット領域の属性を表します。

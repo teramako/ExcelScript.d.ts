@@ -1,3 +1,11 @@
+/// <reference path="../enums/BorderIndex.d.ts" />
+/// <reference path="../enums/HorizontalAlignment.d.ts" />
+/// <reference path="../enums/ReadingOrder.d.ts" />
+/// <reference path="../enums/VerticalAlignment.d.ts" />
+/// <reference path="./FormatProtection.d.ts" />
+/// <reference path="./RangeBorder.d.ts" />
+/// <reference path="./RangeFill.d.ts" />
+/// <reference path="./RangeFont.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * 範囲のフォント、塗りつぶし、境界線、配置などのプロパティをカプセル化する、書式設定オブジェクトです。

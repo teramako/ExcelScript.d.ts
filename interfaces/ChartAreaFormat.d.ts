@@ -1,3 +1,7 @@
+/// <reference path="../enums/ChartColorScheme.d.ts"/>
+/// <reference path="./ChartBorder.d.ts"/>
+/// <reference path="./ChartFill.d.ts"/>
+/// <reference path="./ChartFont.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフ領域全体の書式設定プロパティをカプセル化します。

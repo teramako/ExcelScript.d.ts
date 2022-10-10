@@ -1,3 +1,4 @@
+/// <reference path="../enums/DataValidationAlertStyle.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * データ検証のエラー通知プロパティを表します。

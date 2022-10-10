@@ -1,4 +1,5 @@
 /// <reference path="./CellValueConditionalFormat.d.ts" />
+/// <reference path="./ColorScaleConditionalFormat.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * 条件付き書式の範囲、書式、規則、およびその他のプロパティをカプセル化するオブジェクト。

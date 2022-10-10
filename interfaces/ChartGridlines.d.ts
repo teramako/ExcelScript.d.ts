@@ -1,3 +1,4 @@
+/// <reference path="./ChartGridlinesFormat.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * グラフの軸の目盛線または補助目盛線を表します。

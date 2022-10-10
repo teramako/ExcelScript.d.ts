@@ -1,3 +1,4 @@
+/// <reference path="./TableSort.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * Excel の表を表します。
