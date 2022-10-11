@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"allowJs": false,
+		"strict": true,
+		"lib": [
+			"deno.window",
+			"./"
+		]
+	},
+	"fmt": {
+		"files": {
+			"include": [
+				"enums/",
+				"interfaces/",
+				"types/",
+				"functions/",
+				"build.ts"
+			]
+		},
+		"options": {
+			"useTabs": true,
+			"indentWidth": 4
+		}
+	},
+	"tasks": {
+		"build": "deno run --allow-read --allow-write=. build.ts"
+	}
+}
