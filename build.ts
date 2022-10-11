@@ -56,9 +56,9 @@ function loadFile(file: string): Promise<OSTS> {
  */
 class OSTS {
 	version = "0.2.0";
-    /**
-     * TypeScriptコード
-     */
+	/**
+	 * TypeScriptコード
+	 */
 	body = "";
 	/**
 	 * "main"関数の引数情報と返り値情報
