@@ -2,7 +2,9 @@ declare namespace ExcelScript {
 	/**
 	 * @see [ExcelScript.BorderIndex enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.borderindex?view=office-scripts)
 	 *
-	 * @example <caption>This script creates a border around a range.</caption>
+	 * @example
+	 * ```
+	 * // This script creates a border around a range.
 	 * function main(workbook: ExcelScript.Workbook) {
 	 *   // Get the RangeFormat object for the range "B2:G10".
 	 *   const currentSheet = workbook.getActiveWorksheet();
@@ -26,6 +28,7 @@ declare namespace ExcelScript {
 	 *   edgeRight.setStyle(ExcelScript.BorderLineStyle.dashDot);
 	 *   edgeRight.setWeight(ExcelScript.BorderWeight.thick);
 	 * }
+	 * ```
 	 */
 	export enum BorderIndex {
 		diagonalDown,

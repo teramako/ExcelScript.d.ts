@@ -3,7 +3,9 @@ declare namespace ExcelScript {
 	 * ブック内の範囲で AutoFill を使用する場合の動作の種類。
 	 * @see [ExcelScript.AutoFillType enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.autofilltype?view=office-scripts)
 	 *
-	 * @example <caption>This script uses the autofill feature to complete a table with days of the month.</caption>
+	 * @example
+	 * ```
+	 * // This script uses the autofill feature to complete a table with days of the month.
 	 * function main(workbook: ExcelScript.Workbook) {
 	 *   // Get the current, active worksheet.
 	 *   let currentWorksheet = workbook.getActiveWorksheet();
@@ -12,6 +14,7 @@ declare namespace ExcelScript {
 	 *   // Autofill the connected range. C2:C3 are filled in with dates. C4:C54 are blank.
 	 *   dataRange.autoFill("C2:C54", ExcelScript.AutoFillType.fillDays);
 	 * }
+	 * ```
 	 */
 	export enum AutoFillType {
 		/**
