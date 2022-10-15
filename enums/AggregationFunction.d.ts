@@ -2,6 +2,15 @@ declare namespace ExcelScript {
 	/**
 	 * DataPivotField の集計関数。
 	 * @see [ExcelScript.AggregationFunction enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.aggregationfunction?view=office-scripts)
+	 *
+	 * @example <caption>This script changes how the data in a PivotTable is aggregated.</caption>
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the first PivotTable in the workbook.
+	 *   const pivotTable = workbook.getPivotTables()[0];
+	 *   // Set the first data hierarchy to summarize with an average value, instead of a sum.
+	 *   const dataHierarchy = pivotTable.getDataHierarchies()[0];
+	 *   dataHierarchy.setSummarizeBy(ExcelScript.AggregationFunction.average);
+	 * }
 	 */
 	export enum AggregationFunction {
 		/**
