@@ -1,6 +1,20 @@
 declare namespace ExcelScript {
 	/**
 	 * @see [ExcelScript.CalculationMode enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.calculationmode?view=office-scripts)
+	 *
+	 * @example <caption>This script recalculates the used range of a specific worksheet.</caption>
+	 * function main(workbook: ExcelScript.Workbook) {
+	 * // Only recalculate if the calculation mode is not set to automatic.
+	 *   if (workbook.getApplication().getCalculationMode() !== ExcelScript.CalculationMode.automatic) {
+	 *     // Get the used range from a worksheet named "Monthly Report".
+	 *     const sheet = workbook.getWorksheet("Monthly Report");
+	 *     const range = sheet.getUsedRange();
+	 *     console.log(`Calculating ${range.getAddress()}`);
+	 *
+	 *     // Force all the used cells in that worksheet to calculate.
+	 *     sheet.getUsedRange().calculate();
+	 *   }
+	 * }
 	 */
 	export enum CalculationMode {
 		/**
