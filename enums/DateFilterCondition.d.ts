@@ -3,6 +3,27 @@ declare namespace ExcelScript {
 	 * 日付フィルターを適用できる、受け入れられたすべての条件を表す列挙型。
 	 * フィールドに適用される PivotFilter の種類を構成するために使用します。
 	 * @see [ExcelScript.DateFilterCondition enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.datefiltercondition?view=office-scripts)
+	 * 
+	 * @example
+	 * ```
+	 * // This script applies a filter to a PivotTable that filters out rows that aren't from this month.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the "Date Recorded" field to filter. 
+	 *   // The data in this field must be dates in order for the filter to work.
+	 *   const pivot = workbook.getPivotTables()[0];
+	 *   const rowHierarchy = pivot.getRowHierarchy("Date Recorded");
+	 *   const rowField = rowHierarchy.getFields()[0];
+	 * 
+	 *   // Apply the date filter.
+	 *   rowField.applyFilter({
+	 *     dateFilter: {
+	 *       // Setting the condition to `thisMonth` means items that are before or
+	 *       // after this month will not be displayed.
+	 *       condition: ExcelScript.DateFilterCondition.thisMonth
+	 *     }
+	 *   });
+	 * }
+	 * ```
 	 */
 	export enum DateFilterCondition {
 		/**
