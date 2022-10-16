@@ -2,6 +2,24 @@ declare namespace ExcelScript {
 	/**
 	 * オブジェクトの図形の種類を `GeometricShape` 指定します。
 	 * @see [ExcelScript.GeometricShapeType enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.geometricshapetype?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script creates a hexagon shape on the current worksheet.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   const currentSheet = workbook.getActiveWorksheet();
+	 *   const hexagon: ExcelScript.Shape =
+	 *     currentSheet.addGeometricShape(ExcelScript.GeometricShapeType.hexagon);
+	 *
+	 *   // Set the hexagon size to 40x40 pixels.
+	 *   hexagon.setHeight(40);
+	 *   hexagon.setWidth(40);
+	 *
+	 *   // Position the hexagon at [100,100] pixels.
+	 *   hexagon.setLeft(100);
+	 *   hexagon.setTop(100);
+	 * }
+	 * ```
 	 */
 	export enum GeometricShapeType {
 		accentBorderCallout1,
