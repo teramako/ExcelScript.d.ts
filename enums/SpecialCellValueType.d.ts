@@ -1,6 +1,24 @@
 declare namespace ExcelScript {
 	/**
 	 * @see [ExcelScript.SpecialCellValueType enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.specialcellvaluetype?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script finds and bolds the text of cells containing strings (not numbers or formulas).
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the used range on the current sheet.
+	 *   const currentSheet = workbook.getActiveWorksheet();
+	 *   const usedRange = currentSheet.getUsedRange();
+	 *
+	 *   // Get the RangeAreas object for each cell with only text.
+	 *   const textCells = usedRange.getSpecialCells(
+	 *     ExcelScript.SpecialCellType.constants,
+	 *     ExcelScript.SpecialCellValueType.text);
+	 *
+	 *   // Bold the text of those cells.
+	 *   textCells.getFormat().getFont().setBold(true);
+	 * }
+	 * ```
 	 */
 	export enum SpecialCellValueType {
 		/**

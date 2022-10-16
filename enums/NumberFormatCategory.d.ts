@@ -2,6 +2,28 @@ declare namespace ExcelScript {
 	/**
 	 * 数値形式のカテゴリを表します。
 	 * @see [ExcelScript.NumberFormatCategory enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.numberformatcategory?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script finds cells in a table column that are not formatted as currency
+	 * // and sets the fill color to red.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the "Cost" column from the "Expenses" table.
+	 *   const table = workbook.getTable("Expenses");
+	 *   const costColumn = table.getColumnByName("Cost");
+	 *   const costColumnRange = costColumn.getRangeBetweenHeaderAndTotal();
+	 *
+	 *   // Get the number format categories for the column's range.
+	 *   const numberFormatCategories = costColumnRange.getNumberFormatCategories();
+	 *
+	 *   // If any cell in the column doesn't have a currency format, make the cell red.
+	 *   numberFormatCategories.forEach((category, index) =>{
+	 *     if (category[0] != ExcelScript.NumberFormatCategory.currency) {
+	 *       costColumnRange.getCell(index, 0).getFormat().getFill().setColor("red");
+	 *     }
+	 *   });
+	 * }
+	 * ```
 	 */
 	export enum NumberFormatCategory {
 		/**

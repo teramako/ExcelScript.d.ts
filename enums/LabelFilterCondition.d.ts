@@ -4,6 +4,28 @@ declare namespace ExcelScript {
 	 * フィールドに適用される PivotFilter の種類を構成するために使用します。
 	 * `PivotFilter.criteria.exclusive` これらの条件の多くを反転するように `true` 設定できます。
 	 * @see [ExcelScript.LabelFilterCondition enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.labelfiltercondition?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script filters items that start with "L" from the "Type" field of the "Farm Sales" PivotTable.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the PivotTable.
+	 *   const pivotTable = workbook.getActiveWorksheet().getPivotTable("Farm Sales");
+	 *
+	 *   // Get the "Type" field.
+	 *   const field = pivotTable.getHierarchy("Type").getPivotField("Type");
+	 *
+	 *   // Filter out any types that start with "L" (such as "Lemons" and "Limes").
+	 *   const filter: ExcelScript.PivotLabelFilter = {
+	 *     condition: ExcelScript.LabelFilterCondition.beginsWith,
+	 *     substring: "L",
+	 *     exclusive: true
+	 *   };
+	 *
+	 *   // Apply the label filter to the field.
+	 *   field.applyFilter({ labelFilter: filter });
+	 * }
+	 * ```
 	 */
 	export enum LabelFilterCondition {
 		/**
