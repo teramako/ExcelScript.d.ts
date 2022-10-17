@@ -176,6 +176,24 @@ declare namespace ExcelScript {
 		/**
 		 * グラフ内の系列の名前を指定します。
 		 * 名前の長さは 255 文字を超えることはできません。
+		 *
+		 * @example
+		 * ```
+		 * // This sample logs the names of each of the chart series in a chart named "ColumnClusteredChart".
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Get an existing chart named "ColumnClusteredChart".
+		 *   let chart = selectedSheet.getChart("ColumnClusteredChart");
+		 *
+		 *   // Log the name of each chart series in the chart.
+		 *   let seriesList = chart.getSeries();
+		 *   seriesList.forEach((series) => {
+		 *     console.log(series.getName());
+		 *   });
+		 * }
+		 * ```
 		 */
 		getName(): string;
 		/**
@@ -401,6 +419,25 @@ declare namespace ExcelScript {
 		 * –100 ~ 100 の値を指定できます。
 		 * 2-D 横棒グラフと 2-D 縦棒グラフにのみ適用されます。
 		 * @param overlap
+		 *
+		 * @example
+		 * ```
+		 * // This sample sets the overlap of the columns in a chart named "ColumnClusteredChart".
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Get an existing chart named "ColumnClusteredChart".
+		 *   let chart = selectedSheet.getChart("ColumnClusteredChart");
+		 *
+		 *   // Set the overlap of every column of each series within a category.
+		 *   let seriesList = chart.getSeries();
+		 *   seriesList.forEach((series) => {
+		 *     // An overlap of 25 means the columns have 25% of their length overlapping with the adjacent columns in the same category.
+		 *     series.setOverlap(25);
+		 *   });
+		 * }
+		 * ```
 		 */
 		setOverlap(overlap: number): void;
 		/**
