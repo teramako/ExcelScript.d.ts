@@ -1,7 +1,27 @@
+/// <reference path="./PivotField.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * Excel PivotHierarchy を表します。
 	 * @see [ExcelScript.PivotHierarchy interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.pivothierarchy?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script creates a PivotTable from an existing table and adds it to a new worksheet.
+	 * // This script assumes there is a table in the current worksheet with columns named "Type" and "Sales".
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Create a PivotTable based on a table in the current worksheet.
+	 *   let sheet = workbook.getActiveWorksheet();
+	 *   let table = sheet.getTables()[0];
+	 *
+	 *   // Add the PivotTable to a new worksheet.
+	 *   let newSheet = workbook.addWorksheet("Pivot");
+	 *   let pivotTable = newSheet.addPivotTable("My Pivot", table, "A1");
+	 *
+	 *   // Add fields to the PivotTable to show "Sales" per "Type".
+	 *   pivotTable.addRowHierarchy(pivotTable.getHierarchy("Type"));
+	 *   pivotTable.addDataHierarchy(pivotTable.getHierarchy("Sales"));
+	 * }
+	 * ```
 	 */
 	export interface PivotHierarchy {
 		/**
