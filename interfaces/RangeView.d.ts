@@ -1,8 +1,26 @@
 /// <reference path="../enums/RangeValueType.d.ts" />
+/// <reference path="./Range.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * RangeView は、親の範囲の表示されているセルのセットを表します。
 	 * @see [ExcelScript.RangeView interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.rangeview?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script copies values and formatting from the visible range of a table in Sheet1 into Sheet2.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the filtered data from Sheet1.
+	 *   const currentSheet = workbook.getWorksheet("Sheet1");
+	 *   const table = currentSheet.getTables()[0];
+	 *   const visibleTableRange: ExcelScript.RangeView = table.getRange().getVisibleView();
+	 *   const source = visibleTableRange.getRange();
+	 *
+	 *   // Copy the data into the other sheet.
+	 *   const otherSheet = workbook.getWorksheet("Sheet2");
+	 *   const otherRangeCorner = otherSheet.getRange("A1");
+	 *   otherRangeCorner.copyFrom(source, ExcelScript.RangeCopyType.all);
+	 * }
+	 * ```
 	 */
 	export interface RangeView {
 		/**
@@ -39,6 +57,23 @@ declare namespace ExcelScript {
 		getNumberFormat(): string[][];
 		/**
 		 * 現在の範囲に関連付けられている親範囲を取得します。 `RangeView`.
+		 *
+		 * @example
+		 * ```
+		 * // This script copies values and formatting from the visible range of a table in Sheet1 into Sheet2.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the filtered data from Sheet1.
+		 *   const currentSheet = workbook.getWorksheet("Sheet1");
+		 *   const table = currentSheet.getTables()[0];
+		 *   const visibleTableRange: ExcelScript.RangeView = table.getRange().getVisibleView();
+		 *   const source = visibleTableRange.getRange();
+		 *
+		 *   // Copy the data into the other sheet.
+		 *   const otherSheet = workbook.getWorksheet("Sheet2");
+		 *   const otherRangeCorner = otherSheet.getRange("A1");
+		 *   otherRangeCorner.copyFrom(source, ExcelScript.RangeCopyType.all);
+		 * }
+		 * ```
 		 */
 		getRange(): Range;
 		/**

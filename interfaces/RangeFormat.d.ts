@@ -22,10 +22,40 @@ declare namespace ExcelScript {
 		adjustIndent(amount: number): void;
 		/**
 		 * 現在の列のデータに基づいて、現在の範囲の列の幅を最適な幅に変更します。
+		 *
+		 * @example
+		 * ```
+		 * // This script creates a new table from existing data and autofits the columns.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const usedRange = currentSheet.getUsedRange();
+		 *
+		 *   // Create the table.
+		 *   const table = currentSheet.addTable(usedRange, true);
+		 *
+		 *   // Format the table columns.
+		 *   table.getRange().getFormat().autofitColumns();
+		 * }
+		 * ```
 		 */
 		autofitColumns(): void;
 		/**
 		 * 現在の行のデータに基づいて、現在の範囲の行の高さを最適な高さに変更します。
+		 *
+		 * @example
+		 * ```
+		 * // This script creates a new table from existing data and autofits the rows.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const usedRange = currentSheet.getUsedRange();
+		 *
+		 *   // Create the table.
+		 *   const table = currentSheet.addTable(usedRange, true);
+		 *
+		 *   // Format the table rows.
+		 *   table.getRange().getFormat().autofitRows();
+		 * }
+		 * ```
 		 */
 		autofitRows(): void;
 		/**
@@ -39,14 +69,61 @@ declare namespace ExcelScript {
 		/**
 		 * 範囲内のすべての列の幅を指定します。
 		 * 列の幅が一様でない場合は、 `null` 返されます。
+		 *
+		 * @example
+		 * ```
+		 * // This script doubles the column width for every column in the active worksheet's used range.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const usedRange = currentSheet.getUsedRange();
+		 *
+		 *   // To optimize performance, get all the current row heights before setting them.
+		 *   let currentWidths = Array<number>(usedRange.getColumnCount());
+		 *   for (let column = 0; column < currentWidths.length; column++) {
+		 *     currentWidths[column] = usedRange.getColumn(column).getFormat().getColumnWidth();
+		 *   }
+		 *
+		 *   // Set the new column widths.
+		 *   for (let column = 0; column < currentWidths.length; column++) {
+		 *     usedRange.getFormat().setColumnWidth(currentWidths[column] * 2);
+		 *   }
+		 * }
+		 * ```
 		 */
 		getColumnWidth(): number;
 		/**
 		 * 範囲全体に定義された塗りつぶしオブジェクトを返します。
+		 *
+		 * @example
+		 * ```
+		 * // This script gives the total row of a table a green color fill.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the first table in the workbook.
+		 *   let table = workbook.getTables()[0];
+		 *
+		 *   // Get the range for the total row of the table.
+		 *   let totalRange = table.getTotalRowRange();
+		 *
+		 *   // Set the fill color to green.
+		 *   totalRange.getFormat().getFill().setColor("green");
+		 * }
+		 * ```
 		 */
 		getFill(): RangeFill;
 		/**
 		 * 範囲全体に定義されたフォント オブジェクトを返します。
+		 *
+		 * @example
+		 * ```
+		 * // This script bolds the text of cell A1.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get A1 on the current worksheet.
+		 *   const cell = workbook.getActiveWorksheet().getCell(0,0);
+		 *
+		 *   // Bold the font for that cell
+		 *   cell.getFormat().getFont().setBold(true);
+		 * }
+		 * ```
 		 */
 		getFont(): RangeFont;
 		/**
@@ -66,6 +143,22 @@ declare namespace ExcelScript {
 		 * オブジェクトの名前を使用して、境界線オブジェクトを取得します。
 		 * @param index 取得する罫線オブジェクトのインデックス値。
 		 * 詳細は「`ExcelScript.BorderIndex`」をご覧ください。
+		 *
+		 * @example
+		 * ```
+		 * // This script adds a border around the outside of a range.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get a range from the current worksheet.
+		 *   let range = workbook.getActiveWorksheet().getRange("B2:E15");
+		 *
+		 *   // Add a border around the whole bounding range.
+		 *   let format = range.getFormat();
+		 *   format.getRangeBorder(ExcelScript.BorderIndex.edgeTop).setStyle(ExcelScript.BorderLineStyle.continuous); // Top border
+		 *   format.getRangeBorder(ExcelScript.BorderIndex.edgeBottom).setStyle(ExcelScript.BorderLineStyle.continuous); // Bottom border
+		 *   format.getRangeBorder(ExcelScript.BorderIndex.edgeLeft).setStyle(ExcelScript.BorderLineStyle.continuous); // Left border
+		 *   format.getRangeBorder(ExcelScript.BorderIndex.edgeRight).setStyle(ExcelScript.BorderLineStyle.continuous); // Right border
+		 * }
+		 * ```
 		 */
 		getRangeBorder(index: BorderIndex): RangeBorder;
 		/**
@@ -80,6 +173,26 @@ declare namespace ExcelScript {
 		getReadingOrder(): ReadingOrder;
 		/**
 		 * 範囲内のすべての行の高さ。 行の高さが一様でない場合は、 `null` 返されます。
+		 *
+		 * @example
+		 * ```
+		 * // This script doubles the row height for every row in the active worksheet's used range.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const usedRange = currentSheet.getUsedRange();
+		 *
+		 *   // To optimize performance, get all the current row heights before setting them.
+		 *   let currentHeights = Array<number>(usedRange.getRowCount());
+		 *   for (let row = 0; row < currentHeights.length; row++) {
+		 *     currentHeights[row] = usedRange.getRow(row).getFormat().getRowHeight();
+		 *   }
+		 *
+		 *   // Set the new row heights.
+		 *   for (let row = 0; row < currentHeights.length; row++) {
+		 *     usedRange.getFormat().setRowHeight(currentHeights[row] * 2);
+		 *   }
+		 * }
+		 * ```
 		 */
 		getRowHeight(): number;
 		/**
@@ -128,12 +241,43 @@ declare namespace ExcelScript {
 		 * 範囲内のすべての列の幅を指定します。
 		 * 列の幅が一様でない場合は、 `null` 返されます。
 		 * @param columnWidth
+		 *
+		 * @example
+		 * ```
+		 * // This script inserts a new column and sets that column's width to 100 pixels wide.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Insert a new column between the current B and C columns.
+		 *   const bcRange = currentSheet.getRange("C:C");
+		 *   const newColumn = bcRange.insert(ExcelScript.InsertShiftDirection.right);
+		 *
+		 *   // Set the column width of the new column to 100 pixels.
+		 *   newColumn.getFormat().setColumnWidth(100);
+		 * }
+		 * ```
 		 */
 		setColumnWidth(columnWidth: number): void;
 		/**
 		 * 指定したオブジェクトの水平方向の配置を表します。
 		 * 詳細は「`ExcelScript.HorizontalAlignment`」をご覧ください。
 		 * @param horizontalAlignment
+		 *
+		 * @example
+		 * ```
+		 * // This script centers the text in a table's header row cells
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the first table on the current worksheet.
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const table = currentSheet.getTables()[0];
+		 *
+		 *   // Get the header range.
+		 *   const headerRange = table.getHeaderRowRange();
+		 *
+		 *   // Set the horizontal text alignment to `center`.
+		 *   headerRange.getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.center);
+		 * }
+		 * ```
 		 */
 		setHorizontalAlignment(horizontalAlignment: HorizontalAlignment): void;
 		/**
@@ -156,6 +300,21 @@ declare namespace ExcelScript {
 		/**
 		 * 範囲内のすべての行の高さ。 行の高さが一様でない場合は、 `null` 返されます。
 		 * @param rowHeight
+		 *
+		 * @example
+		 * ```
+		 * // This script inserts a new row and sets that row's width to 100 pixels tall.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Insert a new row between the current 2 and 3 rows.
+		 *   const bcRange = currentSheet.getRange("3:3");
+		 *   const newRow = bcRange.insert(ExcelScript.InsertShiftDirection.down);
+		 *
+		 *   // Set the row height of the new row to 100 pixels.
+		 *   newRow.getFormat().setRowHeight(100);
+		 * }
+		 * ```
 		 */
 		setRowHeight(rowHeight: number): void;
 		/**
