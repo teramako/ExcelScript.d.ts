@@ -1,3 +1,5 @@
+/// <reference path="./Range.d.ts"/>
+/// <reference path="./TableColumn.d.ts"/>
 /// <reference path="./TableSort.d.ts"/>
 declare namespace ExcelScript {
 	/**
@@ -80,6 +82,22 @@ declare namespace ExcelScript {
 		getColumns(): TableColumn[];
 		/**
 		 * 表のヘッダー行に関連付けられた範囲オブジェクトを取得します。
+		 *
+		 * @example
+		 * ```
+		 * // This script centers the text in a table's header row cells.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the first table on the current worksheet.
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const table = currentSheet.getTables()[0];
+		 *
+		 *   // Get the header range.
+		 *   const headerRange = table.getHeaderRowRange();
+		 *
+		 *   // Set the horizontal text alignment to `center`.
+		 *   headerRange.getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.center);
+		 * }
+		 * ```
 		 */
 		getHeaderRowRange(): Range;
 		/**
@@ -113,6 +131,24 @@ declare namespace ExcelScript {
 		getPredefinedTableStyle(): string;
 		/**
 		 * テーブル全体に関連付けられた範囲オブジェクトを取得します。
+		 *
+		 * @example
+		 * ```
+		 * // This script removes any extra formatting that's been applied to a table.
+		 * // This leaves only the base table style effects.
+		 * // Any formatting outside of the table will be left as is.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the first table on the current worksheet.
+		 *   let worksheet = workbook.getActiveWorksheet();
+		 *   let table = worksheet.getTables()[0];
+		 *
+		 *   // Get the range used by the table.
+		 *   let range = table.getRange();
+		 *
+		 *   // Clear all the formatting that is not applied by the table and the table style.
+		 *   range.clear(ExcelScript.ClearApplyTo.formats);
+		 * }
+		 * ```
 		 */
 		getRange(): Range;
 		/**

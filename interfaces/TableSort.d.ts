@@ -11,6 +11,22 @@ declare namespace ExcelScript {
 		 * @param fields 並べ替えに使用する条件の一覧。
 		 * @param matchCase 省略可能。大文字小文字の区別が文字列の順序に影響を与えるかどうか。
 		 * @param method 省略可能。 中国語文字に使用される順序付けの方法です。
+		 *
+		 * @example
+		 * ```
+		 * This sample creates a table from the current worksheet's used range, then sorts it based on the first column.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Create a table with the used cells.
+		 *   let usedRange = selectedSheet.getUsedRange();
+		 *   let newTable = selectedSheet.addTable(usedRange, true);
+		 *
+		 *   // Sort the table using the first column.
+		 *   newTable.getSort().apply([{ key: 0, ascending: true }]);
+		 * }
+		 * ```
 		 */
 		apply(
 			fields: SortField[],
