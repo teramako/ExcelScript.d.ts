@@ -11,11 +11,30 @@
 /// <reference path="./ShapeGroup.d.ts" />
 /// <reference path="./ShapeLineFormat.d.ts" />
 /// <reference path="./TextFrame.d.ts" />
+/// <reference path="./Worksheet.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * ワークシート内の汎用図形オブジェクトを表します。
 	 * 図形には、幾何学的な図形、線、図形のグループなどがあります。
 	 * @see [ExcelScript.Shape interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.shape?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script creates a hexagon shape on the current worksheet.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   const currentSheet = workbook.getActiveWorksheet();
+	 *   const hexagon: ExcelScript.Shape =
+	 *     currentSheet.addGeometricShape(ExcelScript.GeometricShapeType.hexagon);
+	 *
+	 *   // Set the hexagon size to 40x40 pixels.
+	 *   hexagon.setHeight(40);
+	 *   hexagon.setWidth(40);
+	 *
+	 *   // Position the hexagon at [100,100] pixels.
+	 *   hexagon.setLeft(100);
+	 *   hexagon.setTop(100);
+	 * }
+	 * ```
 	 */
 	export interface Shape {
 		/**
@@ -83,6 +102,28 @@ declare namespace ExcelScript {
 		/**
 		 * 図形に関連付けられた画像を返します。
 		 * 図形の種類が "Image" ではない場合は、エラーがスローされます。
+		 *
+		 * @example
+		 * ```
+		 * // This script transfers an image from one worksheet to another.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the worksheet with the image on it.
+		 *   let firstWorksheet = workbook.getWorksheet("FirstSheet");
+		 *
+		 *   // Get the first image from the worksheet.
+		 *   // If a script added the image, you could add a name to make it easier to find.
+		 *   let image: ExcelScript.Image;
+		 *   firstWorksheet.getShapes().forEach((shape, index) => {
+		 *     if (shape.getType() === ExcelScript.ShapeType.image) {
+		 *       image = shape.getImage();
+		 *       return;
+		 *     }
+		 *   });
+		 *
+		 *   // Copy the image to another worksheet.
+		 *   image.getShape().copyTo("SecondSheet");
+		 * }
+		 * ```
 		 */
 		getImage(): Image;
 		/**
@@ -251,6 +292,18 @@ declare namespace ExcelScript {
 		/**
 		 * 図形の名前を指定します。
 		 * @param name
+		 *
+		 * @example
+		 * ```
+		 * // This script creates a triangle shape on the current worksheet and names it "TRI".
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const triangle: ExcelScript.Shape =
+		 *     currentSheet.addGeometricShape(ExcelScript.GeometricShapeType.triangle);
+		 *
+		 *   triangle.setName("TRI");
+		 * }
+		 * ```
 		 */
 		setName(name: string): void;
 		/**
