@@ -3,6 +3,27 @@ declare namespace ExcelScript {
 	/**
 	 * ブックのプロパティを表します。
 	 * @see [ExcelScript.DocumentProperties interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.documentproperties?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script creates a new worksheet that displays some of the document properties.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *     // Get the document properties.
+	 *     const properties: ExcelScript.DocumentProperties = workbook.getProperties();
+	 *
+	 *     // Create a new worksheet called "Metadata".
+	 *     const newWorksheet = workbook.addWorksheet("Metadata");
+	 *
+	 *     // Create an array to store the string values of properties to save.
+	 *     let values: string[][] = [];
+	 *     values.push(["Creation Date", properties.getCreationDate().toString()]);
+	 *     values.push(["Author", properties.getAuthor()]);
+	 *     values.push(["Last Edited By", properties.getLastAuthor()]);
+	 *
+	 *     // Set the property values to a range on the new worksheet.
+	 *     newWorksheet.getRange("A1:B3").setValues(values);
+	 * }
+	 * ```
 	 */
 	export interface DocumentProperties {
 		/**
