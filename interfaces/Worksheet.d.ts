@@ -1,14 +1,20 @@
 /// <reference path="../enums/ChartSeriesBy.d.ts"/>
 /// <reference path="../enums/ChartType.d.ts"/>
 /// <reference path="../enums/ConnectorType.d.ts"/>
+/// <reference path="../enums/ContentType.d.ts"/>
 /// <reference path="../enums/GeometricShapeType.d.ts"/>
 /// <reference path="../enums/SheetVisibility.d.ts"/>
 /// <reference path="../enums/WorksheetPositionType.d.ts"/>
 /// <reference path="./AutoFilter.d.ts"/>
+/// <reference path="./Chart.d.ts"/>
+/// <reference path="./Comment.d.ts"/>
+/// <reference path="./CommentRichContent.d.ts"/>
+/// <reference path="./NamedItem.d.ts"/>
 /// <reference path="./NamedSheetView.d.ts"/>
 /// <reference path="./PageBreak.d.ts"/>
 /// <reference path="./ReplaceCriteria.d.ts"/>
 /// <reference path="./Shape.d.ts"/>
+/// <reference path="./Slicer.d.ts"/>
 /// <reference path="./WorksheetCustomProperty.d.ts"/>
 /// <reference path="./WorksheetFreezePanes.d.ts"/>
 /// <reference path="./WorksheetProtection.d.ts"/>
@@ -18,10 +24,34 @@ declare namespace ExcelScript {
 	/**
 	 * Excel のワークシートは、セルのグリッドです。 データ、表、グラフなどを含めることができます。
 	 * @see [ExcelScript.Worksheet interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.worksheet?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script creates a new worksheet named "Plum" and sets its tab color to purple.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   const newSheet = workbook.addWorksheet("Plum")
+	 *   newSheet.setTabColor("purple");
+	 * }
+	 * ```
 	 */
 	export interface Worksheet {
 		/**
 		 * Excel UI でワークシートをアクティブにします。
+		 *
+		 * @example
+		 * ```
+		 * // This script switches the active view to a worksheet named "Data", if it exists.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Check if the "Data" worksheet exists.
+		 *   let dataWorksheet = workbook.getWorksheet("Data");
+		 *   if (dataWorksheet) {
+		 *     // Switch to the "Data" worksheet.
+		 *     dataWorksheet.activate();
+		 *   } else {
+		 *     console.log(`No worksheet named "Data" in this workbook.`);
+		 *   }
+		 * }
+		 * ```
 		 */
 		activate(): void;
 		/**
@@ -30,6 +60,24 @@ declare namespace ExcelScript {
 		 * @param sourceData `Range`ソース データに対応するオブジェクト。
 		 * @param seriesBy 省略可能。 列や行がグラフのデータ系列として使用される方法を指定します。
 		 * 詳細は「`ExcelScript.ChartSeriesBy`」をご覧ください。
+		 *
+		 * @example
+		 * ```
+		 * // This sample creates a column-clustered chart based on the current worksheet's data.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Get the data range.
+		 *   let range = selectedSheet.getUsedRange();
+		 *
+		 *   // Insert a chart using the data on the current worksheet.
+		 *   let chart = selectedSheet.addChart(ExcelScript.ChartType.columnClustered, range);
+		 *
+		 *   // Name the chart for easy access in other scripts.
+		 *   chart.setName("ColumnChart");
+		 * }
+		 * ```
 		 */
 		addChart(
 			type: ChartType,
@@ -56,6 +104,24 @@ declare namespace ExcelScript {
 		 * 幾何学的図形をワークシートに追加します。
 		 * 新しい図形を `Shape` 表すオブジェクトを返します。
 		 * @param geometricShapeType ジオメトリ図形の型を表します。 詳細は「`ExcelScript.GeometricShapeType`」をご覧ください。
+		 *
+		 * @example
+		 * ```
+		 * // This script creates a hexagon shape on the current worksheet.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const hexagon: ExcelScript.Shape =
+		 *     currentSheet.addGeometricShape(ExcelScript.GeometricShapeType.hexagon);
+		 *
+		 *   // Set the hexagon size to 40x40 pixels.
+		 *   hexagon.setHeight(40);
+		 *   hexagon.setWidth(40);
+		 *
+		 *   // Position the hexagon at [100,100] pixels.
+		 *   hexagon.setLeft(100);
+		 *   hexagon.setTop(100);
+		 * }
+		 * ```
 		 */
 		addGeometricShape(geometricShapeType: GeometricShapeType): Shape;
 		/**
@@ -73,6 +139,46 @@ declare namespace ExcelScript {
 		 * base64 エンコード文字列から画像を作成し、それをワークシートに追加します。
 		 * 新しいイメージを `Shape` 表すオブジェクトを返します。
 		 * @param base64ImageString JPEG 形式または PNG 形式のイメージを表す base64 でエンコードされた文字列。
+		 *
+		 * @example
+		 * ```
+		 * // This sample copies an image from a URL.
+		 * // This could be used to copy photos that a colleague stored in a shared folder to a related workbook.
+		 * async function main(workbook: ExcelScript.Workbook) {
+		 *   // Fetch the image from a URL.
+		 *   const link = "https://raw.githubusercontent.com/OfficeDev/office-scripts-docs/master/docs/images/git-octocat.png";
+		 *   const response = await fetch(link);
+		 *
+		 *   // Store the response as an ArrayBuffer, since it is a raw image file.
+		 *   const data = await response.arrayBuffer();
+		 *
+		 *   // Convert the image data into a base64-encoded string.
+		 *   const image = convertToBase64(data);
+		 *
+		 *   // Add the image to the current worksheet.
+		 *   workbook.getActiveWorksheet().addImage(image);
+		 * }
+		 *
+		 * //
+		 * // Converts an ArrayBuffer containing a .png image into a base64-encoded string.
+		 * //
+		 * function convertToBase64(input: ArrayBuffer) {
+		 *   const uInt8Array = new Uint8Array(input);
+		 *   const count = uInt8Array.length;
+		 *
+		 *   // Allocate the necessary space up front.
+		 *   const charCodeArray = new Array<string>(count)
+		 *
+		 *   // Convert every entry in the array to a character.
+		 *   for (let i = count; i >= 0; i--) {
+		 *     charCodeArray[i] = String.fromCharCode(uInt8Array[i]);
+		 *   }
+		 *
+		 *   // Convert the characters to base64.
+		 *   const base64 = btoa(charCodeArray.join(''));
+		 *   return base64;
+		 * }
+		 * ```
 		 */
 		addImage(base64ImageString: string): Shape;
 		/**
@@ -124,6 +230,28 @@ declare namespace ExcelScript {
 		 * @param name 新しいピボットテーブルの名前。
 		 * @param source 新しいピボットテーブルのソース データは、範囲 (またはワークシート名を含む文字列アドレス) またはテーブルのいずれかです。
 		 * @param destination ピボットテーブル レポートの配置先範囲 (結果のレポートを配置するワークシートの範囲) の左上端のセルを指定します。
+		 *
+		 * @example
+		 * ```
+		 * // This script creates a PivotTable from an existing table and adds it to a new worksheet.
+		 * // This script assumes there is a table in the current worksheet with columns named "Type" and "Sales".
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Create a PivotTable based on a table in the current worksheet.
+		 *   let sheet = workbook.getActiveWorksheet();
+		 *   let table = sheet.getTables()[0];
+		 *
+		 *   // Add the PivotTable to a new worksheet.
+		 *   let newSheet = workbook.addWorksheet("Pivot");
+		 *   let pivotTable = newSheet.addPivotTable("My Pivot", table, "A1");
+		 *
+		 *   // Add fields to the PivotTable to show "Sales" per "Type".
+		 *   pivotTable.addRowHierarchy(pivotTable.getHierarchy("Type"));
+		 *   pivotTable.addDataHierarchy(pivotTable.getHierarchy("Sales"));
+		 *
+		 *   // Switch to the new worksheet.
+		 *   newSheet.activate();
+		 * }
+		 * ```
 		 */
 		addPivotTable(
 			name: string,
@@ -141,6 +269,29 @@ declare namespace ExcelScript {
 		 * @param slicerDestination オプション。
 		 * 新しいスライサーが作成されるワークシート。 オブジェクトまたはワークシートの名前または ID を指定できます `Worksheet` 。
 		 * このパラメーターは、スライサー コレクションがワークシートから取得される場合は省略できます。
+		 *
+		 * @example
+		 * ```
+		 * // This script adds a slicer for an existing PivotTable on the current worksheet.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the first PivotTable from the current worksheet.
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const pivot = currentSheet.getPivotTables()[0];
+		 *
+		 *   // Create the slicer.
+		 *   // Note that this assumes "Type" is already added as a hierarchy to the PivotTable.
+		 *   const slicer = currentSheet.addSlicer(
+		 *     pivot, // The table or PivotTale to be sliced.
+		 *     pivot.getHierarchy("Type").getFields()[0] // What source field to use as the slicer options.
+		 * );
+		 *
+		 *   // Select the items to display.
+		 *   slicer.selectItems(["Lemon", "Lime"]);
+		 *
+		 *   // Set the left margin of the slicer.
+		 *   slicer.setLeft(400);
+		 * }
+		 * ```
 		 */
 		addSlicer(
 			slicerSource: string | PivotTable | Table,
@@ -155,6 +306,22 @@ declare namespace ExcelScript {
 		 * アドレスにシート名が含まれていない場合は、現在作業中のシートが使用されます。
 		 * @param hasHeaders インポートするデータに列ラベルがあるかどうかを示すブール値。
 		 * ソースにヘッダーが含まれていない場合 (つまり、このプロパティが `false`)、Excel によってヘッダーが自動的に生成され、データが 1 行下にシフトされます。
+		 *
+		 * @example
+		 * ```
+		 * // This sample creates a table from the current worksheet's used range, then sorts it based on the first column.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Create a table with the used cells.
+		 *   let usedRange = selectedSheet.getUsedRange();
+		 *   let newTable = selectedSheet.addTable(usedRange, true);
+		 *
+		 *   // Sort the table using the first column.
+		 *   newTable.getSort().apply([{ key: 0, ascending: true }]);
+		 * }
+		 * ```
 		 */
 		addTable(address: Range | string, hasHeaders: boolean): Table;
 		/**
@@ -190,6 +357,26 @@ declare namespace ExcelScript {
 		 * 既定値は "None" で、ワークシートの先頭にワークシートを挿入します。
 		 * @param relativeTo 新しく作成されたワークシートの位置を決定する既存のワークシート。
 		 * これは、"Before" または "After" の場合 `positionType` にのみ必要です。
+		 *
+		 * @example
+		 * ```
+		 * // This script duplicates a worksheet named "Template".
+		 * / The new worksheet is added after the template.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the worksheet named "Template".
+		 *   let template = workbook.getWorksheet("Template");
+		 *
+		 *   // Copy the worksheet.
+		 *   let newSheet = template.copy(
+		 *     ExcelScript.WorksheetPositionType.after,
+		 *     template
+		 *   );
+		 *
+		 *   // Name the worksheet using the current date.
+		 *   let date = new Date(Date.now());
+		 *   newSheet.setName(`${date.toDateString()}`);
+		 * }
+		 * ```
 		 */
 		copy(
 			positionType?: WorksheetPositionType,
@@ -199,6 +386,18 @@ declare namespace ExcelScript {
 		 * ブックからワークシートを削除します。
 		 * ワークシートの可視性が "VeryHidden" に設定されている場合、削除操作は例外で `InvalidOperation` 失敗します。
 		 * 削除する前に、最初にその可視性を非表示または表示に変更する必要があります。
+		 *
+		 * @example
+		 * ```
+		 * // The following scripts removes the first worksheet in the workbook.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the first worksheet.
+		 *   let sheet = workbook.getWorksheets()[0];
+		 *
+		 *   // Remove that worksheet from the workbook.
+		 *   sheet.delete();
+		 * }
+		 * ```
 		 */
 		delete(): void;
 		/**
@@ -215,6 +414,21 @@ declare namespace ExcelScript {
 		 * 指定した条件に基づいて、指定された文字列のすべての出現箇所を検索し、1 つまたは複数の四角形の範囲で構成されるオブジェクトとして `RangeAreas` 返します。
 		 * @param text 検索する文字列。
 		 * @param criteria 検索がセル全体と一致する必要があるか、大文字と小文字が区別される必要があるかなど、追加の検索条件。
+		 *
+		 * @example
+		 * ```
+		 * // This script searches through a worksheet and finds cells containing "No".
+		 * // Those cells are filled red.
+		 * // Use Range.find instead of Worksheet.findAll when you want to limit the search to a specific range.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current, active worksheet.
+		 *   let worksheet = workbook.getActiveWorksheet();
+		 *   let noCells = worksheet.findAll("No", { completeMatch: true });
+		 *
+		 *   // Set the fill color to red.
+		 *   noCells.getFormat().getFill().setColor("red");
+		 * }
+		 * ```
 		 */
 		findAll(text: string, criteria: WorksheetSearchCriteria): RangeAreas;
 		/**
@@ -223,6 +437,24 @@ declare namespace ExcelScript {
 		getActiveNamedSheetView(): NamedSheetView;
 		/**
 		 * ワークシートの `AutoFilter` オブジェクトを表します。
+		 *
+		 * @example
+		 * ```
+		 * // This script creates an autoFilter on the worksheet that filters out rows based on column values.
+		 * // The autoFilter filters to only include rows that have a value in column D in the top 10 percentile
+		 * // (of column D values).
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const dataRange = currentSheet.getUsedRange();
+		 *
+		 *   // Add a filter that will only show the rows with the top 10% of values in column D
+		 *   // (index 3, assuming the used range spans from at least A:D).
+		 *   currentSheet.getAutoFilter().apply(dataRange, 3, {
+		 *     criterion1: "10",
+		 *     filterOn: ExcelScript.FilterOn.topPercent
+		 *   });
+		 * }
+		 * ```
 		 */
 		getAutoFilter(): AutoFilter;
 		/**
@@ -237,6 +469,21 @@ declare namespace ExcelScript {
 		 * 同じ名前の複数のグラフがある場合は、最初の 1 つが返されます。
 		 * グラフが存在しない場合、このメソッドは返します `undefined`.
 		 * @param name 取得するグラフの名前。
+		 *
+		 * @example
+		 * ```
+		 * // This sample moves an existing chart to a specific place on the worksheet.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Get an existing chart named "ColumnChart".
+		 *   let chart = selectedSheet.getChart("ColumnChart");
+		 *
+		 *   // Place the chart over the range "F1:L13".
+		 *   chart.setPosition("F1", "L13");
+		 * }
+		 * ```
 		 */
 		getChart(name: string): Chart | undefined;
 		/**
@@ -290,6 +537,24 @@ declare namespace ExcelScript {
 		getId(): string;
 		/**
 		 * ワークシートの表示名。
+		 *
+		 * @example
+		 * ```
+		 * // This sample gets all the worksheet names in the workbook.
+		 * // It then logs those names to the console.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *     // Create an array to hold the worksheet names.
+		 *     let worksheetNames = [];
+		 *
+		 *     // Iterate over the worksheet collection in the workbook.
+		 *     for (let worksheet of workbook.getWorksheets()) {
+		 *         worksheetNames.push(worksheet.getName());
+		 *     }
+		 *
+		 *     // Log the array of worksheet names.
+		 *     console.log(worksheetNames);
+		 * }
+		 * ```
 		 */
 		getName(): string;
 		/**
@@ -346,6 +611,24 @@ declare namespace ExcelScript {
 		getPrevious(visibleOnly?: boolean): Worksheet;
 		/**
 		 * ワークシートのシート保護オブジェクトを返します。
+		 *
+		 * @example
+		 * ```
+		 * // This script protects cells from being selected on the current worksheet.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the protection settings for the current worksheet.
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const sheetProtection = currentSheet.getProtection();
+		 *
+		 *   // Create a new WorksheetProtectionOptions object with the selectionMode property set to `none`.
+		 *   let protectionOptions : ExcelScript.WorksheetProtectionOptions = {
+		 *     selectionMode: ExcelScript.ProtectionSelectionMode.none
+		 *   }
+		 *
+		 *   // Apply the given protection options.
+		 *   sheetProtection.protect(protectionOptions);
+		 * }
+		 * ```
 		 */
 		getProtection(): WorksheetProtection;
 		/**
@@ -353,6 +636,21 @@ declare namespace ExcelScript {
 		 * @param address オプション。
 		 * 範囲のアドレスまたは名前を表す文字列。
 		 * たとえば、"A1:B2" です。 指定されていない場合は、ワークシート全体の範囲が返されます。
+		 *
+		 * @example
+		 * ```
+		 * // This sample reads the value of A1 and prints it to the console.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Get the value of cell A1.
+		 *   let range = selectedSheet.getRange("A1");
+		 *
+		 *   // Print the value of A1.
+		 *   console.log(range.getValue());
+		 * }
+		 * ```
 		 */
 		getRange(address?: string): Range;
 		/**
@@ -484,11 +782,34 @@ declare namespace ExcelScript {
 		/**
 		 * ワークシートの表示名。
 		 * @param name
+		 *
+		 * @example
+		 * ```
+		 * // This sample renames a worksheet from "Sheet1" to "SALES".
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get a worksheet named "Sheet1".
+		 *   const sheet = workbook.getWorksheet('Sheet1');
+		 *
+		 *   // Set its name to SALES.
+		 *   sheet.setName('SALES');
+		 * }
+		 * ```
 		 */
 		setName(name: string): void;
 		/**
 		 * 0 を起点とした、ブック内のワークシートの位置。
 		 * @param position
+		 *
+		 * @example
+		 * ```
+		 * // This sample sets the worksheet named "SALES" as the first sheet in the workbook.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get a worksheet named "SALES".
+		 *   const sheet = workbook.getWorksheet('SALES');
+		 *   // Position the worksheet at the beginning of the workbook.
+		 *   sheet.setPosition(0);
+		 * }
+		 * ```
 		 */
 		setPosition(position: number): void;
 		/**
@@ -514,11 +835,38 @@ declare namespace ExcelScript {
 		 * それ以外の場合、プロパティは RRGGBB ("FFA500" など) の形式 #で色に設定されます。
 		 * 色を設定するときは、空の文字列を使用して "自動" の色を設定するか、それ以外の場合は実際の色を設定します。
 		 * @param tabColor
+		 *
+		 * @example
+		 * ```
+		 * // This script sets the tab color of every worksheet in the workbook to red.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get all the worksheets in the workbook.
+		 *   let sheets = workbook.getWorksheets();
+		 *
+		 *   // Set the tab color of each worksheet to a random color.
+		 *   for (let sheet of sheets) {
+		 *     // Set the color of the current worksheet's tab to red.
+		 *     sheet.setTabColor("red");
+		 *   }
+		 * }
+		 * ```
 		 */
 		setTabColor(tabColor: string): void;
 		/**
 		 * ワークシートの可視性。
 		 * @param visibility
+		 *
+		 * @example
+		 * ```
+		 * // This script unhides all the worksheets in the workbook.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Iterate over each worksheet.
+		 *   workbook.getWorksheets().forEach((worksheet) => {
+		 *     // Set the worksheet visibility to visible.
+		 *     worksheet.setVisibility(ExcelScript.SheetVisibility.visible);
+		 *   });
+		 * }
+		 * ```
 		 */
 		setVisibility(visibility: SheetVisibility): void;
 		/**
