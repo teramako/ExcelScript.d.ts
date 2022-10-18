@@ -3,6 +3,27 @@ declare namespace ExcelScript {
 	/**
 	 * 上/下の条件付き書式のルールを表します。
 	 * @see [ExcelScript.ConditionalTopBottomRule interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.conditionaltopbottomrule?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This sample applies conditional formatting to the currently used range in the worksheet.
+	 * // The conditional formatting is a pink fill for the 5 lowest values.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the current worksheet.
+	 *   let selectedSheet = workbook.getActiveWorksheet();
+	 *
+	 *   // Get the used range in the worksheet.
+	 *   let range = selectedSheet.getUsedRange();
+	 *
+	 *   // Set the fill color to pink for the lowest 5 values in the range.
+	 *   let conditionalFormat = range.addConditionalFormat(ExcelScript.ConditionalFormatType.topBottom)
+	 *   conditionalFormat.getTopBottom().getFormat().getFill().setColor("pink");
+	 *   conditionalFormat.getTopBottom().setRule({
+	 *     rank: 5, // The numerical threshold.
+	 *     type: ExcelScript.ConditionalTopBottomCriterionType.bottomItems // The type of the top/bottom condition.
+	 *   });
+	 * }
+	 * ```
 	 */
 	export interface ConditionalTopBottomRule {
 		/**
