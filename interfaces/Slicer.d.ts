@@ -1,9 +1,32 @@
 /// <reference path="../enums/SlicerSortType.d.ts" />
 /// <reference path="./SlicerItem.d.ts" />
+/// <reference path="./Worksheet.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * ブック内の Slicer オブジェクトを表します。
 	 * @see [ExcelScript.Slicer interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.slicer?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script adds a slicer for an existing PivotTable.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the PivotTable named "Farm Pivot".
+	 *   const farmPivot = workbook.getPivotTable("Farm Pivot");
+	 *
+	 *   // Create the slicer.
+	 *   // Note that this assumes "Type" is already added as a hierarchy to the PivotTable.
+	 *   const fruitSlicer: ExcelScript.Slicer = workbook.addSlicer(
+	 *     farmPivot, // The table or PivotTale to be sliced.
+	 *     farmPivot.getHierarchy("Type").getFields()[0] // What source field to use as the slicer options.
+	 *   );
+	 *
+	 *   // Select the items to display.
+	 *   fruitSlicer.selectItems(["Lemon", "Lime"]);
+	 *
+	 *   // Set the left margin of the slicer.
+	 *   fruitSlicer.setLeft(400);
+	 * }
+	 * ```
 	 */
 	export interface Slicer {
 		/**
