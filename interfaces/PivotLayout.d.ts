@@ -1,6 +1,8 @@
 /// <reference path="../enums/PivotLayoutType.d.ts"/>
 /// <reference path="../enums/SortBy.d.ts"/>
 /// <reference path="../enums/SubtotalLocationType.d.ts"/>
+/// <reference path="./DataPivotHierarchy.d.ts" />
+/// <reference path="./Range.d.ts" />
 declare namespace ExcelScript {
 	/**
 	 * ピボットテーブルの視覚的なレイアウトを表します。
@@ -13,6 +15,30 @@ declare namespace ExcelScript {
 		getAutoFormat(): boolean;
 		/**
 		 * ピボットテーブルのデータ値が存在する範囲を返します。
+		 *
+		 * @example
+		 * ```
+		 * // This sample finds the first PivotTable in the workbook and logs the values in the "Grand Total" cells.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the first PivotTable in the workbook.
+		 *   let pivotTable = workbook.getPivotTables()[0];
+		 *
+		 *   // Get the names of each data column in the PivotTable.
+		 *   let pivotColumnLabelRange = pivotTable.getLayout().getColumnLabelRange();
+		 *
+		 *   // Get the range displaying the pivoted data.
+		 *   let pivotDataRange = pivotTable.getLayout().getBodyAndTotalRange();
+		 *
+		 *   // Get the range with the "grand totals" for the PivotTable columns.
+		 *   let grandTotalRange = pivotDataRange.getLastRow();
+		 *
+		 *   // Print each of the "Grand Totals" to the console.
+		 *   grandTotalRange.getValues()[0].forEach((column, columnIndex) => {
+		 *     console.log(`Grand total of ${pivotColumnLabelRange.getValues()[0][columnIndex]}: ${grandTotalRange.getValues()[0][columnIndex]}`);
+		 *     // Example log: "Grand total of Sum of Crates Sold Wholesale: 11000"
+		 *   });
+		 * }
+		 * ```
 		 */
 		getBodyAndTotalRange(): Range;
 		/**

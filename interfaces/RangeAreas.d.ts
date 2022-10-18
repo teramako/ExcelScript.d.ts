@@ -10,6 +10,24 @@ declare namespace ExcelScript {
 	/**
 	 * `RangeAreas` は、同じワークシート内の 1 つまたは複数の四角形の範囲のコレクションを表します。
 	 * @see [ExcelScript.RangeAreas interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.rangeareas?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script clears all the cells in the current worksheet that are displaying errors.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get the used range on the current sheet.
+	 *   const currentSheet = workbook.getActiveWorksheet();
+	 *   const usedRange = currentSheet.getUsedRange();
+	 *
+	 *   // Get the RangeAreas object for each cell with a formula error.
+	 *   const errorCells = usedRange.getSpecialCells(ExcelScript.SpecialCellType.formulas, ExcelScript.SpecialCellValueType.errors);
+	 *
+	 *   // If there are any error cells, clear them.
+	 *   if (errorCells) {
+	 *     errorCells.clear();
+	 *   }
+	 * }
+	 * ```
 	 */
 	export interface RangeAreas {
 		/**
@@ -28,6 +46,24 @@ declare namespace ExcelScript {
 		 * クリア操作の種類を決定します。
 		 * 詳細は「`ExcelScript.ClearApplyTo`」をご覧ください。
 		 * 既定値は "すべて" です。
+		 *
+		 * @example
+		 * ```
+		 * // This script clears all the cells in the current worksheet that are displaying errors.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the used range on the current sheet.
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const usedRange = currentSheet.getUsedRange();
+		 *
+		 *   // Get the RangeAreas object for each cell with a formula error.
+		 *   const errorCells = usedRange.getSpecialCells(ExcelScript.SpecialCellType.formulas, ExcelScript.SpecialCellValueType.errors);
+		 *
+		 *   // If there are any error cells, clear them.
+		 *   if (errorCells) {
+		 *     errorCells.clear();
+		 *   }
+		 * }
+		 * ```
 		 */
 		clear(applyTo?: ClearApplyTo): void;
 		/**
@@ -101,6 +137,22 @@ declare namespace ExcelScript {
 		getEntireRow(): RangeAreas;
 		/**
 		 * オブジェクト内 `RangeFormat` のすべての範囲のフォント、塗りつぶし、罫線、配置、およびその他のプロパティをカプセル化して、オブジェクトを `RangeAreas` 返します。
+		 *
+		 * @example
+		 * ```
+		 * // This script finds and highlights all the cells in the current worksheet that contain a formula.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the used range on the current sheet.
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const usedRange = currentSheet.getUsedRange();
+		 *
+		 *   // Get the RangeAreas object for each cell with a formula.
+		 *   const formulaCells = usedRange.getSpecialCells(ExcelScript.SpecialCellType.formulas);
+		 *
+		 *   // Add a light blue background to the cells containing formulas.
+		 *   formulaCells.getFormat().getFill().setColor("#ADD8E6");
+		 * }
+		 * ```
 		 */
 		getFormat(): RangeFormat;
 		/**

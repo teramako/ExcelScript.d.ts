@@ -40,6 +40,22 @@ declare namespace ExcelScript {
 		 * 罫線の線スタイルを指定する、線スタイル定数のいずれか 1 つ。
 		 * 詳細は「`ExcelScript.BorderLineStyle`」をご覧ください。
 		 * @param style
+		 *
+		 * @example
+		 * ```
+		 * // This script adds a border around the outside of a range.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get a range from the current worksheet.
+		 *   let range = workbook.getActiveWorksheet().getRange("B2:E15");
+		 *
+		 *   // Add a border around the whole bounding range.
+		 *   let format = range.getFormat();
+		 *   format.getRangeBorder(ExcelScript.BorderIndex.edgeTop).setStyle(ExcelScript.BorderLineStyle.continuous); // Top border
+		 *   format.getRangeBorder(ExcelScript.BorderIndex.edgeBottom).setStyle(ExcelScript.BorderLineStyle.continuous); // Bottom border
+		 *   format.getRangeBorder(ExcelScript.BorderIndex.edgeLeft).setStyle(ExcelScript.BorderLineStyle.continuous); // Left border
+		 *   format.getRangeBorder(ExcelScript.BorderIndex.edgeRight).setStyle(ExcelScript.BorderLineStyle.continuous); // Right border
+		 * }
+		 * ```
 		 */
 		setStyle(style: BorderLineStyle): void;
 		/**
@@ -52,6 +68,34 @@ declare namespace ExcelScript {
 		 * 範囲周辺の罫線の太さを指定します。
 		 * 詳細は「`ExcelScript.BorderWeight`」をご覧ください。
 		 * @param weight
+		 *
+		 * @example
+		 * ```
+		 * // This script creates a border around a range.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the RangeFormat object for the range "B2:G10".
+		 *   const currentSheet = workbook.getActiveWorksheet();
+		 *   const rangeForBorder = currentSheet.getRange("B2:G10");
+		 *   const format = rangeForBorder.getFormat();
+		 *
+		 *   // Get a RangeBorder object for each edge of the range and set the border properties.
+		 *   let edgeTop = format.getRangeBorder(ExcelScript.BorderIndex.edgeTop);
+		 *   edgeTop.setStyle(ExcelScript.BorderLineStyle.dashDot);
+		 *   edgeTop.setWeight(ExcelScript.BorderWeight.thick);
+		 *
+		 *   let edgeBottom = format.getRangeBorder(ExcelScript.BorderIndex.edgeBottom);
+		 *   edgeBottom.setStyle(ExcelScript.BorderLineStyle.dashDot);
+		 *   edgeBottom.setWeight(ExcelScript.BorderWeight.thick);
+		 *
+		 *   let edgeLeft = format.getRangeBorder(ExcelScript.BorderIndex.edgeLeft);
+		 *   edgeLeft.setStyle(ExcelScript.BorderLineStyle.dashDot);
+		 *   edgeLeft.setWeight(ExcelScript.BorderWeight.thick);
+		 *
+		 *   let edgeRight = format.getRangeBorder(ExcelScript.BorderIndex.edgeRight);
+		 *   edgeRight.setStyle(ExcelScript.BorderLineStyle.dashDot);
+		 *   edgeRight.setWeight(ExcelScript.BorderWeight.thick);
+		 * }
+		 * ```
 		 */
 		setWeight(weight: BorderWeight): void;
 	}

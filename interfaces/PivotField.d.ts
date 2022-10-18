@@ -1,4 +1,6 @@
 /// <reference path="../enums/PivotFilterType.d.ts"/>
+/// <reference path="../enums/SortBy.d.ts"/>
+/// <reference path="./DataPivotHierarchy.d.ts"/>
 /// <reference path="./PivotFilters.d.ts"/>
 /// <reference path="./Subtotals.d.ts"/>
 declare namespace ExcelScript {
@@ -11,6 +13,34 @@ declare namespace ExcelScript {
 		 * フィールドの現在のピボットフィルターの 1 つ以上を設定し、フィールドに適用します。
 		 * 指定されたフィルターが無効であるか、適用できない場合は、例外がスローされます。
 		 * @param filter 構成された特定の PivotFilter、または複数の構成済みフィルターを含む PivotFilters インターフェイス。
+		 *
+		 * @example
+		 * ```
+		 * // This script applies a PivotValueFilter to the first row hierarchy in the PivotTable.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the PivotTable on the current worksheet.
+		 *   let sheet = workbook.getActiveWorksheet();
+		 *   let pivotTable = sheet.getPivotTables()[0];
+		 *
+		 *   // Get the first row hierarchy to use as the field which gets filtered.
+		 *   let rowHierarchy = pivotTable.getRowHierarchies()[0];
+		 *
+		 *   // Get the first data hierarchy to use as the values for filtering the rows.
+		 *   let dataHierarchy = pivotTable.getDataHierarchies()[0];
+		 *
+		 *   // Create a filter that excludes values greater than 500.
+		 *   let filter: ExcelScript.PivotValueFilter = {
+		 *     condition: ExcelScript.ValueFilterCondition.greaterThan,
+		 *     comparator: 500,
+		 *     value: dataHierarchy.getName()
+		 *   };
+		 *
+		 *   // Apply the filter.
+		 *   rowHierarchy.getPivotField(rowHierarchy.getName()).applyFilter({
+		 *     valueFilter: filter
+		 *   });
+		 * }
+		 * ```
 		 */
 		applyFilter(filter: PivotFilters): void;
 		/**

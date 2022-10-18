@@ -2,6 +2,7 @@
 /// <reference path="./DataValidationErrorAlert.d.ts"/>
 /// <reference path="./DataValidationPrompt.d.ts"/>
 /// <reference path="./DataValidationRule.d.ts"/>
+/// <reference path="./RangeAreas.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * 現在の範囲に適用されているデータ検証を表します。
@@ -37,6 +38,24 @@ declare namespace ExcelScript {
 		/**
 		 * データ検証の種類
 		 * @see ExcelScript.DataValidationType
+		 *
+		 * @example
+		 * ```
+		 * // This sample reads and logs the data validation type of the currently selected range.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the currently selected range.
+		 *   let range = workbook.getSelectedRange();
+		 *
+		 *   // Get the type (`DataValidationType`) of data validation applied to the range.
+		 *   let validationType = range.getDataValidation().getType();
+		 *
+		 *    // Log the data validation type.
+		 *    // If the range has a single value, it logs that type.
+		 *    // If the range doesn't have data validation applied, it logs "None".
+		 *    // If the range has multiple different types of data validation, it logs "Inconsistent" or "MixedCriteria".
+		 *   console.log(validationType.toString());
+		 * }
+		 * ```
 		 */
 		getType(): DataValidationType;
 		/**

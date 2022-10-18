@@ -14,6 +14,28 @@ declare namespace ExcelScript {
 		comparator?: FilterDatetime;
 		/**
 		 * 必要なフィルター条件を定義するフィルターの条件を指定します。
+		 *
+		 * @example
+		 * ```
+		 * // This script applies a filter to a PivotTable that filters out rows
+		 * // that aren't from this month.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the "Date Recorded" field to filter.
+		 *   // The data in this field must be dates in order for the filter to work.
+		 *   const pivot = workbook.getPivotTables()[0];
+		 *   const rowHierarchy = pivot.getRowHierarchy("Date Recorded");
+		 *   const rowField = rowHierarchy.getFields()[0];
+		 *
+		 *   // Apply the date filter.
+		 *   rowField.applyFilter({
+		 *     dateFilter: {
+		 *       // Setting the condition to `thisMonth` means items that are before or
+		 *       // after this month will not be displayed.
+		 *       condition: ExcelScript.DateFilterCondition.thisMonth
+		 *     }
+		 *   });
+		 * }
+		 * ```
 		 */
 		condition: DateFilterCondition;
 		/**
@@ -23,6 +45,38 @@ declare namespace ExcelScript {
 		exclusive?: boolean;
 		/**
 		 * フィルター条件の範囲 `between` の下限。
+		 *
+		 * @example
+		 * ```
+		 * // This script applies a filter to a PivotTable that filters it
+		 * // to only show rows from between June 20th, 2022 and July 10th, 2022.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the "Date Recorded" field to filter.
+		 *   // The data in this field must be dates in order for the filter to work.
+		 *   const pivot = workbook.getPivotTables()[0];
+		 *   const rowHierarchy = pivot.getRowHierarchy("Date Recorded");
+		 *   const rowField = rowHierarchy.getFields()[0];
+		 *
+		 *   // Create the filter's date boundaries.
+		 *   let earliestDate: ExcelScript.FilterDatetime = {
+		 *     date: "2022-06-20",
+		 *     specificity: ExcelScript.FilterDatetimeSpecificity.day
+		 *   };
+		 *   let latestDate: ExcelScript.FilterDatetime = {
+		 *     date: "2022-07-10",
+		 *     specificity: ExcelScript.FilterDatetimeSpecificity.day
+		 *   };
+		 *
+		 *   // Apply the date filter.
+		 *   rowField.applyFilter({
+		 *     dateFilter: {
+		 *       condition: ExcelScript.DateFilterCondition.between,
+		 *       lowerBound: earliestDate,
+		 *       upperBound: latestDate
+		 *     }
+		 *   });
+		 * }
+		 * ```
 		 */
 		lowerBound?: FilterDatetime;
 		/**

@@ -28,6 +28,18 @@ declare namespace ExcelScript {
 	/**
 	 * ブックは、ワークシート、テーブル、範囲などの関連するブック オブジェクトを含む最上位レベルのオブジェクトです。
 	 * @see [ExcelScript.Workbook interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.workbook?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script adds a new worksheet to the workbook, then switches to it.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Add a new worksheet with the default name.
+	 *   let worksheet = workbook.addWorksheet();
+	 *
+	 *   // Switch focus to the new worksheet.
+	 *   worksheet.activate();
+	 * }
+	 * ```
 	 */
 	export interface Workbook {
 		/**
@@ -88,6 +100,27 @@ declare namespace ExcelScript {
 		 * @param name 名前付きの項目の名前。
 		 * @param reference 名前が参照する数式または範囲。
 		 * @param comment 省略可能。 名前付きアイテムに関連付けられているコメント。
+		 *
+		 * @example
+		 * ```
+		 * // This script creates a named formula and uses it in another part of the workbook.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Create a named item for a formula.
+		 *   // This formula is the sum of the cells F2:F21 on Sheet1.
+		 *   const namedItem: ExcelScript.NamedItem = workbook.addNamedItem(
+		 *     "GrandTotal",
+		 *     "=SUM(Sheet1!$F$2:$F$21)",
+		 *     "The sum of table sums."
+		 *   );
+		 *
+		 *   // Add this named formula to a new sheet in the workbook.
+		 *   const otherSheet = workbook.addWorksheet();
+		 *   otherSheet.getRange("A1").setFormula(namedItem.getFormula());
+		 *
+		 *   // Switch to the new worksheet.
+		 *   otherSheet.activate();
+		 * }
+		 * ```
 		 */
 		addNamedItem(
 			name: string,
@@ -110,6 +143,23 @@ declare namespace ExcelScript {
 		 * @param name 新しいピボットテーブルの名前。
 		 * @param source 新しいピボットテーブルのソース データは、範囲 (またはワークシート名を含む文字列アドレス) またはテーブルのいずれかです。
 		 * @param destination ピボットテーブル レポートの配置先範囲 (結果のレポートを配置するワークシートの範囲) の左上端のセルを指定します。
+		 *
+		 * @example
+		 * ```
+		 * // This script creates a PivotTable from an existing table and adds it to an existing worksheet.
+		 * // This script assumes there is a table in the current worksheet with columns named "Type" and "Sales".
+		 * // It also assumes there is a worksheet named "PivotSheet".
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Create a PivotTable based on a table in the current worksheet.
+		 *   let sheet = workbook.getActiveWorksheet();
+		 *   let table = sheet.getTables()[0];
+		 *   let pivotTable = workbook.addPivotTable("My Pivot", table, "PivotSheet!A1");
+		 *
+		 *   // Add fields to the PivotTable to show "Sales" per "Type".
+		 *   pivotTable.addRowHierarchy(pivotTable.getHierarchy("Type"));
+		 *   pivotTable.addDataHierarchy(pivotTable.getHierarchy("Sales"));
+		 * }
+		 * ```
 		 */
 		addPivotTable(
 			name: string,
@@ -139,6 +189,28 @@ declare namespace ExcelScript {
 		 * @param sourceField フィルター処理するデータ ソース内のフィールド。 オブジェクト、オブジェクト、`TableColumn` の ID、または `PivotField` の名前または ID を指定できます。
 		 * @param slicerDestination 省略可能。 新しいスライサーが作成されるワークシート。 `Worksheet`オブジェクトまたはワークシートの名前または ID を指定できます。
 		 * このパラメーターは、スライサー コレクションがワークシートから取得される場合は省略できます。
+		 *
+		 * @example
+		 * ```
+		 * // This script adds a slicer for an existing PivotTable.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the PivotTable named "Farm Pivot".
+		 *   const farmPivot = workbook.getPivotTable("Farm Pivot");
+		 *
+		 *   // Create the slicer.
+		 *   // Note that this assumes "Type" is already added as a hierarchy to the PivotTable.
+		 *   const fruitSlicer: ExcelScript.Slicer = workbook.addSlicer(
+		 *     farmPivot, // The table or PivotTale to be sliced.
+		 *     farmPivot.getHierarchy("Type").getFields()[0] // What source field to use as the slicer options.
+		 * 	);
+		 *
+		 * 	// Select the items to display.
+		 * 	fruitSlicer.selectItems(["Lemon", "Lime"]);
+		 *
+		 * 	// Set the left margin of the slicer.
+		 * 	fruitSlicer.setLeft(400);
+		 *   }
+		 * ```
 		 */
 		addSlicer(
 			slicerSource: string | PivotTable | Table,
@@ -159,6 +231,18 @@ declare namespace ExcelScript {
 		 * アドレスにシート名が含まれていない場合は、現在作業中のシートが使用されます。
 		 * @param hasHeaders インポートするデータに列ラベルがあるかどうかを示すブール値。
 		 * ソースにヘッダーが含まれていない場合 (つまり、このプロパティが `false`)、Excel によってヘッダーが自動的に生成され、データが 1 行下にシフトされます。
+		 *
+		 * @example
+		 * ```
+		 * // This sample converts the information in the first worksheet into a table with headers.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // This assumes there is one contiguous range in the first worksheet.
+		 *   const dataRange = workbook.getFirstWorksheet().getUsedRange();
+		 *
+		 *   // Add a table at the workbook level.
+		 *   workbook.addTable(dataRange.getAddress(), true);
+		 * }
+		 * ```
 		 */
 		addTable(address: Range | string, hasHeaders: boolean): Table;
 		/**
@@ -179,6 +263,21 @@ declare namespace ExcelScript {
 		 * 新しく追加されたワークシートをアクティブ化する場合は、`.activate()`を呼び出します。
 		 * @param name 省略可能。 追加するワークシートの名前。 指定した場合、名前は一意である必要があります。
 		 * 指定されていない場合は、Excel が新しいワークシートの名前を決定します。
+		 *
+		 * @example
+		 * ```
+		 * // This script adds a new worksheet named "Data" to the workbook.
+		 * // If a worksheet with that name already exists, the script logs a note.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Check if the "Data" worksheet already exists.
+		 *   if (workbook.getWorksheet("Data")) {
+		 *     console.log("The Data worksheet is already in the workbook.");
+		 *   } else {
+		 *     // Add a new worksheet.
+		 *     let worksheet = workbook.addWorksheet("Data");
+		 *   }
+		 * }
+		 * ```
 		 */
 		addWorksheet(name?: string): Worksheet;
 		/**
@@ -188,6 +287,17 @@ declare namespace ExcelScript {
 		breakAllLinksToLinkedWorkbooks(): void;
 		/**
 		 * ブックで現在アクティブなセルを取得します。
+		 *
+		 * @example
+		 * ```
+		 * // This script logs the value of the current active cell.
+		 * // If multiple cells are selected, the top-leftmost cell will be logged.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current active cell in the workbook.
+		 *   let cell = workbook.getActiveCell();
+		 *   console.log(`The current cell's value is ${cell.getValue()}`);
+		 * }
+		 * ```
 		 */
 		getActiveCell(): Range;
 		/**
@@ -316,6 +426,22 @@ declare namespace ExcelScript {
 		/**
 		 * ブック リンクの更新モードを表します。
 		 * モードは、ブックに存在するすべてのブック リンクで同じです。
+		 *
+		 * @example
+		 * ```
+		 * // This script refreshes all the links to external workbooks,
+		 * // if the linked workbook refresh mode is set to manual.
+		 * // To learn about linked workbooks, see https://support.microsoft.com/office/create-an-external-reference-link-to-a-cell-range-in-another-workbook-c98d1803-dd75-4668-ac6a-d7cca2a9b95f.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Check the refresh mode.
+		 *   if (workbook.getLinkedWorkbookRefreshMode() === ExcelScript.WorkbookLinksRefreshMode.manual) {
+		 *     console.log("Refreshing workbook links");
+		 *
+		 *     // Trigger a refresh of linked workbook content.
+		 *     workbook.refreshAllLinksToLinkedWorkbooks();
+		 *   }
+		 * }
+		 * ```
 		 */
 		getLinkedWorkbookRefreshMode(): WorkbookLinksRefreshMode;
 		/**
@@ -325,6 +451,21 @@ declare namespace ExcelScript {
 		getLinkedWorkbooks(): LinkedWorkbook[];
 		/**
 		 * ブックの名前を取得します。
+		 *
+		 * @example
+		 * ```
+		 * // This script logs the name of the workbook without the ".xlsx" extension.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the workbook's name.
+		 *   let name = workbook.getName();
+		 *
+		 *   // Remove the file extension.
+		 *   name = name.substring(0, name.lastIndexOf(".xlsx"));
+		 *
+		 *   // Display the name in the console.
+		 *   console.log(name);
+		 * }
+		 * ```
 		 */
 		getName(): string;
 		/**
@@ -335,6 +476,25 @@ declare namespace ExcelScript {
 		getNamedItem(name: string): NamedItem | undefined;
 		/**
 		 * ブック スコープの名前付きアイテム (名前付き範囲と定数) のコレクションを表します。
+		 *
+		 * @example
+		 * ```
+		 * // This script looks for every named range with "Review" in the name and marks the range with a yellow fill.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Look at every named item in the workbook.
+		 *   workbook.getNames().forEach((namedItem) => {
+		 *     // Find names containing "Review".
+		 *     if (namedItem.getName().includes("Review")) {
+		 *       // Only change the fill color if the named item is a range (not a formula).
+		 *       let itemType: ExcelScript.NamedItemType = namedItem.getType();
+		 *       if (itemType === ExcelScript.NamedItemType.range) {
+		 *         // Set the range's fill color to yellow.
+		 *         namedItem.getRange().getFormat().getFill().setColor("yellow");
+		 *       }
+		 *     }
+		 *   });
+		 * }
+		 * ```
 		 */
 		getNames(): NamedItem[];
 		/**
@@ -451,10 +611,41 @@ declare namespace ExcelScript {
 		 * その名前または ID のワークシート オブジェクトを取得します。
 		 * ワークシートが存在しない場合、このメソッドは `undefined` 返します。
 		 * @param key ワークシートの名前または ID。
+		 *
+		 * @example
+		 * ```
+		 * // This script switches the active view to a worksheet named "Data", if it exists.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Check if the "Data" worksheet exists.
+		 *   let dataWorksheet = workbook.getWorksheet("Data");
+		 *   if (dataWorksheet) {
+		 *     // Switch to the "Data" worksheet.
+		 *     dataWorksheet.activate();
+		 *   } else {
+		 *     console.log(`No worksheet named "Data" in this workbook.`);
+		 *   }
+		 * }
+		 * ```
 		 */
 		getWorksheet(key: string): Worksheet | undefined;
 		/**
 		 * ブックに関連付けられているワークシートのコレクションを表します。
+		 *
+		 * @example
+		 * ```
+		 * // This script logs the names of all the worksheets in the workbook.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get all the worksheets in the workbook.
+		 *   let sheets = workbook.getWorksheets();
+		 *
+		 *   // Get a list of all the worksheet names.
+		 *   let names = sheets.map ((sheet) => sheet.getName());
+		 *
+		 *   // Write in the console all the worksheet names and the total count.
+		 *   console.log(names);
+		 *   console.log(`Total worksheets inside of this workbook: ${sheets.length}`);
+		 * }
+		 * ```
 		 */
 		getWorksheets(): Worksheet[];
 		/**

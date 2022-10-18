@@ -3,6 +3,20 @@ declare namespace ExcelScript {
 	/**
 	 * このオブジェクトは、オブジェクトのフォントの属性 (フォント名、フォント サイズ、色など) を表します。
 	 * @see [ExcelScript.RangeFont interface](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.rangefont?view=office-scripts)
+	 *
+	 * @example
+	 * ```
+	 * // This script sets the font of A1 to Arial, size 16.
+	 * function main(workbook: ExcelScript.Workbook) {
+	 *   // Get A1 on the current worksheet.
+	 *   const cell = workbook.getActiveWorksheet().getCell(0,0);
+	 *
+	 *   // Adjust the font settings for that cell.
+	 *   const cellFont = cell.getFormat().getFont();
+	 *   cellFont.setName("Arial");
+	 *   cellFont.setSize(16);
+	 * }
+	 * ```
 	 */
 	export interface RangeFont {
 		/**
@@ -58,6 +72,18 @@ declare namespace ExcelScript {
 		/**
 		 * フォントの太字の状態を表します。
 		 * @param bold
+		 *
+		 * @example
+		 * ```
+		 * // This script bolds the text of cell A1.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get A1 on the current worksheet.
+		 *   const cell = workbook.getActiveWorksheet().getCell(0,0);
+		 *
+		 *   // Bold the font for that cell
+		 *   cell.getFormat().getFont().setBold(true);
+		 * }
+		 * ```
 		 */
 		setBold(bold: boolean): void;
 		/**
@@ -73,11 +99,35 @@ declare namespace ExcelScript {
 		/**
 		 * フォント名 ("Calibri"など)。 名前の長さは 31 文字を超えることはできません。
 		 * @param name
+		 *
+		 * @example
+		 * ```
+		 * // This script sets the font style of A1 to Arial.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get A1 on the current worksheet.
+		 *   const cell = workbook.getActiveWorksheet().getCell(0,0);
+		 *
+		 *   // Adjust the font settings for that cell.
+		 *   cell.getFormat().getFont().setName("Arial");
+		 * }
+		 * ```
 		 */
 		setName(name: string): void;
 		/**
 		 * フォント サイズ。
 		 * @param size
+		 *
+		 * @example
+		 * ```
+		 * // This script sets the font size of A1 to 16.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get A1 on the current worksheet.
+		 *   const cell = workbook.getActiveWorksheet().getCell(0,0);
+		 *
+		 *   // Adjust the font settings for that cell.clear
+		 *   cell.getFormat().getFont().setSize(16);
+		 * }
+		 * ```
 		 */
 		setSize(size: number): void;
 		/**

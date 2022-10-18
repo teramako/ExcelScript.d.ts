@@ -1,5 +1,6 @@
 /// <reference path="../enums/ChartDisplayBlanksAs.d.ts"/>
 /// <reference path="../enums/ChartPlotBy.d.ts"/>
+/// <reference path="../enums/ChartType.d.ts"/>
 /// <reference path="../enums/ImageFittingMode.d.ts"/>
 /// <reference path="./ChartAreaFormat.d.ts"/>
 /// <reference path="./ChartAxes.d.ts"/>
@@ -9,6 +10,7 @@
 /// <reference path="./ChartPlotArea.d.ts"/>
 /// <reference path="./ChartSeries.d.ts"/>
 /// <reference path="./ChartTitle.d.ts"/>
+/// <reference path="./Worksheet.d.ts"/>
 declare namespace ExcelScript {
 	/**
 	 * ブック内のグラフ オブジェクトを表します。
@@ -97,6 +99,27 @@ declare namespace ExcelScript {
 		getPlotArea(): ChartPlotArea;
 		/**
 		 * 列や行がグラフのデータ系列として使用される方法を指定します。
+		 *
+		 * @example
+		 * ```
+		 * // This sample performs the "Switch Row/Column" action on a chart named "ColumnClusteredChart".
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Get an existing chart named "ColumnClusteredChart".
+		 *   let columnClusteredChart = selectedSheet.getChart("ColumnClusteredChart");
+		 *
+		 *   // Switch the row and column for the chart's data source.
+		 *   if (columnClusteredChart.getPlotBy() === ExcelScript.ChartPlotBy.columns) {
+		 *     // If the chart is grouped by columns, switch it to rows.
+		 *     columnClusteredChart.setPlotBy(ExcelScript.ChartPlotBy.rows);
+		 *   } else {
+		 *     // If the chart is grouped by rows, switch it to columns.
+		 *     columnClusteredChart.setPlotBy(ExcelScript.ChartPlotBy.columns);
+		 *   }
+		 * }
+		 * ```
 		 */
 		getPlotBy(): ChartPlotBy;
 		/**
@@ -106,6 +129,25 @@ declare namespace ExcelScript {
 		getPlotVisibleOnly(): boolean;
 		/**
 		 * グラフの 1 つのデータ系列またはデータ系列のコレクションを表します。
+		 *
+		 * @example
+		 * ```
+		 * // This sample sets the overlap of the columns in a chart named "ColumnClusteredChart".
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Get an existing chart named "ColumnClusteredChart".
+		 *   let chart = selectedSheet.getChart("ColumnClusteredChart");
+		 *
+		 *   // Set the overlap of every column of each series within a category.
+		 *   let seriesList = chart.getSeries();
+		 *   seriesList.forEach((series) => {
+		 *     // An overlap of 25 means the columns have 25% of their length overlapping with the adjacent columns in the same category.
+		 *     series.setOverlap(25);
+		 *   });
+		 * }
+		 * ```
 		 */
 		getSeries(): ChartSeries[];
 		/**
@@ -179,6 +221,24 @@ declare namespace ExcelScript {
 		/**
 		 * グラフ オブジェクトの名前を指定します。
 		 * @param name
+		 *
+		 * @example
+		 * ```
+		 * // This sample creates a column-clustered chart based on the current worksheet's data.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the current worksheet.
+		 *   let selectedSheet = workbook.getActiveWorksheet();
+		 *
+		 *   // Get the data range.
+		 *   let range = selectedSheet.getUsedRange();
+		 *
+		 *   // Insert a chart using the data on the current worksheet.
+		 *   let chart = selectedSheet.addChart(ExcelScript.ChartType.columnClustered, range);
+		 *
+		 *   // Name the chart for easy access in other scripts.
+		 *   chart.setName("ColumnChart");
+		 * }
+		 * ```
 		 */
 		setName(name: string): void;
 		/**

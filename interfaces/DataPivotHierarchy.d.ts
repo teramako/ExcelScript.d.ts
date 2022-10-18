@@ -1,4 +1,5 @@
 /// <reference path="../enums/AggregationFunction.d.ts"/>
+/// <reference path="./PivotField.d.ts"/>
 /// <reference path="./ShowAsRule.d.ts"/>
 declare namespace ExcelScript {
 	/**
@@ -57,6 +58,19 @@ declare namespace ExcelScript {
 		/**
 		 * DataPivotHierarchy のすべての項目を表示するかどうかを指定します。
 		 * @param summarizeBy
+		 *
+		 * @example
+		 * ```
+		 * // This script changes how the data in a PivotTable is aggregated.
+		 * function main(workbook: ExcelScript.Workbook) {
+		 *   // Get the first PivotTable in the workbook.
+		 *   const pivotTable = workbook.getPivotTables()[0];
+		 *
+		 *   // Set the first data hierarchy to summarize with an average value, instead of a sum.
+		 *   const dataHierarchy = pivotTable.getDataHierarchies()[0];
+		 *   dataHierarchy.setSummarizeBy(ExcelScript.AggregationFunction.average);
+		 * }
+		 * ```
 		 */
 		setSummarizeBy(summarizeBy: AggregationFunction): void;
 		/**
