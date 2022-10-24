@@ -14,15 +14,17 @@
 				"interfaces/",
 				"types/",
 				"functions/",
-				"build.ts"
+				"tools/"
 			]
 		},
 		"options": {
 			"useTabs": true,
-			"indentWidth": 4
+			"indentWidth": 4,
+			"lineWidth": 150
 		}
 	},
 	"tasks": {
-		"build": "deno run --allow-read --allow-write=. build.ts"
+		"fetch": "deno run --allow-read --allow-write=. --allow-net='learn.microsoft.com' tools/fetch-package.ts",
+		"build": "deno run --allow-read --allow-write=. tools/build-tsdef.ts"
 	}
 }
