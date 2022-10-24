@@ -2,7 +2,7 @@ declare namespace ExcelScript {
 	/**
 	 * データ検証の種類の列挙型を表します。
 	 * @see [ExcelScript.DataValidationType enum](https://learn.microsoft.com/ja-jp/javascript/api/office-scripts/excelscript/excelscript.datavalidationtype?view=office-scripts)
-	 * 
+	 *
 	 * @example
 	 * ```
 	 * // This sample reads and logs the data validation type of the currently selected range.

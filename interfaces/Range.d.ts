@@ -472,7 +472,7 @@ declare namespace ExcelScript {
 		 * @example
 		 * ```
 		 * // This script makes the font bold on all the contiguous cells between
- 		 * // A1 and the bottom of the used range of the first column.
+		 * // A1 and the bottom of the used range of the first column.
 		 * function main(workbook: ExcelScript.Workbook) {
 		 *   // Get the current worksheet.
 		 *   let selectedSheet = workbook.getActiveWorksheet();
@@ -1386,15 +1386,15 @@ declare namespace ExcelScript {
 		 * // Note that each row must have the same number of columns to be valid.
 		 * //
 		 * const DATA = [
-		 *	 ['Date', 'Salesperson', 'Product', 'Amount']
-		 *	 , ['3/2/2020', 'Anne', 'Pizza', '$1400']
-		 *	 , ['3/2/2020', 'Mariya', 'Pizza', '$1700']
-		 *	 , ['3/7/2020', 'Mark', 'Sandwiches', '$1010']
-		 *	 , ['3/24/2020', 'Anne', 'Pizza', '$750']
-		 *	 , ['3/28/2020', 'Mark', 'Salads', '$510']
-		 *	 , ['4/17/2020', 'Laura', 'Salads', '$900']
-		 *	 , ['4/17/2020', 'Mariya', 'Salads', '$1600']
-		 *	 , ['4/28/2020', 'Laura', 'Sandwiches', '$680']
+		 * 	 ['Date', 'Salesperson', 'Product', 'Amount']
+		 * 	 , ['3/2/2020', 'Anne', 'Pizza', '$1400']
+		 * 	 , ['3/2/2020', 'Mariya', 'Pizza', '$1700']
+		 * 	 , ['3/7/2020', 'Mark', 'Sandwiches', '$1010']
+		 * 	 , ['3/24/2020', 'Anne', 'Pizza', '$750']
+		 * 	 , ['3/28/2020', 'Mark', 'Salads', '$510']
+		 * 	 , ['4/17/2020', 'Laura', 'Salads', '$900']
+		 * 	 , ['4/17/2020', 'Mariya', 'Salads', '$1600']
+		 * 	 , ['4/28/2020', 'Laura', 'Sandwiches', '$680']
 		 * ];
 		 * ```
 		 */
