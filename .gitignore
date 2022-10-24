@@ -1,1 +1,3 @@
 *.osts
+package-*.json
+dest/
