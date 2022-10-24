@@ -1,24 +1,34 @@
-import {
-	fetchPackage,
-} from "./lib/excelscript-fetcher.ts";
+import { fetchPackage } from "./lib/excelscript-fetcher.ts";
 
 function main(args: string[]) {
 	const lang = args[0] ?? "en-US";
 	fetchPackage(lang)
-		.then((json) => {
-			const outFile = `package-${json.lang}.json`;
+		.then(async (excelScriptPackage) => {
+			const jsonFile = `ExcelScript-${excelScriptPackage.lang}.json`;
 			console.log({
-				interfaces: json.interfaces?.length ?? 0,
-				enums: json.enums?.length ?? 0,
-				types: json.typeAliases?.length ?? 0,
+				interfaces: excelScriptPackage.interfaces.length,
+				enums: excelScriptPackage.enums.length,
+				types: excelScriptPackage.typeAliases.length,
+				functions: excelScriptPackage.functions.length,
 			});
+			for (const item of excelScriptPackage.getPackageItems()) {
+				await item.fetch();
+				await sleep(1000);
+			}
 			const enc = new TextEncoder();
-			Deno.writeFileSync(outFile, enc.encode(JSON.stringify(json, null, 2)));
-			return outFile;
+			Deno.writeFileSync(
+				jsonFile,
+				enc.encode(JSON.stringify(excelScriptPackage, null, 2)),
+			);
+			return jsonFile;
 		})
 		.then((file) => {
 			console.log("✅ Created: ", file);
 		});
+}
+
+function sleep(ms: number) {
+	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 main(Deno.args);
