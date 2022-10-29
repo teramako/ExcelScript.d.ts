@@ -1,4 +1,5 @@
 import { createTypeScriptDefinitionCode, ExcelScriptPackage } from "./lib/excelscript-fetcher.ts";
+import { ensureDir } from "https://deno.land/std@0.161.0/fs/mod.ts";
 
 function main(args: string[]) {
 	for (const packageFile of args) {
@@ -9,6 +10,7 @@ async function createTSDefinitionFrom(file: string) {
 	const enc = new TextEncoder();
 	const pkg = await ExcelScriptPackage.loadFromJson(file);
 	const rootFile = `./dest/${pkg.lang}/ExcelScript.d.ts`;
+	await ensureDir(`./dest/${pkg.lang}`);
 	const rootPkgFile = await Deno.open(rootFile, { create: true, truncate: true, write: true });
 	for (const prop of ["interfaces", "enums"] as const) {
 		const filePath = `./dest/${pkg.lang}/${prop}.d.ts`;
