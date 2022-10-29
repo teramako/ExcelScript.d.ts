@@ -363,7 +363,6 @@ class ExcelScriptFunction implements T_Function, PackageItem {
 	async fetch() {
 		if (this.fetched) return this;
 		assert(this.baseURL);
-		console.log(`fetching ${this.type}: ${this.name}`);
 		const rootURL = `${this.baseURL}excelscript?view=office-scripts`;
 		const response = await fetch(rootURL);
 		const doc = new DOMParser().parseFromString(await response.text(), "text/html");
@@ -421,7 +420,6 @@ class ExcelScriptType implements T_Type, PackageItem {
 	}
 	async fetch() {
 		if (this.fetched) return this;
-		console.log(`fetching ${this.type}: ${this.name}`);
 		const response = await fetch(this.url);
 		const doc = new DOMParser().parseFromString(await response.text(), "text/html");
 		assert(doc);
@@ -470,7 +468,6 @@ class ExcelScriptEnum implements T_Enum, PackageItem {
 	}
 	async fetch() {
 		if (this.fetched) return this;
-		console.log(`fetching ${this.type}: ${this.name}`);
 		const response = await fetch(this.url);
 		const doc = new DOMParser().parseFromString(await response.text(), "text/html");
 		assert(doc);
@@ -541,7 +538,6 @@ class ExcelScriptInterface implements T_Interface, PackageItem {
 	}
 	async fetch() {
 		if (this.fetched) return this;
-		console.log(`fetching ${this.type}: ${this.name}`);
 		const response = await fetch(this.url);
 		const doc = new DOMParser().parseFromString(await response.text(), "text/html");
 		assert(doc);
