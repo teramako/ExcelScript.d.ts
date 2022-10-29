@@ -5,8 +5,6 @@
 import { assert } from "https://deno.land/std@0.154.0/testing/asserts.ts";
 import { Document, DOMParser, Element } from "https://deno.land/x/deno_dom@v0.1.35-alpha/deno-dom-wasm.ts";
 
-export { createTypeScriptDefinitionCode, ExcelScriptPackage, fetchPackage };
-
 interface PackageBase {
 	/**
 	 * language information
@@ -39,7 +37,7 @@ const PackageMembers = ["interfaces", "enums", "typeAliases", "functions"] as co
 /**
  * Type name of ExcelScript package member
  */
-type MemberType = "interface" | "enum" | "type" | "function";
+export type MemberType = "interface" | "enum" | "type" | "function";
 /**
  * ExcelScript Index of interfaces, enums, typeAliases and functions
  */
@@ -190,7 +188,7 @@ interface EnumField {
  * @param lang locale string (e.g. `en-US`, `ja-JP`)
  * @returns
  */
-function fetchPackage(lang = "en-US") {
+export function fetchPackage(lang = "en-US") {
 	const pkg = new ExcelScriptPackage(lang);
 	return pkg.fetch();
 }
@@ -216,7 +214,7 @@ type T_Function = PackageItemBase & {
 	/** Return value of the function */
 	returns: Return;
 };
-class ExcelScriptPackage implements Package {
+export class ExcelScriptPackage implements Package {
 	lang: string;
 	baseURL: string;
 	interfaces: PackageItem[] = [];
@@ -300,7 +298,7 @@ class ExcelScriptPackage implements Package {
  * @param packageItems
  * @param createNamespaceDeclare
  */
-function* createTypeScriptDefinitionCode(packageItems: PackageItem[], createNamespaceDeclare = false) {
+export function* createTypeScriptDefinitionCode(packageItems: PackageItem[], createNamespaceDeclare = false) {
 	const items = packageItems.reduce((pre, cur) => {
 		if (!cur.fetched) return pre;
 		if (pre[cur.namespace]) {
