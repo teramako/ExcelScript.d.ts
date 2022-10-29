@@ -37,6 +37,10 @@ interface Package extends PackageBase {
  */
 const PackageMembers = ["interfaces", "enums", "typeAliases", "functions"] as const;
 /**
+ * Type name of ExcelScript package member
+ */
+type MemberType = "interface" | "enum" | "type" | "function";
+/**
  * ExcelScript Index of interfaces, enums, typeAliases and functions
  */
 type PackageItemBase = {
@@ -64,7 +68,7 @@ type PackageItemBase = {
 	 * - `type`
 	 * - `function`
 	 */
-	type: string;
+	type: MemberType;
 	/**
 	 * Example code
 	 */
@@ -252,7 +256,7 @@ class ExcelScriptPackage implements Package {
 		}
 		return this;
 	}
-	parsePackageTable(table: Element, type: string) {
+	parsePackageTable(table: Element, type: MemberType) {
 		const result: PackageItem[] = [];
 		if (!table) return result;
 		for (const tr of table.querySelectorAll("tr")) {
