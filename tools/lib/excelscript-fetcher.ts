@@ -5,8 +5,6 @@
 import { assert } from "https://deno.land/std@0.154.0/testing/asserts.ts";
 import { Document, DOMParser, Element } from "https://deno.land/x/deno_dom@v0.1.35-alpha/deno-dom-wasm.ts";
 
-export { createTypeScriptDefinitionCode, ExcelScriptPackage, fetchPackage };
-
 interface PackageBase {
 	/**
 	 * language information
@@ -37,6 +35,10 @@ interface Package extends PackageBase {
  */
 const PackageMembers = ["interfaces", "enums", "typeAliases", "functions"] as const;
 /**
+ * Type name of ExcelScript package member
+ */
+export type MemberType = "interface" | "enum" | "type" | "function";
+/**
  * ExcelScript Index of interfaces, enums, typeAliases and functions
  */
 type PackageItemBase = {
@@ -64,7 +66,7 @@ type PackageItemBase = {
 	 * - `type`
 	 * - `function`
 	 */
-	type: string;
+	type: MemberType;
 	/**
 	 * Example code
 	 */
@@ -186,7 +188,7 @@ interface EnumField {
  * @param lang locale string (e.g. `en-US`, `ja-JP`)
  * @returns
  */
-function fetchPackage(lang = "en-US") {
+export function fetchPackage(lang = "en-US") {
 	const pkg = new ExcelScriptPackage(lang);
 	return pkg.fetch();
 }
@@ -212,7 +214,7 @@ type T_Function = PackageItemBase & {
 	/** Return value of the function */
 	returns: Return;
 };
-class ExcelScriptPackage implements Package {
+export class ExcelScriptPackage implements Package {
 	lang: string;
 	baseURL: string;
 	interfaces: PackageItem[] = [];
@@ -252,7 +254,7 @@ class ExcelScriptPackage implements Package {
 		}
 		return this;
 	}
-	parsePackageTable(table: Element, type: string) {
+	parsePackageTable(table: Element, type: MemberType) {
 		const result: PackageItem[] = [];
 		if (!table) return result;
 		for (const tr of table.querySelectorAll("tr")) {
@@ -296,7 +298,7 @@ class ExcelScriptPackage implements Package {
  * @param packageItems
  * @param createNamespaceDeclare
  */
-function* createTypeScriptDefinitionCode(packageItems: PackageItem[], createNamespaceDeclare = false) {
+export function* createTypeScriptDefinitionCode(packageItems: PackageItem[], createNamespaceDeclare = false) {
 	const items = packageItems.reduce((pre, cur) => {
 		if (!cur.fetched) return pre;
 		if (pre[cur.namespace]) {
@@ -363,7 +365,6 @@ class ExcelScriptFunction implements T_Function, PackageItem {
 	async fetch() {
 		if (this.fetched) return this;
 		assert(this.baseURL);
-		console.log(`fetching ${this.type}: ${this.name}`);
 		const rootURL = `${this.baseURL}excelscript?view=office-scripts`;
 		const response = await fetch(rootURL);
 		const doc = new DOMParser().parseFromString(await response.text(), "text/html");
@@ -421,7 +422,6 @@ class ExcelScriptType implements T_Type, PackageItem {
 	}
 	async fetch() {
 		if (this.fetched) return this;
-		console.log(`fetching ${this.type}: ${this.name}`);
 		const response = await fetch(this.url);
 		const doc = new DOMParser().parseFromString(await response.text(), "text/html");
 		assert(doc);
@@ -470,7 +470,6 @@ class ExcelScriptEnum implements T_Enum, PackageItem {
 	}
 	async fetch() {
 		if (this.fetched) return this;
-		console.log(`fetching ${this.type}: ${this.name}`);
 		const response = await fetch(this.url);
 		const doc = new DOMParser().parseFromString(await response.text(), "text/html");
 		assert(doc);
@@ -541,7 +540,6 @@ class ExcelScriptInterface implements T_Interface, PackageItem {
 	}
 	async fetch() {
 		if (this.fetched) return this;
-		console.log(`fetching ${this.type}: ${this.name}`);
 		const response = await fetch(this.url);
 		const doc = new DOMParser().parseFromString(await response.text(), "text/html");
 		assert(doc);
