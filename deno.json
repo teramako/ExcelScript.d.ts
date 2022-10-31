@@ -14,7 +14,8 @@
 				"interfaces/",
 				"types/",
 				"functions/",
-				"tools/"
+				"tools/",
+				"build.ts"
 			]
 		},
 		"options": {
@@ -25,6 +26,7 @@
 	},
 	"tasks": {
 		"fetch": "deno run --allow-read --allow-write=. --allow-net='learn.microsoft.com' tools/fetch-package.ts",
-		"build": "deno run --allow-read --allow-write=. tools/build-tsdef.ts"
+		"build": "deno run --allow-read --allow-write=. tools/build-tsdef.ts",
+		"build-osc": "deno run --allow-read --allow-write=. tools/build-osc.ts"
 	}
 }
