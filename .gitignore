@@ -1,4 +1,4 @@
 *.osts
-package-*.json
+ExcelScript-*.json
 dest/
 .vscode/
