@@ -331,6 +331,20 @@ function* stringToMultiline(str: string, prefix = "", indent = "") {
 		yield `${indent}${prefix}${line}`;
 	}
 }
+function* formatExampleCode(code: string) {
+	if (!code) return;
+	const lines = code.replace(/\/\*\*?([\s\S]*?)\*\//g, (_all, comment) => {
+		if (/\n/.test(comment)) {
+			return comment.trim().replace(/\s*\*\s*(.*)$/gm, "// $1\n");
+		} else {
+			return `// ${comment}`;
+		}
+	});
+	yield "@example";
+	yield "```";
+	yield *lines.split("\n");
+	yield "```";
+}
 class ExcelScriptFunction implements T_Function, PackageItem {
 	type = "function" as const;
 	name: string;
@@ -391,6 +405,9 @@ class ExcelScriptFunction implements T_Function, PackageItem {
 			yield* stringToMultiline(this.description, " * ");
 		}
 		yield ` * @see [${this.namespace}.${this.name} - ${this.type}](${this.url})`;
+		for (const exampleLine of formatExampleCode(this.example)) {
+			yield ` * ${exampleLine}`;
+		}
 		yield ` */`;
 		yield `${this.code}`;
 	}
@@ -439,6 +456,9 @@ class ExcelScriptType implements T_Type, PackageItem {
 			yield* stringToMultiline(this.description, " * ");
 		}
 		yield ` * @see [${this.namespace}.${this.name} - ${this.type}](${this.url})`;
+		for (const exampleLine of formatExampleCode(this.example)) {
+			yield ` * ${exampleLine}`;
+		}
 		yield ` */`;
 		yield `${this.code}`;
 	}
@@ -498,6 +518,9 @@ class ExcelScriptEnum implements T_Enum, PackageItem {
 			yield* stringToMultiline(this.description, " * ");
 		}
 		yield ` * @see [${this.namespace}.${this.name} - ${this.type}](${this.url})`;
+		for (const exampleLine of formatExampleCode(this.example)) {
+			yield ` * ${exampleLine}`;
+		}
 		yield ` */`;
 		yield `export enum ${this.name} {`;
 		for (const field of this.fields) {
@@ -586,12 +609,18 @@ class ExcelScriptInterface implements T_Interface, PackageItem {
 			yield* stringToMultiline(this.description, " * ");
 		}
 		yield ` * @see [${this.namespace}.${this.name} - ${this.type}](${this.url})`;
+		for (const exampleLine of formatExampleCode(this.example)) {
+			yield ` * ${exampleLine}`;
+		}
 		yield ` */`;
 		yield `export interface ${this.name} {`;
 		for (const property of this.properties) {
 			if (property.description) {
 				yield `\t/**`;
 				yield* stringToMultiline(property.description, " * ", "\t");
+				for (const exampleLine of formatExampleCode(property.example)) {
+					yield `\t * ${exampleLine}`;
+				}
 				yield `\t */`;
 			}
 			yield* stringToMultiline(property.code, "", "\t");
@@ -601,6 +630,9 @@ class ExcelScriptInterface implements T_Interface, PackageItem {
 				yield `\t/**`;
 				if (method.description) {
 					yield* stringToMultiline(method.description, " * ", "\t");
+				}
+				for (const exampleLine of formatExampleCode(method.example)) {
+					yield `\t * ${exampleLine}`;
 				}
 				for (const param of method.parameters) {
 					yield `\t * @param ${param.name}`;
