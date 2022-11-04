@@ -19,6 +19,9 @@ async function createTSDefinitionFrom(file: string) {
 			filePath,
 			{ create: true, truncate: true, write: true },
 		).then(async (file) => {
+			if (prop === "interfaces") {
+				await file.write(enc.encode(`/// <reference path="./enums.d.ts" />\n`));
+			}
 			await file.write(
 				enc.encode([...createTypeScriptDefinitionCode(pkg[prop], true)].join("\n")),
 			);
